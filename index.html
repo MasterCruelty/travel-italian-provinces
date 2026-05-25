@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Province Italiane — gioco di percorsi</title>
+<meta name="description" content="Collega due province italiane attraversando i confini nel minor numero di mosse. Un puzzle geografico quotidiano.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+</head>
+<body>
+<header class="topbar">
+  <button id="btn-help" class="icon-btn" title="Come si gioca" aria-label="Aiuto">?</button>
+  <h1>Province <span>Italiane</span></h1>
+  <button id="btn-stats" class="icon-btn" title="Statistiche" aria-label="Statistiche">📊</button>
+</header>
+
+<main>
+  <div id="prompt" class="prompt">
+    <div class="endpoint start">
+      <span class="lbl">Partenza</span>
+      <span class="name" id="start-name">…</span>
+    </div>
+    <div class="arrow">→</div>
+    <div class="endpoint end">
+      <span class="lbl">Arrivo</span>
+      <span class="name" id="end-name">…</span>
+    </div>
+  </div>
+
+  <div id="map-wrap">
+    <svg id="map" xmlns="http://www.w3.org/2000/svg" aria-label="Mappa delle province italiane"></svg>
+    <div id="tooltip" class="tooltip" hidden></div>
+  </div>
+
+  <div id="status" class="status">
+    <span id="guess-count">Tentativi rimasti: –</span>
+    <span id="puzzle-id" class="muted"></span>
+  </div>
+
+  <form id="guess-form" autocomplete="off">
+    <div class="input-row">
+      <input id="guess-input" type="text" placeholder="Scrivi una provincia…" aria-label="Inserisci una provincia" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <button type="submit" id="btn-guess">Aggiungi</button>
+    </div>
+    <ul id="suggestions" class="suggestions" hidden></ul>
+  </form>
+
+  <div id="message" class="message" hidden></div>
+
+  <div class="actions">
+    <button id="btn-hint" class="ghost">💡 Suggerimento</button>
+    <button id="btn-giveup" class="ghost">🏳️ Mi arrendo</button>
+  </div>
+
+  <ul id="guesses" class="guesses"></ul>
+
+  <footer class="foot">
+    <span>Ispirato a <b>travle</b>. Confini province: dati ISTAT via openpolis (geojson-italy).</span>
+  </footer>
+</main>
+
+<!-- Result modal -->
+<div id="result-modal" class="modal" hidden>
+  <div class="modal-box">
+    <button class="close" data-close>×</button>
+    <h2 id="result-title">Risultato</h2>
+    <p id="result-sub" class="muted"></p>
+    <div id="result-grid" class="result-grid"></div>
+    <div id="result-path" class="result-path"></div>
+    <div class="modal-actions">
+      <button id="btn-share" class="primary">📋 Condividi</button>
+      <button id="btn-practice" class="ghost">🎲 Partita casuale</button>
+    </div>
+    <p id="share-ok" class="share-ok" hidden>Copiato negli appunti!</p>
+  </div>
+</div>
+
+<!-- Help modal -->
+<div id="help-modal" class="modal" hidden>
+  <div class="modal-box">
+    <button class="close" data-close>×</button>
+    <h2>Come si gioca</h2>
+    <p>Collega la provincia di <b>partenza</b> a quella di <b>arrivo</b> nominando le province che si attraversano lungo il tragitto.</p>
+    <ul class="rules">
+      <li>Ogni provincia inserita deve confinare con un'altra già presente nella tua catena (o con la partenza/arrivo).</li>
+      <li>Vinci quando esiste un percorso continuo di province confinanti tra partenza e arrivo.</li>
+      <li>Hai un numero limitato di tentativi, calcolato sul percorso più breve possibile.</li>
+      <li>I colori indicano quanto una provincia ti avvicina al percorso ottimale:</li>
+    </ul>
+    <div class="legend">
+      <span><i class="sw start"></i> Partenza</span>
+      <span><i class="sw end"></i> Arrivo</span>
+      <span><i class="sw g-ok"></i> Sul percorso ideale</span>
+      <span><i class="sw g-near"></i> Piccola deviazione</span>
+      <span><i class="sw g-far"></i> Grande deviazione</span>
+    </div>
+    <p class="muted small">I tratti di mare (es. Stretto di Messina, traghetto per la Sardegna) contano come collegamenti.</p>
+  </div>
+</div>
+
+<!-- Stats modal -->
+<div id="stats-modal" class="modal" hidden>
+  <div class="modal-box">
+    <button class="close" data-close>×</button>
+    <h2>Statistiche</h2>
+    <div id="stats-body" class="stats-body"></div>
+  </div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
