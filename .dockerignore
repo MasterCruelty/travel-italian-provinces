@@ -1,6 +1,6 @@
-.git
-.gitignore
-Dockerfile
-docker-compose.yml
-.dockerignore
-LICENSE
+*
+!index.html
+!style.css
+!game.js
+!data/
+!nginx.conf
