@@ -1,0 +1,15 @@
+{
+  "name": "travel-italian-provinces",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Collega due province italiane attraversando i confini nel minor numero di mosse.",
+  "license": "MIT",
+  "scripts": {
+    "start": "node tools/serve.mjs 8000",
+    "test": "playwright test",
+    "screenshots": "node tools/screenshots.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1"
+  }
+}
