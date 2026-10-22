@@ -9,6 +9,7 @@ Ispirato a [travle](https://travle.earth/ita), riscritto da zero: HTML, CSS e Ja
 ## Come si gioca
 
 - Ogni giorno c'è una provincia di **partenza** e una di **arrivo**.
+- Nel puzzle quotidiano la **mappa è nascosta**: all'inizio vedi solo partenza e arrivo, e ogni provincia che inserisci compare sulla cartina. L'Italia intera si svela a fine partita, che tu vinca o perda. In allenamento la mappa è sempre completa.
 - Scrivi il nome di una provincia qualsiasi: vinci quando quelle inserite formano una **catena continua di province confinanti** tra partenza e arrivo.
 - I tentativi sono limitati: il percorso minimo più qualche tentativo extra.
 - Ogni provincia si colora in base a quanto ti allontana dal percorso ideale:
@@ -21,16 +22,16 @@ Ispirato a [travle](https://travle.earth/ita), riscritto da zero: HTML, CSS e Ja
 
 - **Puzzle quotidiano** uguale per tutti, che cambia a mezzanotte, con conto alla rovescia al prossimo.
 - **Allenamento**: partite casuali illimitate e **link sfida** da mandare agli amici (`?da=CE&a=FI`).
-- **Mappa interattiva** di tutte le 110 province con zoom automatico sulla zona della partita, nomi sulle province scoperte e confini regionali.
+- **Mappa interattiva** delle 110 province con zoom automatico sulla zona della partita e nomi sulle province scoperte; nel quotidiano si svela man mano che giochi.
 - **Autocompletamento** tollerante: accenti, apostrofi, sigle (`RM`) e nomi alternativi (`Reggio Emilia`, `Olbia`, `Bozen`…).
 - **Risultato condivisibile** con griglia di emoji, in stile Wordle.
 - **Statistiche** salvate nel browser: partite, percentuale di vittorie, serie di giorni consecutivi e distribuzione dei punteggi.
 - Partita quotidiana **salvata** automaticamente: puoi chiudere la pagina e riprendere.
 - **Tema scuro** automatico, layout per mobile, navigazione da tastiera.
 
-| Mobile | Risultato | Tema scuro | Regole |
-| :---: | :---: | :---: | :---: |
-| ![Mobile](docs/screenshots/mobile.png) | ![Risultato](docs/screenshots/risultato.png) | ![Tema scuro](docs/screenshots/tema-scuro.png) | ![Regole](docs/screenshots/regole.png) |
+| Quotidiano | Allenamento | Risultato | Tema scuro | Regole |
+| :---: | :---: | :---: | :---: | :---: |
+| ![Quotidiano con la mappa nascosta](docs/screenshots/quotidiano.png) | ![Allenamento su mobile](docs/screenshots/mobile.png) | ![Risultato](docs/screenshots/risultato.png) | ![Tema scuro](docs/screenshots/tema-scuro.png) | ![Regole](docs/screenshots/regole.png) |
 
 ## Avvio
 
