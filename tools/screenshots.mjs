@@ -17,14 +17,16 @@ mkdirSync(OUT, { recursive: true });
 
 const browser = await chromium.launch();
 
-async function open({ width, height, scale = 2, dark = false }) {
+async function open({ width, height, scale = 2, dark = false, url = GAME_URL }) {
   const ctx = await browser.newContext({
     viewport: { width, height }, deviceScaleFactor: scale,
     colorScheme: dark ? 'dark' : 'light', reducedMotion: 'reduce',
   });
   await ctx.addInitScript(() => localStorage.setItem('pi_seen_help', 'true'));
   const page = await ctx.newPage();
-  await page.goto(GAME_URL);
+  // Data fissa: il puzzle quotidiano dello screenshot è sempre lo stesso.
+  await page.clock.setFixedTime(new Date('2026-10-22T10:00:00'));
+  await page.goto(url);
   await page.waitForFunction(() => typeof game !== 'undefined' && game !== null);
   return page;
 }
@@ -54,6 +56,12 @@ page = await open({ width: 390, height: 844 });
 await guess(page, 'Frosinone', 'Roma');
 await page.fill('#guess-input', 'vit');
 await shot(page, 'mobile');
+await page.context().close();
+
+// Quotidiano in corso: si vedono solo le province già scoperte
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/` });
+await guess(page, 'Mantova', 'Modena');
+await shot(page, 'quotidiano');
 await page.context().close();
 
 // Risultato finale

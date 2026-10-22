@@ -263,8 +263,9 @@ function buildMap() {
   $('layer-sea').innerHTML = DATA.sea_edges.map(([a, b]) => {
     const pa = P[a], pb = P[b];
     const mx = (pa.lx + pb.lx) / 2, my = (pa.ly + pb.ly) / 2;
-    return `<line class="sea-edge" x1="${pa.lx}" y1="${pa.ly}" x2="${pb.lx}" y2="${pb.ly}"/>` +
-           `<text class="ferry" x="${mx}" y="${my}">⛴️</text>`;
+    return `<g class="sea" data-a="${a}" data-b="${b}">` +
+           `<line class="sea-edge" x1="${pa.lx}" y1="${pa.ly}" x2="${pb.lx}" y2="${pb.ly}"/>` +
+           `<text class="ferry" x="${mx}" y="${my}">⛴️</text></g>`;
   }).join('');
 
   const svg = $('map');
@@ -290,10 +291,21 @@ function showTooltip(e) {
 }
 function hideTooltip() { $('tooltip').hidden = true; }
 
+// Nel quotidiano in corso la mappa è nascosta: si vedono solo le province già
+// scoperte. A fine partita (e in allenamento) compare tutta l'Italia.
+const isFogged = () => game.mode === 'daily' && !game.over;
+
 function paintMap() {
   const solution = game.over ? new Set(shortestPath(game.start, game.end)) : new Set();
+  const fog = isFogged();
+  const shown = new Set(revealedList());
+  $('map').classList.toggle('fog', fog);
+  for (const g of $('layer-sea').children) {
+    g.classList.toggle('hidden', fog && !(shown.has(g.dataset.a) && shown.has(g.dataset.b)));
+  }
   for (const sig of SIGLAS) {
     const cls = ['prov'];
+    if (fog && !shown.has(sig)) cls.push('hidden');
     if (sig === game.start) cls.push('start');
     else if (sig === game.end) cls.push('end');
     else {

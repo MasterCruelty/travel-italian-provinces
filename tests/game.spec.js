@@ -40,6 +40,36 @@ test('mostra il puzzle quotidiano con la mappa completa', async ({ page }) => {
   await expect(page.locator('#puzzle-id')).toHaveText(/Puzzle #\d+/);
 });
 
+test('nel quotidiano la mappa si scopre man mano e compare tutta a fine partita', async ({ page }) => {
+  await open(page, '/');
+  const visible = page.locator('.prov:not(.hidden)');
+  await expect(visible).toHaveCount(2);
+  await expect(page.locator('#layer-regions')).toBeHidden();
+  await expect(page.locator('.sea:not(.hidden)')).toHaveCount(0);
+
+  const s = await state(page);
+  const far = await page.evaluate(() =>
+    SIGLAS.find(x => x !== game.start && x !== game.end && !NB[game.start].includes(x) && !NB[game.end].includes(x)));
+  await page.evaluate(x => submitGuess(x), far);
+  await expect(visible).toHaveCount(3);
+  await expect(page.locator(`#p-${far}`)).not.toHaveClass(/hidden/);
+  await expect(page.locator(`#p-${s.start}`)).toHaveClass(/start/);
+
+  await page.click('#btn-giveup');
+  await page.click('#btn-giveup');
+  await expect(visible).toHaveCount(110);
+  await expect(page.locator('#layer-regions')).toBeVisible();
+  await expect(page.locator('.sea:not(.hidden)')).toHaveCount(2);
+});
+
+test('in allenamento la mappa è sempre completa', async ({ page }) => {
+  await open(page, CHALLENGE);
+  await expect(page.locator('.prov:not(.hidden)')).toHaveCount(110);
+  await expect(page.locator('#layer-regions')).toBeVisible();
+  await page.click('#mode-practice');
+  await expect(page.locator('.prov:not(.hidden)')).toHaveCount(110);
+});
+
 test('l\'aiuto compare alla prima visita e si chiude con Esc', async ({ browser }) => {
   const page = await browser.newPage();
   await page.goto('/');
