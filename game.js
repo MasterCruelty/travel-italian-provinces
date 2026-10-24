@@ -828,11 +828,13 @@ function init() {
     else if (e.key === 'Escape') setSuggestionsOpen(false);
   });
   input.addEventListener('blur', () => setTimeout(() => setSuggestionsOpen(false), 120));
-  $('suggestions').addEventListener('pointerdown', (e) => {
+  // Alla pressione si evita solo che l'input perda il focus (e chiuda la lista).
+  // La scelta avviene sul click: se la lista sparisse già alla pressione, su
+  // touch screen il click finirebbe sul pulsante che c'è sotto.
+  $('suggestions').addEventListener('pointerdown', (e) => e.preventDefault());
+  $('suggestions').addEventListener('click', (e) => {
     const li = e.target.closest('li');
-    if (!li) return;
-    e.preventDefault();
-    pick(li.dataset.sig);
+    if (li) pick(li.dataset.sig);
   });
 
   $('btn-hint').addEventListener('click', giveHint);
