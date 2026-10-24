@@ -260,3 +260,23 @@ test('su mobile la casella di input è visibile senza scorrere', async ({ page, 
   const vp = page.viewportSize();
   expect(box.y + box.height).toBeLessThanOrEqual(vp.height);
 });
+
+test('toccare un suggerimento non preme il pulsante sottostante', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'solo touch');
+  await open(page, CHALLENGE);
+  await page.evaluate(() => {
+    window.strayClicks = [];
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#suggestions')) window.strayClicks.push(e.target.closest('[id]')?.id || e.target.tagName);
+    }, true);
+  });
+  for (const [text, sig] of [['vit', 'VT'], ['ri', 'RI'], ['lat', 'LT']]) {
+    await page.fill('#guess-input', text);
+    await page.locator(`#suggestions li[data-sig="${sig}"]`).tap();
+    await page.waitForTimeout(300);
+    expect((await state(page)).moves.at(-1)).toBe('guess:' + sig);
+  }
+  expect(await page.evaluate(() => strayClicks)).toEqual([]);
+  expect((await state(page)).moves.filter(m => m.startsWith('hint'))).toEqual([]);
+  await expect(page.locator('#btn-giveup')).not.toHaveClass(/confirm/);
+});
