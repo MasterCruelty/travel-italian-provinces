@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Province Italiane — gioco di percorsi</title>
-<meta name="description" content="Collega due province italiane attraversando i confini nel minor numero di mosse. Un puzzle geografico quotidiano.">
+<meta name="description" content="Collega due province italiane, o due comuni di Milano e Brianza, attraversando i confini nel minor numero di mosse. Un puzzle geografico quotidiano.">
 <meta name="theme-color" content="#166534">
 <meta property="og:title" content="Province Italiane">
 <meta property="og:description" content="Collega due province italiane attraversando i confini nel minor numero di mosse.">
@@ -15,11 +15,16 @@
 <body>
 <header class="topbar">
   <button id="btn-help" class="icon-btn" title="Come si gioca" aria-label="Come si gioca">?</button>
-  <h1>Province <span>Italiane</span></h1>
+  <h1 id="heading">Province <span>Italiane</span></h1>
   <button id="btn-stats" class="icon-btn" title="Statistiche" aria-label="Statistiche">📊</button>
 </header>
 
 <main>
+  <nav class="maps" role="tablist" aria-label="Mappa">
+    <button class="map-tab" role="tab" data-map="italia" aria-selected="true">Italia</button>
+    <button class="map-tab" role="tab" data-map="milano" aria-selected="false">Milano e Brianza</button>
+  </nav>
+
   <nav class="modes" aria-label="Modalità di gioco">
     <button id="mode-daily" class="mode" aria-pressed="true">📅 Quotidiano</button>
     <button id="mode-practice" class="mode" aria-pressed="false">🎲 Allenamento</button>
@@ -38,7 +43,7 @@
   </div>
 
   <div id="map-wrap">
-    <svg id="map" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mappa delle province italiane">
+    <svg id="map" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mappa">
       <g id="layer-prov"></g>
       <g id="layer-regions"></g>
       <g id="layer-sea"></g>
@@ -77,7 +82,7 @@
     <button id="btn-new" class="ghost" type="button">🎲 Nuova partita</button>
   </div>
 
-  <ol id="guesses" class="guesses" aria-label="Province inserite"></ol>
+  <ol id="guesses" class="guesses" aria-label="Mosse"></ol>
 
   <footer class="foot">
     <a class="coffee" href="https://paypal.me/mastercruelty" target="_blank" rel="noopener">☕ Offrimi un caffè</a>
@@ -109,14 +114,14 @@
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="help-title">
     <button class="close" data-close aria-label="Chiudi">×</button>
     <h2 id="help-title">Come si gioca</h2>
-    <p>Collega la provincia di <b>partenza</b> a quella di <b>arrivo</b> nominando le province che attraverseresti lungo il tragitto.</p>
+    <p>Collega la <b>partenza</b> all'<b>arrivo</b> nominando ogni <span data-u="one">provincia</span> che attraverseresti lungo il tragitto.</p>
     <ul class="rules">
-      <li>Puoi inserire qualsiasi provincia: vinci quando quelle inserite formano una catena continua di province confinanti tra partenza e arrivo.</li>
-      <li>Nel puzzle quotidiano la mappa è nascosta: vedi solo partenza, arrivo e le province che inserisci. La cartina completa compare a fine partita.</li>
+      <li>Puoi inserire qualsiasi nome della mappa: vinci quando quelli inseriti formano una catena continua di <span data-u="many">province</span> confinanti tra partenza e arrivo.</li>
+      <li>Nel puzzle quotidiano la mappa è nascosta: vedi solo partenza, arrivo e ciò che inserisci. La cartina completa compare a fine partita.</li>
       <li>I tentativi sono limitati e dipendono dal percorso più breve possibile.</li>
-      <li>Il punteggio è <b>Perfetto</b> se usi esattamente il numero minimo di province, altrimenti <b>+N</b>.</li>
-      <li>Un 💡 suggerimento rivela una provincia utile, ma costa un tentativo.</li>
-      <li>I colori indicano quanto una provincia ti allontana dal percorso ottimale:</li>
+      <li>Il punteggio è <b>Perfetto</b> se usi esattamente il numero minimo di <span data-u="many">province</span>, altrimenti <b>+N</b>.</li>
+      <li>Un 💡 suggerimento rivela il prossimo passo utile, ma costa un tentativo.</li>
+      <li>I colori indicano quanto ogni scelta ti allontana dal percorso ottimale:</li>
     </ul>
     <div class="legend">
       <span><i class="sw start"></i> Partenza</span>
@@ -126,7 +131,7 @@
       <span><i class="sw g-far"></i> Grande deviazione</span>
       <span><i class="sw hint"></i> Suggerimento</span>
     </div>
-    <p class="muted small">⛴️ I tratti di mare tratteggiati (Stretto di Messina, traghetto Livorno–Olbia) contano come confini. Nuovo puzzle quotidiano ogni mezzanotte; in <b>Allenamento</b> puoi giocare quante partite vuoi e sfidare un amico con un link.</p>
+    <p class="muted small"><span id="help-links"></span> Ogni mappa ha il suo puzzle quotidiano, nuovo ogni mezzanotte; in <b>Allenamento</b> puoi giocare quante partite vuoi e sfidare un amico con un link.</p>
   </div>
 </div>
 
@@ -135,6 +140,7 @@
   <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="stats-title">
     <button class="close" data-close aria-label="Chiudi">×</button>
     <h2 id="stats-title">Statistiche</h2>
+    <p class="muted stats-map">Puzzle quotidiano · <span id="stats-map"></span></p>
     <div id="stats-body" class="stats-body"></div>
   </div>
 </div>
