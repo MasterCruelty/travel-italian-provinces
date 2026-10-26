@@ -31,4 +31,4 @@ createServer((req, res) => {
   }
   res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream' });
   createReadStream(file).pipe(res);
-}).listen(PORT, () => console.log(`Province Italiane su http://localhost:${PORT}`));
+}).listen(PORT, () => console.log(`Travel Maps su http://localhost:${PORT}`));
