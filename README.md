@@ -27,8 +27,9 @@ Nella mappa di Milano il capoluogo confina con 23 comuni ed è un passaggio natu
 - Ogni area si colora in base a quanto allunga il percorso ideale:
   🟩 nessuna deviazione · 🟧 fino a 2 aree in più · 🟥 oltre.
 - Il punteggio è **Perfetto** se usi esattamente il numero minimo di aree, altrimenti **+N**.
-- Un 💡 **suggerimento** indica il prossimo passo utile a partire da ciò che hai già inserito e costa un tentativo. Finché non lo usi, chiederlo di nuovo ti mostra lo stesso senza costi.
+- Il 💡 **suggerimento** funziona a livelli sul prossimo passo utile, calcolato a partire da ciò che hai già inserito: il primo aiuto ne mostra il contorno sulla mappa senza nome, il secondo le iniziali (es. `R_____ n___'E_____`). Ogni aiuto costa un tentativo; il nome compare solo quando lo indovini o a fine partita.
 - Per arrenderti premi 🏳️ due volte: la prima chiede conferma.
+- A partita vinta compare **Lo sapevi?**: una curiosità sulla località di partenza e una su quella di arrivo, ognuna con la sua fonte.
 - I collegamenti tratteggiati della tabella sopra contano come confini.
 
 ### Quotidiano e allenamento
@@ -45,9 +46,9 @@ Nella mappa di Milano il capoluogo confina con 23 comuni ed è un passaggio natu
 - Partita quotidiana **salvata** automaticamente: puoi chiudere la pagina e riprendere.
 - **Tema scuro** automatico, layout per mobile, navigazione da tastiera.
 
-| Quotidiano | Allenamento | Milano e Brianza | Risultato | Tema scuro | Regole |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| ![Quotidiano con la mappa nascosta](docs/screenshots/quotidiano.png) | ![Allenamento su mobile](docs/screenshots/mobile.png) | ![Mappa di Milano e Brianza](docs/screenshots/milano.png) | ![Risultato](docs/screenshots/risultato.png) | ![Tema scuro](docs/screenshots/tema-scuro.png) | ![Regole](docs/screenshots/regole.png) |
+| Quotidiano | Allenamento | Milano e Brianza | Risultato | Curiosità | Tema scuro | Regole |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| ![Quotidiano con la mappa nascosta](docs/screenshots/quotidiano.png) | ![Allenamento su mobile](docs/screenshots/mobile.png) | ![Mappa di Milano e Brianza](docs/screenshots/milano.png) | ![Risultato](docs/screenshots/risultato.png) | ![Curiosità a fine partita](docs/screenshots/curiosita.png) | ![Tema scuro](docs/screenshots/tema-scuro.png) | ![Regole](docs/screenshots/regole.png) |
 
 ## Avvio in locale
 
@@ -107,11 +108,21 @@ python3 tools/build_data.py milano     # solo una
 
 Per ogni mappa lo script:
 
-1. scarica i confini da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy), fissato a un commit preciso;
+1. scarica i confini da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy), fissato a un commit preciso; per le mappe comunali, dove openpolis ha solo la versione generalizzata, prende le geometrie dettagliate (ISTAT non generalizzate, 1° gennaio 2026) da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat), anch'esso fissato a un commit;
 2. calcola quali aree confinano tra loro;
 3. collega le parti staccate (isole, exclavi) all'area più vicina, come un traghetto;
 4. semplifica i confini mantenendo identici i tratti condivisi tra aree vicine;
 5. calcola per ogni area il punto in cui scrivere il nome, il riquadro per lo zoom e il contorno dei gruppi (regioni o province).
+
+### Curiosità
+
+Le curiosità di fine partita sono in `data/facts/<mappa>.json`, una voce per area:
+
+```json
+{ "FI": { "facts": ["...", "..."], "sources": ["https://..."] } }
+```
+
+Sono scritte a mano, una o due per area, verificate su fonti indicate in `sources` (Wikipedia, siti istituzionali, cataloghi dei beni culturali). Le regole: al massimo 220 caratteri, solo fatti duraturi (niente popolazione, sindaci o cronaca), tradizioni e ipotesi presentate come tali. Oggi coprono tutte le 110 province e 181 dei 188 comuni di Milano e Brianza; per le aree senza curiosità il gioco mostra solo l'altra località. Un test controlla che ogni voce corrisponda a un'area della mappa, abbia una fonte valida e rispetti la lunghezza massima.
 
 ### Aggiungere una mappa
 
@@ -124,6 +135,7 @@ Per ogni mappa lo script:
 ```
 ├── index.html, style.css, game.js   il gioco
 ├── data/italia.json, milano.json    aree, confini e mappa di ogni mappa (generati)
+├── data/facts/                      curiosità di fine partita per ogni mappa
 ├── tools/
 │   ├── build_data.py                genera i dati dai confini ISTAT
 │   ├── serve.mjs                    server statico per `npm start` e per i test
@@ -141,6 +153,7 @@ Il gioco è gratuito e senza pubblicità. Se ti piace puoi [offrirmi un caffè s
 ## Crediti
 
 - Idea e meccanica di gioco: [travle](https://travle.earth) di Oisín Carroll (Teuteuf Games).
-- Confini di province e comuni: dati ISTAT distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) con licenza CC BY 4.0.
+- Confini di province e comuni: dati ISTAT con licenza CC BY 4.0, distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) (province, nomi e codici) e da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat) (confini comunali dettagliati, Istat, *Confini delle unità amministrative a fini statistici al 1° gennaio 2026*, versione non generalizzata). Le geometrie sono semplificate per l'uso sul web.
+- Curiosità: testi originali basati sulle fonti indicate per ogni voce in `data/facts/`.
 
 Codice rilasciato con licenza [MIT](LICENSE).

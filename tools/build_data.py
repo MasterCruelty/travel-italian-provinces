@@ -30,6 +30,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, 'tools', '.cache')
 SOURCE = ('https://raw.githubusercontent.com/openpolis/geojson-italy/'
           'ba3347df3a53352891109f8198c597a0273684c0/geojson/')
+# Confini comunali ISTAT non generalizzati al 1° gennaio 2026, un file per comune.
+# openpolis pubblica solo la versione generalizzata (circa 40 punti per comune):
+# per le mappe comunali si prendono da qui le geometrie, da openpolis nomi e codici.
+DETAILED_MUNICIPALITIES = ('https://raw.githubusercontent.com/l1n00/confini-comuni-istat/'
+                           'bdbd0301e9f8441aa7e762941e7377179c8ce657/dist/2026/comuni/')
 
 MAPS = {
     'italia': {
@@ -45,8 +50,9 @@ MAPS = {
         'sources': ['limits_P_15_municipalities.geojson',
                     'limits_P_108_municipalities.geojson'],
         'id': 'com_istat_code', 'name': 'name', 'group': 'prov_name',
+        'detailed': True,     # geometrie da DETAILED_MUNICIPALITIES
         'touch': 0.0002,
-        'simplify': 0.0015,
+        'simplify': 0.0004,
         'label_tol': 0.0005,
         'lat0': 45.5, 'scale': 1000.0,
         'link_icon': '🛣️',
@@ -101,6 +107,18 @@ def load_source(filename):
         return json.load(f)['features']
 
 
+def load_detailed(code):
+    path = os.path.join(CACHE, 'comuni', f'{code}.geojson')
+    if not os.path.exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        urllib.request.urlretrieve(f'{DETAILED_MUNICIPALITIES}{code}.geojson', path)
+    with open(path, encoding='utf-8') as f:
+        data = json.load(f)
+    feature = data['features'][0] if data.get('type') == 'FeatureCollection' else data
+    assert feature['properties']['code'] == code, code
+    return shape(feature['geometry']).buffer(0)
+
+
 def build(key, cfg):
     cos = math.cos(math.radians(cfg['lat0']))
     scale = cfg['scale']
@@ -122,6 +140,10 @@ def build(key, cfg):
             p = f['properties']
             items.append({'id': p[cfg['id']], 'name': p[cfg['name']],
                           'group': p[cfg['group']], 'geom': shape(f['geometry']).buffer(0)})
+    if cfg.get('detailed'):
+        print(f'[{key}] scarico i confini dettagliati')
+        for a in items:
+            a['geom'] = load_detailed(a['id'])
     id2geom = {a['id']: a['geom'] for a in items}
     assert len(id2geom) == len(items), 'identificativi duplicati'
     print(f'[{key}] aree:', len(items))
