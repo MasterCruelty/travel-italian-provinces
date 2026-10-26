@@ -116,6 +116,10 @@ Lo script:
 └── .github/workflows/               CI e pubblicazione su GitHub Pages
 ```
 
+## Supporta il progetto
+
+Il gioco è gratuito e senza pubblicità. Se ti piace puoi [offrirmi un caffè su PayPal](https://paypal.me/mastercruelty).
+
 ## Crediti
 
 - Idea e meccanica di gioco: [travle](https://travle.earth) di Oisín Carroll (Teuteuf Games).
