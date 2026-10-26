@@ -73,6 +73,14 @@ await page.waitForSelector('#result-modal:not([hidden])');
 await shot(page, 'risultato');
 await page.context().close();
 
+// Curiosità di fine partita (Gorizia -> Lecce)
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?da=GO&a=LE` });
+await page.evaluate(() => { for (const s of shortestPath(game.start, game.end).slice(1, -1)) submitGuess(s); });
+await page.waitForSelector('#result-facts:not([hidden])');
+await page.locator('#result-facts').scrollIntoViewIfNeeded();
+await shot(page, 'curiosita');
+await page.context().close();
+
 // Tema scuro, partita conclusa
 page = await open({ width: 390, height: 844, dark: true });
 await guess(page, 'Frosinone', 'Roma', 'Viterbo', 'Siena');

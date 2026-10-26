@@ -9,6 +9,7 @@ const MAPS = {
     tab: 'Italia',
     title: 'Province Italiane',
     file: 'data/italia.json',
+    facts: 'data/facts/italia.json',
     one: 'provincia', many: 'province',
     placeholder: 'Scrivi una provincia…',
     unknown: 'Provincia non riconosciuta',
@@ -45,6 +46,7 @@ const MAPS = {
     tab: 'Milano e Brianza',
     title: 'Comuni di Milano e Brianza',
     file: 'data/milano.json',
+    facts: 'data/facts/milano.json',
     one: 'comune', many: 'comuni',
     placeholder: 'Scrivi un comune…',
     unknown: 'Comune non riconosciuto',
@@ -76,6 +78,7 @@ let SIGLAS = [];
 let NAME_INDEX = {};           // testo normalizzato -> id (corrispondenze esatte)
 let SEARCH_KEYS = [];          // [{sigla, key}] per l'autocompletamento
 const dataCache = {};
+const factsCache = {};
 
 let game = null;
 let view = null;               // viewBox corrente [x, y, w, h]
@@ -303,6 +306,32 @@ function makeGame(mode, fixed) {
 const guesses = () => game.moves.filter(m => m.type === 'guess');
 const isGuessed = (sig) => game.moves.some(m => m.type === 'guess' && m.sigla === sig);
 const isHinted = (sig) => game.moves.some(m => m.type === 'hint' && m.sigla === sig);
+// Livello di aiuto ricevuto su un'area: 1 = contorno, 2 = anche le iniziali.
+// I suggerimenti salvati dalla versione precedente rivelavano il nome: contano come 2.
+const hintLevel = (sig) => Math.max(0, ...game.moves
+  .filter(m => m.type === 'hint' && m.sigla === sig).map(m => m.level || 2));
+// Il nome di un'area suggerita resta nascosto finché non la si indovina.
+const nameHidden = (sig) => !game.over && isHinted(sig) && !isGuessed(sig);
+
+// Iniziali di ogni parola e un trattino basso per ogni altra lettera:
+// "Reggio nell'Emilia" -> "R_____ n___'E_____".
+function initials(sig) {
+  let out = '', prevLetter = false;
+  for (const ch of area(sig).name.split('/')[0]) {
+    const letter = /\p{L}/u.test(ch);
+    out += !letter ? ch : prevLetter ? '_' : ch;
+    prevLetter = letter;
+  }
+  return out;
+}
+
+// Le iniziali con una casella per ogni lettera mancante, così si contano.
+function initialsHtml(sig) {
+  const text = initials(sig);
+  const body = [...text].map(ch => ch === '_' ? '<span class="blank"></span>'
+    : ch === ' ' ? '<span class="gap"></span>' : esc(ch)).join('');
+  return `<span class="initials" role="img" aria-label="${esc(text)}">${body}</span>`;
+}
 const remaining = () => game.maxGuesses - game.moves.length;
 const overPar = () => game.moves.length - game.needed;
 
@@ -346,7 +375,9 @@ function showTooltip(e) {
   const tip = $('tooltip');
   if (!sig || !game || !revealedList().includes(sig)) { tip.hidden = true; return; }
   const p = area(sig);
-  tip.innerHTML = `${esc(p.name)} <small>${esc(p.group)}</small>`;
+  tip.innerHTML = nameHidden(sig)
+    ? 'Prossimo passo suggerito'
+    : `${esc(p.name)} <small>${esc(p.group)}</small>`;
   const rect = $('map-wrap').getBoundingClientRect();
   tip.style.left = (e.clientX - rect.left) + 'px';
   tip.style.top = (e.clientY - rect.top) + 'px';
@@ -384,7 +415,7 @@ function paintMap() {
   const order = [...new Set([game.start, game.end, ...game.moves.map(m => m.sigla).reverse(), ...shown])];
   $('layer-labels').innerHTML = order.map(s => {
     const p = area(s);
-    return `<text class="label" x="${p.lx}" y="${p.ly}">${esc(shortName(s))}</text>`;
+    return `<text class="label" x="${p.lx}" y="${p.ly}">${nameHidden(s) ? '?' : esc(shortName(s))}</text>`;
   }).join('');
   updateLabelSize();
 }
@@ -509,6 +540,7 @@ function renderAll() {
   $('actions-play').hidden = !playing;
   $('actions-over').hidden = playing;
   resetGiveUp();
+  renderHintButton();
 
   paintMap();
   renderStatus();
@@ -529,15 +561,19 @@ function renderMoves() {
   $('guesses').innerHTML = game.moves.slice().reverse().map(m => {
     const p = area(m.sigla);
     if (m.type === 'hint') {
-      return `<li class="hint-row"><span class="dot hint"></span><span>💡 ${esc(p.name)}</span><span class="reg">suggerimento</span></li>`;
+      const level = m.level || 2;
+      const what = !nameHidden(m.sigla) ? esc(p.name)
+        : level === 1 ? 'Contorno sulla mappa' : initialsHtml(m.sigla);
+      return `<li class="hint-row"><span class="dot hint"></span><span>💡 ${what}</span>` +
+             `<span class="reg">${level === 1 ? 'suggerimento' : 'iniziali'}</span></li>`;
     }
     return `<li><span class="dot ${m.color}"></span><span>${esc(p.name)}</span><span class="reg">${esc(p.group)}</span></li>`;
   }).join('');
 }
 
-function showMessage(text, kind = 'info') {
+function showMessage(text, kind = 'info', html = false) {
   const m = $('message');
-  m.textContent = text;
+  if (html) m.innerHTML = text; else m.textContent = text;
   m.className = 'message ' + kind;
   m.hidden = false;
   clearTimeout(showMessage.timer);
@@ -565,17 +601,32 @@ function submitGuess(sig) {
   afterMove();
 }
 
+// Il suggerimento procede a livelli sulla stessa area, ognuno costa un tentativo:
+// prima il contorno sulla mappa (senza nome), poi le iniziali.
+function pendingHint() {
+  const m = game.moves.find(x => x.type === 'hint' && !isGuessed(x.sigla));
+  return m ? m.sigla : null;
+}
+
 function giveHint() {
   if (game.over) return;
-  const pending = game.moves.find(m => m.type === 'hint' && !isGuessed(m.sigla));
-  if (pending) { showMessage(`Hai già un suggerimento: prova con ${area(pending.sigla).name}!`, 'info'); return; }
-  if (remaining() <= 1) { showMessage('Non hai abbastanza tentativi per un suggerimento', 'warn'); return; }
-  const sig = bestCompletion()[0];
+  const sig = pendingHint() || bestCompletion()[0];
   if (!sig) return;
-  game.moves.push({ sigla: sig, type: 'hint' });
-  const p = area(sig);
-  showMessage(`💡 Prova con ${p.name} (${p.group})`, 'info');
+  const level = hintLevel(sig);
+  if (level >= 2) { showMessage(`💡 Hai già tutti gli aiuti per questo passo: ${initialsHtml(sig)}`, 'info', true); return; }
+  if (remaining() <= 1) { showMessage('Non hai abbastanza tentativi per un suggerimento', 'warn'); return; }
+  game.moves.push({ sigla: sig, type: 'hint', level: level + 1 });
+  if (level === 0) showMessage('💡 Il contorno del prossimo passo utile è sulla mappa', 'info');
+  else showMessage(`💡 Iniziali: ${initialsHtml(sig)}`, 'info', true);
   afterMove();
+}
+
+function renderHintButton() {
+  const sig = pendingHint();
+  const level = sig ? hintLevel(sig) : 0;
+  $('btn-hint').innerHTML = level === 0 ? '💡 Suggerimento <small>(−1 tentativo)</small>'
+    : level === 1 ? '💡 Iniziali <small>(−1 tentativo)</small>'
+    : '💡 Iniziali <small>(già usate)</small>';
 }
 
 function afterMove() {
@@ -643,8 +694,48 @@ function showResult() {
 
   $('btn-practice').textContent = game.mode === 'daily' ? '🎲 Allenamento' : '🎲 Nuova partita';
   $('share-ok').hidden = true;
+  renderFacts();
   openModal('result-modal');
   startCountdown();
+}
+
+// ---------- Curiosità ----------
+// Caricate solo a fine partita: non pesano sull'avvio del gioco.
+async function loadFacts(key) {
+  if (!(key in factsCache)) {
+    try {
+      const res = await fetch(MAPS[key].facts);
+      factsCache[key] = res.ok ? await res.json() : {};
+    } catch {
+      factsCache[key] = {};
+    }
+  }
+  return factsCache[key];
+}
+
+// Una curiosità su partenza e arrivo, mostrata solo a partita vinta.
+// Nel quotidiano la scelta è fissa per quel giorno, così è la stessa per tutti.
+async function renderFacts() {
+  const box = $('result-facts');
+  box.hidden = true;
+  box.innerHTML = '';
+  if (!game.won) return;
+  const shown = game;
+  const facts = await loadFacts(mapKey);
+  if (game !== shown) return;
+  const seed = game.id || Math.floor(Math.random() * 1000);
+  const items = [game.start, game.end].map((sig, i) => {
+    const entry = facts[sig];
+    if (!entry || !entry.facts || !entry.facts.length) return '';
+    const text = entry.facts[(seed + i) % entry.facts.length];
+    const src = (entry.sources || []).find(u => /^https?:\/\//.test(u));
+    return `<div class="fact"><div class="fact-place">${esc(area(sig).name)}</div>` +
+           `<p>${esc(text)}</p>` +
+           (src ? `<a href="${esc(src)}" target="_blank" rel="noopener">Fonte</a>` : '') + '</div>';
+  }).filter(Boolean);
+  if (!items.length) return;
+  box.innerHTML = '<b>Lo sapevi?</b>' + items.join('');
+  box.hidden = false;
 }
 
 function startCountdown() {

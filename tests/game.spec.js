@@ -177,22 +177,58 @@ test('colori in base alla deviazione dal percorso ideale', async ({ page }) => {
   await expect(page.locator('#p-TP')).toHaveClass(/g-far/);
 });
 
-test('il suggerimento parte dai progressi del giocatore e costa un tentativo', async ({ page }) => {
+test('il suggerimento procede a livelli senza rivelare il nome', async ({ page }) => {
   await open(page, CHALLENGE);
   await guess(page, 'Frosinone');
   await guess(page, 'Roma');
-  await page.click('#btn-hint');
-  await expect(page.locator('#message')).toContainText('Viterbo');
-  await expect(page.locator('#p-VT')).toHaveClass(/hint/);
-  await expect(page.locator('#guess-count')).toContainText('Tentativi rimasti: 4');
 
-  await page.click('#btn-hint');                     // stesso suggerimento, gratis
+  // 1° livello: contorno di Viterbo sulla mappa, senza nome
+  await page.click('#btn-hint');
+  await expect(page.locator('#p-VT')).toHaveClass(/hint/);
+  await expect(page.locator('#message')).toContainText('contorno');
+  await expect(page.locator('#message')).not.toContainText('Viterbo');
+  await expect(page.locator('#layer-labels')).not.toContainText('Viterbo');
+  await expect(page.locator('#layer-labels')).toContainText('?');
+  await expect(page.locator('#guesses')).not.toContainText('Viterbo');
   await expect(page.locator('#guess-count')).toContainText('Tentativi rimasti: 4');
+  await expect(page.locator('#btn-hint')).toContainText('Iniziali');
+
+  // 2° livello: iniziali
+  await page.click('#btn-hint');
+  await expect(page.locator('#message .initials')).toHaveAttribute('aria-label', 'V______');
+  await expect(page.locator('#message .blank')).toHaveCount(6);
+  await expect(page.locator('#guesses .initials')).toHaveAttribute('aria-label', 'V______');
+  await expect(page.locator('#guess-count')).toContainText('Tentativi rimasti: 3');
+
+  // Altri tocchi: nessun costo
+  await page.click('#btn-hint');
+  await expect(page.locator('#guess-count')).toContainText('Tentativi rimasti: 3');
 
   await guess(page, 'Viterbo');
+  await expect(page.locator('#layer-labels')).toContainText('Viterbo');
   await guess(page, 'Siena');
   await expect(page.locator('#result-title')).toHaveText(/Completato/);
-  expect(await page.evaluate(() => shareText())).toContain('🟩🟩💡🟩🟩 (5/7)');
+  expect(await page.evaluate(() => shareText())).toContain('🟩🟩💡💡🟩🟩 (6/7)');
+});
+
+test('le iniziali mantengono spazi e apostrofi', async ({ page }) => {
+  await open(page, CHALLENGE);
+  expect(await page.evaluate(() => [initials('RE'), initials('AQ'), initials('BZ')]))
+    .toEqual(["R_____ n___'E_____", "L'A_____", 'B______']);
+});
+
+test('un suggerimento salvato dalla versione precedente vale come iniziali', async ({ page }) => {
+  await open(page, '/');
+  await page.evaluate(() => {
+    const sig = bestCompletion()[0];
+    localStorage.setItem('pi_daily_' + game.id, JSON.stringify({
+      start: game.start, end: game.end, moves: [{ sigla: sig, type: 'hint' }], over: false, won: false, gaveUp: false,
+    }));
+  });
+  await page.reload();
+  await page.waitForFunction(() => game !== null);
+  await expect(page.locator('#guesses .initials')).toHaveCount(1);
+  await expect(page.locator('#btn-hint')).toContainText('già usate');
 });
 
 test('esaurire i tentativi fa perdere la partita', async ({ page }) => {
@@ -388,4 +424,50 @@ test('una mappa sconosciuta nell\'indirizzo apre l\'Italia', async ({ page }) =>
   await open(page, '/?mappa=atlantide');
   expect(await page.evaluate(() => mapKey)).toBe('italia');
   await expect(page.locator('.prov')).toHaveCount(110);
+});
+
+// ---------- Curiosità ----------
+test('a partita vinta compaiono le curiosità su partenza e arrivo', async ({ page }) => {
+  await open(page, CHALLENGE);
+  await page.evaluate(() => {
+    factsCache.italia = {
+      CE: { facts: ['Curiosità su Caserta.'], sources: ['https://example.org/ce'] },
+      FI: { facts: ['Curiosità su Firenze.'], sources: ['javascript:alert(1)'] },
+    };
+  });
+  for (const n of ['Frosinone', 'Roma', 'Viterbo', 'Siena']) await guess(page, n);
+  const box = page.locator('#result-facts');
+  await expect(box).toBeVisible();
+  await expect(box).toContainText('Lo sapevi?');
+  await expect(box.locator('.fact')).toHaveCount(2);
+  await expect(box).toContainText('Curiosità su Caserta.');
+  await expect(box.locator('a')).toHaveCount(1);
+  await expect(box.locator('a')).toHaveAttribute('href', 'https://example.org/ce');
+});
+
+test('senza vittoria le curiosità non compaiono', async ({ page }) => {
+  await open(page, CHALLENGE);
+  await page.evaluate(() => {
+    factsCache.italia = { CE: { facts: ['Curiosità su Caserta.'], sources: ['https://example.org/ce'] } };
+  });
+  await page.click('#btn-giveup');
+  await page.click('#btn-giveup');
+  await expect(page.locator('#result-modal')).toBeVisible();
+  await expect(page.locator('#result-facts')).toBeHidden();
+});
+
+test('i file delle curiosità sono validi', async ({}, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'basta una volta');
+  const fs = require('fs');
+  for (const map of ['italia', 'milano']) {
+    const areas = JSON.parse(fs.readFileSync(`data/${map}.json`, 'utf8')).areas;
+    const facts = JSON.parse(fs.readFileSync(`data/facts/${map}.json`, 'utf8'));
+    for (const [id, entry] of Object.entries(facts)) {
+      expect(areas[id], `${map}/${id} non esiste nella mappa`).toBeTruthy();
+      expect(entry.facts.length, `${map}/${id}`).toBeGreaterThan(0);
+      for (const f of entry.facts) expect(f.length, `${map}/${id}: ${f}`).toBeLessThanOrEqual(230);
+      expect(entry.sources.length, `${map}/${id} senza fonte`).toBeGreaterThan(0);
+      for (const s of entry.sources) expect(s, `${map}/${id}`).toMatch(/^https?:\/\//);
+    }
+  }
 });
