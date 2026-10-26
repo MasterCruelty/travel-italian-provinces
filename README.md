@@ -1,10 +1,10 @@
-# Province Italiane
+# Travel Maps
 
-Un puzzle geografico quotidiano: collega due **province italiane**, o due **comuni di Milano e Brianza**, nominando quelli che attraverseresti lungo il tragitto, nel minor numero di mosse possibile.
+Un puzzle geografico quotidiano su più mappe: collega due **province italiane**, o due **comuni di Milano e Brianza**, nominando quelli che attraverseresti lungo il tragitto, nel minor numero di mosse possibile.
 
-**Gioca online: <https://mastercruelty.github.io/travel-italian-provinces/>**
+**Gioca online: <https://mastercruelty.github.io/travel-maps/>**
 
-Ispirato a [travle](https://travle.earth/ita), riscritto da zero in HTML, CSS e JavaScript, senza framework né build.
+Ispirato a [travle](https://travle.earth/ita), riscritto da zero in HTML, CSS e JavaScript, senza framework né build. Ogni mappa ha il suo puzzle quotidiano, e il progetto è pensato per aggiungerne altre (vedi [Aggiungere una mappa](#aggiungere-una-mappa)).
 
 ![Partita in corso su desktop](docs/screenshots/desktop.png)
 

@@ -8,7 +8,6 @@ const MAPS = {
   italia: {
     tab: 'Italia',
     title: 'Province Italiane',
-    heading: 'Province <span>Italiane</span>',
     file: 'data/italia.json',
     one: 'provincia', many: 'province',
     placeholder: 'Scrivi una provincia…',
@@ -45,7 +44,6 @@ const MAPS = {
   milano: {
     tab: 'Milano e Brianza',
     title: 'Comuni di Milano e Brianza',
-    heading: 'Milano <span>e Brianza</span>',
     file: 'data/milano.json',
     one: 'comune', many: 'comuni',
     placeholder: 'Scrivi un comune…',
@@ -63,6 +61,7 @@ const MAPS = {
   },
 };
 const DEFAULT_MAP = 'italia';
+const GAME_TITLE = 'Travel Maps';
 
 const EMOJI = { 'g-ok': '🟩', 'g-near': '🟧', 'g-far': '🟥', hint: '💡' };
 const DAILY_EPOCH = new Date(2024, 0, 1);
@@ -485,8 +484,7 @@ function toggleShowAll() {
 // ---------- Interfaccia ----------
 // Testi che dipendono dalla mappa: titolo, schede, input, aiuto.
 function renderMapTexts() {
-  document.title = `${MAP.title} — gioco di percorsi`;
-  $('heading').innerHTML = MAP.heading;
+  document.title = `${GAME_TITLE} · ${MAP.title}`;
   for (const btn of document.querySelectorAll('[data-map]')) {
     btn.setAttribute('aria-selected', String(btn.dataset.map === mapKey));
   }
@@ -680,8 +678,8 @@ function gameUrl() {
 
 function shareText() {
   const head = game.mode === 'daily'
-    ? `${MAP.title} #${game.id} · ${scoreText()}`
-    : `${MAP.title} (${game.label.toLowerCase()}) · ${scoreText()}`;
+    ? `${GAME_TITLE} · ${MAP.title} #${game.id} · ${scoreText()}`
+    : `${GAME_TITLE} · ${MAP.title} (${game.label.toLowerCase()}) · ${scoreText()}`;
   const route = `${area(game.start).name} → ${area(game.end).name}`;
   const grid = game.moves.map(m => EMOJI[m.type === 'hint' ? 'hint' : m.color]).join('');
   return [head, route, `${grid} (${game.moves.length}/${game.maxGuesses})`, gameUrl()].filter(Boolean).join('\n');

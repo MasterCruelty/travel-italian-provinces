@@ -1,8 +1,8 @@
 {
-  "name": "travel-italian-provinces",
+  "name": "travel-maps",
   "version": "1.0.0",
   "private": true,
-  "description": "Collega due province italiane attraversando i confini nel minor numero di mosse.",
+  "description": "Puzzle geografico: collega due aree di una mappa attraversando i confini nel minor numero di mosse.",
   "license": "MIT",
   "scripts": {
     "start": "node tools/serve.mjs 8000",

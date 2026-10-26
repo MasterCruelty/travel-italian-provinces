@@ -105,7 +105,7 @@ test('percorso ottimale: Perfetto, statistiche e condivisione', async ({ page })
   await expect(page.locator('#result-title')).toHaveText(/Perfetto/);
   await expect(page.locator('#next-puzzle')).toHaveText(/Prossimo puzzle tra \d\d:\d\d:\d\d/);
   const text = await page.evaluate(() => shareText());
-  expect(text).toMatch(/^Province Italiane #\d+ · Perfetto\n/);
+  expect(text).toMatch(/^Travel Maps · Province Italiane #\d+ · Perfetto\n/);
   expect(text).toContain('🟩'.repeat(names.length));
 
   const stats = await page.evaluate(() => JSON.parse(localStorage.getItem('pi_stats_v1')));
@@ -306,7 +306,7 @@ test('la linguetta Milano carica i comuni con il loro quotidiano', async ({ page
   await page.waitForFunction(() => mapKey === 'milano' && game.mode === 'daily');
   await expect(page).toHaveURL(/\?mappa=milano$/);
   await expect(page.locator('.prov')).toHaveCount(188);
-  await expect(page.locator('#heading')).toHaveText('Milano e Brianza');
+  await expect(page).toHaveTitle('Travel Maps · Comuni di Milano e Brianza');
   await expect(page.locator('#guess-input')).toHaveAttribute('placeholder', 'Scrivi un comune…');
   await expect(page.locator('[data-map="milano"]')).toHaveAttribute('aria-selected', 'true');
   await expect(page.locator('.prov:not(.hidden)')).toHaveCount(2);
@@ -362,7 +362,7 @@ test('sfida su Milano: link, testi e risultato', async ({ page }) => {
   expect((await state(page)).moves).toEqual(['guess:015146', 'guess:015209']);
 
   const share = await page.evaluate(() => shareText());
-  expect(share).toMatch(/^Comuni di Milano e Brianza \(sfida\)/);
+  expect(share).toMatch(/^Travel Maps · Comuni di Milano e Brianza \(sfida\)/);
   expect(share).toContain('?mappa=milano&da=015002&a=108050');
 
   await page.click('#btn-giveup');
