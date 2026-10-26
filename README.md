@@ -108,7 +108,7 @@ python3 tools/build_data.py milano     # solo una
 
 Per ogni mappa lo script:
 
-1. scarica i confini da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy), fissato a un commit preciso;
+1. scarica i confini da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy), fissato a un commit preciso; per le mappe comunali, dove openpolis ha solo la versione generalizzata, prende le geometrie dettagliate (ISTAT non generalizzate, 1° gennaio 2026) da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat), anch'esso fissato a un commit;
 2. calcola quali aree confinano tra loro;
 3. collega le parti staccate (isole, exclavi) all'area più vicina, come un traghetto;
 4. semplifica i confini mantenendo identici i tratti condivisi tra aree vicine;
@@ -153,7 +153,7 @@ Il gioco è gratuito e senza pubblicità. Se ti piace puoi [offrirmi un caffè s
 ## Crediti
 
 - Idea e meccanica di gioco: [travle](https://travle.earth) di Oisín Carroll (Teuteuf Games).
-- Confini di province e comuni: dati ISTAT distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) con licenza CC BY 4.0.
+- Confini di province e comuni: dati ISTAT con licenza CC BY 4.0, distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) (province, nomi e codici) e da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat) (confini comunali dettagliati, Istat, *Confini delle unità amministrative a fini statistici al 1° gennaio 2026*, versione non generalizzata). Le geometrie sono semplificate per l'uso sul web.
 - Curiosità: testi originali basati sulle fonti indicate per ogni voce in `data/facts/`.
 
 Codice rilasciato con licenza [MIT](LICENSE).
