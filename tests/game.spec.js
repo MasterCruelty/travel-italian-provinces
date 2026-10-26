@@ -98,7 +98,7 @@ test('l\'aiuto compare alla prima visita e si chiude con Esc', async ({ browser 
 test('percorso ottimale: Perfetto, statistiche e condivisione', async ({ page }) => {
   await open(page, '/');
   const names = await page.evaluate(() =>
-    shortestPath(game.start, game.end).slice(1, -1).map(s => DATA.provinces[s].name));
+    shortestPath(game.start, game.end).slice(1, -1).map(s => DATA.areas[s].name));
   for (const n of names) await guess(page, n);
 
   await expect(page.locator('#result-modal')).toBeVisible();
@@ -293,4 +293,99 @@ test('toccare un suggerimento non preme il pulsante sottostante', async ({ page,
   expect(await page.evaluate(() => strayClicks)).toEqual([]);
   expect((await state(page)).moves.filter(m => m.startsWith('hint'))).toEqual([]);
   await expect(page.locator('#btn-giveup')).not.toHaveClass(/confirm/);
+});
+
+// ---------- Mappa Milano e Brianza ----------
+// Abbiategrasso -> Vimercate: 8 confini, il percorso passa da Milano.
+const MI_CHALLENGE = '/?mappa=milano&da=015002&a=108050';
+
+test('la linguetta Milano carica i comuni con il loro quotidiano', async ({ page }) => {
+  await open(page, '/');
+  const italia = await state(page);
+  await page.click('[data-map="milano"]');
+  await page.waitForFunction(() => mapKey === 'milano' && game.mode === 'daily');
+  await expect(page).toHaveURL(/\?mappa=milano$/);
+  await expect(page.locator('.prov')).toHaveCount(188);
+  await expect(page.locator('#heading')).toHaveText('Milano e Brianza');
+  await expect(page.locator('#guess-input')).toHaveAttribute('placeholder', 'Scrivi un comune…');
+  await expect(page.locator('[data-map="milano"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('.prov:not(.hidden)')).toHaveCount(2);
+  await expect(page.locator('#guess-count')).toContainText('comuni');
+  const milano = await state(page);
+  expect(milano.start).toMatch(/^\d{6}$/);
+
+  await page.click('[data-map="italia"]');
+  await page.waitForFunction(() => mapKey === 'italia');
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('.prov')).toHaveCount(110);
+  const back = await state(page);
+  expect([back.start, back.end]).toEqual([italia.start, italia.end]);
+});
+
+test('ogni mappa ha salvataggi e statistiche separati', async ({ page }) => {
+  await open(page, '/?mappa=milano');
+  await page.evaluate(() => {
+    for (const s of shortestPath(game.start, game.end).slice(1, -1)) submitGuess(s);
+  });
+  await expect(page.locator('#result-title')).toHaveText(/Perfetto/);
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('pi_milano_stats_v1')))).toMatchObject({ played: 1, won: 1 });
+  expect(await page.evaluate(() => localStorage.getItem('pi_stats_v1'))).toBeNull();
+  await page.keyboard.press('Escape');
+  await page.click('#btn-stats');
+  await expect(page.locator('#stats-map')).toHaveText('Milano e Brianza');
+  await page.keyboard.press('Escape');
+
+  await page.click('[data-map="italia"]');
+  await page.waitForFunction(() => mapKey === 'italia');
+  expect((await state(page)).over).toBe(false);
+  await expect(page.locator('#guess-input')).toBeEnabled();
+
+  await page.click('[data-map="milano"]');
+  await page.waitForFunction(() => mapKey === 'milano');
+  expect((await state(page)).won).toBe(true);
+});
+
+test('sfida su Milano: link, testi e risultato', async ({ page }) => {
+  await open(page, MI_CHALLENGE);
+  await expect(page.locator('#puzzle-id')).toHaveText('Sfida');
+  await expect(page.locator('#start-name')).toHaveText('Abbiategrasso');
+  await expect(page.locator('#end-name')).toHaveText('Vimercate');
+  await expect(page.locator('.prov:not(.hidden)')).toHaveCount(188);
+  await expect(page.locator('#guess-count')).toContainText('minimo 7 comuni');
+
+  await guess(page, 'Atlantide');
+  await expect(page.locator('#message')).toHaveText('Comune non riconosciuto');
+  await guess(page, 'Milano');
+  await guess(page, 'milano');
+  await expect(page.locator('#message')).toContainText('è già stato inserito');
+  await guess(page, 'sesto s');
+  expect((await state(page)).moves).toEqual(['guess:015146', 'guess:015209']);
+
+  const share = await page.evaluate(() => shareText());
+  expect(share).toMatch(/^Comuni di Milano e Brianza \(sfida\)/);
+  expect(share).toContain('?mappa=milano&da=015002&a=108050');
+
+  await page.click('#btn-giveup');
+  await page.click('#btn-giveup');
+  await expect(page.locator('#result-path')).toContainText('(7 comuni)');
+  await expect(page.locator('#layer-regions path')).toHaveCount(2);
+});
+
+test('San Colombano al Lambro è collegato a San Zenone al Lambro', async ({ page }) => {
+  await open(page, '/?mappa=milano&da=015191&a=015140');
+  const link = page.locator('.sea');
+  await expect(link).toHaveCount(1);
+  await expect(link).toHaveAttribute('data-a', '015191');
+  await expect(link).toHaveAttribute('data-b', '015202');
+  await expect(link.locator('text')).toHaveText('🛣️');
+  expect(await page.evaluate(() => shortestPath(game.start, game.end)[1])).toBe('015202');
+  await page.click('#btn-help');
+  await expect(page.locator('#help-links')).toContainText('San Colombano al Lambro');
+  await expect(page.locator('#help-modal [data-u="one"]')).toHaveText('comune');
+});
+
+test('una mappa sconosciuta nell\'indirizzo apre l\'Italia', async ({ page }) => {
+  await open(page, '/?mappa=atlantide');
+  expect(await page.evaluate(() => mapKey)).toBe('italia');
+  await expect(page.locator('.prov')).toHaveCount(110);
 });

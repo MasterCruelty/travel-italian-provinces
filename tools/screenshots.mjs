@@ -1,5 +1,7 @@
 // Rigenera gli screenshot del README: `npm run screenshots`.
-// Usa il link sfida Caserta -> Firenze, così le immagini sono sempre le stesse.
+// Usa link sfida fissi (Caserta -> Firenze, Abbiategrasso -> Vimercate) e una data
+// fissa per il quotidiano, così le immagini sono sempre le stesse.
+// CHROMIUM_PATH permette di usare un Chromium già installato.
 import { spawn } from 'node:child_process';
 import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -15,7 +17,7 @@ const server = spawn(process.execPath, [`${ROOT}tools/serve.mjs`, String(PORT)],
 await new Promise(r => setTimeout(r, 500));
 mkdirSync(OUT, { recursive: true });
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
 
 async function open({ width, height, scale = 2, dark = false, url = GAME_URL }) {
   const ctx = await browser.newContext({
@@ -77,6 +79,14 @@ await guess(page, 'Frosinone', 'Roma', 'Viterbo', 'Siena');
 await page.waitForSelector('#result-modal:not([hidden])');
 await page.keyboard.press('Escape');
 await shot(page, 'tema-scuro');
+await page.context().close();
+
+// Milano e Brianza: partita completata in allenamento
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=milano&da=015002&a=108050` });
+await guess(page, 'Albairate', 'Cisliano', 'Cusago', 'Milano', 'Cologno Monzese', 'Brugherio', 'Agrate Brianza');
+await page.waitForSelector('#result-modal:not([hidden])');
+await page.keyboard.press('Escape');
+await shot(page, 'milano');
 await page.context().close();
 
 // Regole

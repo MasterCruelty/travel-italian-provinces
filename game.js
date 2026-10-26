@@ -1,47 +1,91 @@
 'use strict';
 
-// ---------- Costanti ----------
-// Nomi alternativi accettati in input (oltre al nome ufficiale e alla sigla).
-const ALIASES = {
-  AO: ['aosta', "valle d'aosta"],
-  BZ: ['bolzano', 'bozen', 'alto adige', 'sudtirol'],
-  FC: ['forli', 'cesena'],
-  MB: ['monza', 'brianza', 'monza e brianza'],
-  MS: ['massa', 'carrara'],
-  PU: ['pesaro', 'urbino'],
-  RC: ['reggio calabria'],
-  RE: ['reggio emilia'],
-  VB: ['verbania', 'vco'],
-  BT: ['barletta', 'andria', 'trani', 'bat'],
-  SP: ['spezia'],
-  AQ: ['aquila'],
-  OT: ['gallura', 'olbia', 'tempio', 'olbia tempio', 'nord est sardegna'],
-  OG: ['lanusei', 'tortoli'],
-  VS: ['sanluri', 'villacidro'],
-  CI: ['sulcis', 'carbonia', 'iglesias', 'carbonia iglesias'],
+// ---------- Mappe ----------
+// Ogni mappa ha il suo file di dati, i suoi testi e il suo spazio di
+// salvataggio. L'Italia mantiene le chiavi e il seme del quotidiano storici,
+// così partite e statistiche già salvate restano valide.
+const MAPS = {
+  italia: {
+    tab: 'Italia',
+    title: 'Province Italiane',
+    heading: 'Province <span>Italiane</span>',
+    file: 'data/italia.json',
+    one: 'provincia', many: 'province',
+    placeholder: 'Scrivi una provincia…',
+    unknown: 'Provincia non riconosciuta',
+    already: 'è già stata inserita',
+    ambiguous: 'Più province corrispondono: scegline una dalla lista',
+    linksNote: '⛴️ I tratti di mare tratteggiati (Stretto di Messina, traghetto Livorno–Olbia) contano come confini.',
+    zoomIcon: '🇮🇹', zoomTitle: "Mostra tutta l'Italia",
+    storagePrefix: 'pi_',
+    seedOffset: 12345,
+    minDist: 4, maxDist: 8,
+    extraMin: 3, extraFactor: 0.8,
+    codes: true,              // le sigle (RM, MI…) valgono come nomi
+    // Nomi alternativi accettati in input (oltre al nome ufficiale e alla sigla).
+    aliases: {
+      AO: ['aosta', "valle d'aosta"],
+      BZ: ['bolzano', 'bozen', 'alto adige', 'sudtirol'],
+      FC: ['forli', 'cesena'],
+      MB: ['monza', 'brianza', 'monza e brianza'],
+      MS: ['massa', 'carrara'],
+      PU: ['pesaro', 'urbino'],
+      RC: ['reggio calabria'],
+      RE: ['reggio emilia'],
+      VB: ['verbania', 'vco'],
+      BT: ['barletta', 'andria', 'trani', 'bat'],
+      SP: ['spezia'],
+      AQ: ['aquila'],
+      OT: ['gallura', 'olbia', 'tempio', 'olbia tempio', 'nord est sardegna'],
+      OG: ['lanusei', 'tortoli'],
+      VS: ['sanluri', 'villacidro'],
+      CI: ['sulcis', 'carbonia', 'iglesias', 'carbonia iglesias'],
+    },
+  },
+  milano: {
+    tab: 'Milano e Brianza',
+    title: 'Comuni di Milano e Brianza',
+    heading: 'Milano <span>e Brianza</span>',
+    file: 'data/milano.json',
+    one: 'comune', many: 'comuni',
+    placeholder: 'Scrivi un comune…',
+    unknown: 'Comune non riconosciuto',
+    already: 'è già stato inserito',
+    ambiguous: 'Più comuni corrispondono: scegline uno dalla lista',
+    linksNote: '🛣️ San Colombano al Lambro è staccato dal resto della città metropolitana: il tratteggio che lo unisce a San Zenone al Lambro conta come un confine.',
+    zoomIcon: '🗺️', zoomTitle: 'Mostra tutta la mappa',
+    storagePrefix: 'pi_milano_',
+    seedOffset: 54321,
+    minDist: 4, maxDist: 8,
+    extraMin: 4, extraFactor: 1,
+    codes: false,
+    aliases: {},
+  },
 };
+const DEFAULT_MAP = 'italia';
 
 const EMOJI = { 'g-ok': '🟩', 'g-near': '🟧', 'g-far': '🟥', hint: '💡' };
 const DAILY_EPOCH = new Date(2024, 0, 1);
-const MIN_DIST = 4;            // distanza minima (in confini) tra partenza e arrivo
-const MAX_DIST = 8;
-const STATS_KEY = 'pi_stats_v1';
-const DAILY_PREFIX = 'pi_daily_';
 const REDUCED_MOTION = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ---------- Stato ----------
+let mapKey = DEFAULT_MAP;
+let MAP = MAPS[DEFAULT_MAP];
 let DATA = null;
-const NB = {};                 // sigla -> [sigle confinanti]
-const SIGLAS = [];
-const NAME_INDEX = {};         // testo normalizzato -> sigla (corrispondenze esatte)
-const SEARCH_KEYS = [];        // [{sigla, key}] per l'autocompletamento
+let NB = {};                   // id -> [id confinanti]
+let SIGLAS = [];
+let NAME_INDEX = {};           // testo normalizzato -> id (corrispondenze esatte)
+let SEARCH_KEYS = [];          // [{sigla, key}] per l'autocompletamento
+const dataCache = {};
 
 let game = null;
 let view = null;               // viewBox corrente [x, y, w, h]
-let showAll = false;           // vista "tutta Italia" invece dello zoom sulla partita
+let showAll = false;           // vista della mappa intera invece dello zoom sulla partita
 let countdownTimer = null;
 
 const $ = (id) => document.getElementById(id);
+const statsKey = () => MAP.storagePrefix + 'stats_v1';
+const dailyPrefix = () => MAP.storagePrefix + 'daily_';
 
 // ---------- Utilità ----------
 // Minuscolo, senza accenti né apostrofi: "L'Aquila" -> "laquila", "Forlì" -> "forli".
@@ -90,8 +134,29 @@ function dailyId() {
   return dayNumber(new Date()) - dayNumber(DAILY_EPOCH) + 1;
 }
 
+function area(sig) { return DATA.areas[sig]; }
+
 function shortName(sig) {
-  return DATA.provinces[sig].name.split('/')[0];
+  return area(sig).name.split('/')[0];
+}
+
+// ---------- URL ----------
+function mapFromUrl() {
+  const key = new URLSearchParams(location.search).get('mappa');
+  return MAPS[key] ? key : DEFAULT_MAP;
+}
+
+function urlFor(params = {}) {
+  const q = new URLSearchParams();
+  if (mapKey !== DEFAULT_MAP) q.set('mappa', mapKey);
+  for (const [k, v] of Object.entries(params)) q.set(k, v);
+  const s = q.toString();
+  return location.pathname + (s ? '?' + s : '');
+}
+
+function syncUrl(params) {
+  const next = urlFor(params);
+  if (next !== location.pathname + location.search) history.replaceState(null, '', next);
 }
 
 // ---------- Grafo ----------
@@ -133,7 +198,7 @@ function connected(a, b, allowed) {
 }
 
 // Il modo più economico per completare il percorso partendo da ciò che il
-// giocatore ha già inserito: attraversare una provincia già nota costa 0,
+// giocatore ha già inserito: attraversare un'area già nota costa 0,
 // qualsiasi altra costa 1 (BFS 0-1).
 function bestCompletion() {
   const owned = ownedSet();
@@ -157,28 +222,37 @@ function bestCompletion() {
 }
 
 // ---------- Dati ----------
-async function loadData() {
-  const res = await fetch('data/game_data.json');
-  if (!res.ok) throw new Error('HTTP ' + res.status);
-  DATA = await res.json();
-  for (const sig in DATA.provinces) {
-    NB[sig] = DATA.provinces[sig].neighbors.slice();
+async function loadData(key) {
+  if (!dataCache[key]) {
+    const res = await fetch(MAPS[key].file);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    dataCache[key] = await res.json();
+  }
+  mapKey = key;
+  MAP = MAPS[key];
+  DATA = dataCache[key];
+  NB = {};
+  SIGLAS = [];
+  NAME_INDEX = {};
+  SEARCH_KEYS = [];
+  for (const sig in DATA.areas) {
+    NB[sig] = DATA.areas[sig].neighbors.slice();
     SIGLAS.push(sig);
   }
-  for (const [a, b] of DATA.sea_edges) {
+  for (const [a, b] of DATA.links) {
     if (!NB[a].includes(b)) NB[a].push(b);
     if (!NB[b].includes(a)) NB[b].push(a);
   }
   for (const sig of SIGLAS) {
-    const p = DATA.provinces[sig];
-    const names = [p.name, ...p.name.split('/'), ...(ALIASES[sig] || [])];
+    const p = area(sig);
+    const names = [p.name, ...p.name.split('/'), ...(MAP.aliases[sig] || [])];
     const keys = new Set([...names.map(norm), ...names.map(normSpaced)]);
-    for (const key of keys) {
-      if (!key) continue;
-      NAME_INDEX[key] = sig;
-      SEARCH_KEYS.push({ sigla: sig, key });
+    for (const k of keys) {
+      if (!k) continue;
+      NAME_INDEX[k] = sig;
+      SEARCH_KEYS.push({ sigla: sig, key: k });
     }
-    NAME_INDEX[norm(sig)] = sig;
+    if (MAP.codes) NAME_INDEX[norm(sig)] = sig;
   }
 }
 
@@ -187,7 +261,7 @@ function pickPuzzle(rng) {
   for (let tries = 0; tries < 500; tries++) {
     const start = SIGLAS[Math.floor(rng() * SIGLAS.length)];
     const dist = bfs(start);
-    const candidates = SIGLAS.filter(s => dist[s] >= MIN_DIST && dist[s] <= MAX_DIST);
+    const candidates = SIGLAS.filter(s => dist[s] >= MAP.minDist && dist[s] <= MAP.maxDist);
     if (candidates.length) return { start, end: candidates[Math.floor(rng() * candidates.length)] };
   }
   throw new Error('nessun puzzle valido');
@@ -206,7 +280,7 @@ function makeGame(mode, fixed) {
   if (mode === 'daily') {
     id = dailyId();
     const dn = dayNumber(new Date());
-    puzzle = pickPuzzle(mulberry32(dn * 2654435761 % 2147483647 + 12345));
+    puzzle = pickPuzzle(mulberry32(dn * 2654435761 % 2147483647 + MAP.seedOffset));
     label = 'Puzzle #' + id;
   } else {
     puzzle = fixed || pickPuzzle(mulberry32((Math.random() * 2 ** 32) >>> 0));
@@ -215,8 +289,8 @@ function makeGame(mode, fixed) {
   const distStart = bfs(puzzle.start);
   const distEnd = bfs(puzzle.end);
   const opt = distStart[puzzle.end];
-  const needed = opt - 1;                       // province intermedie minime
-  const extra = Math.max(3, Math.round(needed * 0.8));
+  const needed = opt - 1;                       // aree intermedie minime
+  const extra = Math.max(MAP.extraMin, Math.round(needed * MAP.extraFactor));
   return {
     mode, id, label,
     start: puzzle.start, end: puzzle.end, opt, needed,
@@ -245,7 +319,7 @@ function revealedList() {
   return [...new Set(list)];
 }
 
-// Colore in base a quanto la provincia allunga il percorso ottimale.
+// Colore in base a quanto l'area allunga il percorso ottimale.
 function colorFor(sig) {
   const detour = game.distStart[sig] + game.distEnd[sig] - game.opt;
   if (detour <= 0) return 'g-ok';
@@ -255,35 +329,25 @@ function colorFor(sig) {
 
 // ---------- Mappa ----------
 function buildMap() {
-  const P = DATA.provinces;
   $('layer-prov').innerHTML = SIGLAS.map(s =>
-    `<path class="prov" id="p-${s}" data-sig="${s}" d="${P[s].path}"/>`).join('');
-  $('layer-regions').innerHTML = Object.values(DATA.regions).map(d =>
+    `<path class="prov" id="p-${s}" data-sig="${s}" d="${area(s).path}"/>`).join('');
+  $('layer-regions').innerHTML = Object.values(DATA.groups).map(d =>
     `<path class="region" d="${d}"/>`).join('');
-  $('layer-sea').innerHTML = DATA.sea_edges.map(([a, b]) => {
-    const pa = P[a], pb = P[b];
+  $('layer-sea').innerHTML = DATA.links.map(([a, b, icon]) => {
+    const pa = area(a), pb = area(b);
     const mx = (pa.lx + pb.lx) / 2, my = (pa.ly + pb.ly) / 2;
     return `<g class="sea" data-a="${a}" data-b="${b}">` +
            `<line class="sea-edge" x1="${pa.lx}" y1="${pa.ly}" x2="${pb.lx}" y2="${pb.ly}"/>` +
-           `<text class="ferry" x="${mx}" y="${my}">⛴️</text></g>`;
+           `<text class="ferry" x="${mx}" y="${my}">${icon}</text></g>`;
   }).join('');
-
-  const svg = $('map');
-  svg.addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') showTooltip(e); });
-  svg.addEventListener('pointerleave', hideTooltip);
-  svg.addEventListener('click', (e) => {
-    showTooltip(e);
-    clearTimeout(showTooltip.timer);
-    showTooltip.timer = setTimeout(hideTooltip, 1800);
-  });
 }
 
 function showTooltip(e) {
   const sig = e.target.dataset && e.target.dataset.sig;
   const tip = $('tooltip');
   if (!sig || !game || !revealedList().includes(sig)) { tip.hidden = true; return; }
-  const p = DATA.provinces[sig];
-  tip.innerHTML = `${esc(p.name)} <small>${esc(p.region)}</small>`;
+  const p = area(sig);
+  tip.innerHTML = `${esc(p.name)} <small>${esc(p.group)}</small>`;
   const rect = $('map-wrap').getBoundingClientRect();
   tip.style.left = (e.clientX - rect.left) + 'px';
   tip.style.top = (e.clientY - rect.top) + 'px';
@@ -291,8 +355,8 @@ function showTooltip(e) {
 }
 function hideTooltip() { $('tooltip').hidden = true; }
 
-// Nel quotidiano in corso la mappa è nascosta: si vedono solo le province già
-// scoperte. A fine partita (e in allenamento) compare tutta l'Italia.
+// Nel quotidiano in corso la mappa è nascosta: si vedono solo le aree già
+// scoperte. A fine partita (e in allenamento) compare tutta la mappa.
 const isFogged = () => game.mode === 'daily' && !game.over;
 
 function paintMap() {
@@ -317,24 +381,41 @@ function paintMap() {
     if (solution.has(sig)) cls.push('path-hl');
     $('p-' + sig).setAttribute('class', cls.join(' '));
   }
-  $('layer-labels').innerHTML = revealedList().map(s => {
-    const p = DATA.provinces[s];
+  // Ordine di priorità: partenza, arrivo, poi le mosse dalla più recente.
+  const order = [...new Set([game.start, game.end, ...game.moves.map(m => m.sigla).reverse(), ...shown])];
+  $('layer-labels').innerHTML = order.map(s => {
+    const p = area(s);
     return `<text class="label" x="${p.lx}" y="${p.ly}">${esc(shortName(s))}</text>`;
   }).join('');
   updateLabelSize();
 }
 
+// Nasconde le etichette che si sovrappongono a una con priorità più alta.
+// Il nome resta disponibile toccando l'area e nell'elenco delle mosse.
+function declutterLabels() {
+  const kept = [];
+  for (const el of $('layer-labels').children) {
+    el.classList.remove('hidden');
+    const b = el.getBBox();
+    if (!b.width) continue;
+    const clash = kept.some(k => b.x < k.x + k.width && k.x < b.x + b.width &&
+                                 b.y < k.y + k.height && k.y < b.y + b.height);
+    if (clash) el.classList.add('hidden');
+    else kept.push(b);
+  }
+}
+
 function bboxOf(sigs) {
   let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
   for (const s of sigs) {
-    const b = DATA.provinces[s].bbox;
+    const b = area(s).bbox;
     x0 = Math.min(x0, b[0]); y0 = Math.min(y0, b[1]);
     x1 = Math.max(x1, b[2]); y1 = Math.max(y1, b[3]);
   }
   return [x0, y0, x1 - x0, y1 - y0];
 }
 
-// Adatta un riquadro alle proporzioni del contenitore, senza uscire dall'Italia intera.
+// Adatta un riquadro alle proporzioni del contenitore.
 function fitToWrap(box) {
   const wrap = $('map-wrap');
   const ratio = (wrap.clientWidth / wrap.clientHeight) || 1;
@@ -369,6 +450,7 @@ function updateLabelSize() {
   const unitsPerPx = view[2] / px;
   $('layer-labels').setAttribute('font-size', (13 * unitsPerPx).toFixed(2));
   $('layer-sea').setAttribute('font-size', (14 * unitsPerPx).toFixed(2));
+  declutterLabels();
 }
 
 function updateZoom(animate = true) {
@@ -387,19 +469,37 @@ function updateZoom(animate = true) {
   updateZoom.raf = requestAnimationFrame(step);
 }
 
+function renderZoomButton() {
+  const btn = $('btn-zoom');
+  btn.textContent = showAll ? '🔍' : MAP.zoomIcon;
+  btn.title = showAll ? 'Torna alla partita' : MAP.zoomTitle;
+  btn.setAttribute('aria-label', btn.title);
+}
+
 function toggleShowAll() {
   showAll = !showAll;
-  const btn = $('btn-zoom');
-  btn.textContent = showAll ? '🔍' : '🇮🇹';
-  btn.title = showAll ? 'Torna alla partita' : "Mostra tutta l'Italia";
-  btn.setAttribute('aria-label', btn.title);
+  renderZoomButton();
   updateZoom();
 }
 
 // ---------- Interfaccia ----------
+// Testi che dipendono dalla mappa: titolo, schede, input, aiuto.
+function renderMapTexts() {
+  document.title = `${MAP.title} — gioco di percorsi`;
+  $('heading').innerHTML = MAP.heading;
+  for (const btn of document.querySelectorAll('[data-map]')) {
+    btn.setAttribute('aria-selected', String(btn.dataset.map === mapKey));
+  }
+  $('guess-input').placeholder = MAP.placeholder;
+  $('guess-input').setAttribute('aria-label', MAP.placeholder.replace('…', ''));
+  for (const el of document.querySelectorAll('[data-u]')) el.textContent = MAP[el.dataset.u];
+  $('help-links').textContent = MAP.linksNote;
+  $('stats-map').textContent = MAP.tab;
+}
+
 function renderAll() {
-  $('start-name').textContent = DATA.provinces[game.start].name;
-  $('end-name').textContent = DATA.provinces[game.end].name;
+  $('start-name').textContent = area(game.start).name;
+  $('end-name').textContent = area(game.end).name;
   $('puzzle-id').textContent = game.label;
   $('mode-daily').setAttribute('aria-pressed', String(game.mode === 'daily'));
   $('mode-practice').setAttribute('aria-pressed', String(game.mode !== 'daily'));
@@ -419,7 +519,7 @@ function renderAll() {
 
 function renderStatus() {
   $('guess-count').innerHTML =
-    `Tentativi rimasti: <b>${Math.max(0, remaining())}</b> <span class="muted">· minimo ${game.needed} province</span>`;
+    `Tentativi rimasti: <b>${Math.max(0, remaining())}</b> <span class="muted">· minimo ${game.needed} ${MAP.many}</span>`;
   $('progress').innerHTML = Array.from({ length: game.maxGuesses }, (_, i) => {
     const m = game.moves[i];
     const cls = !m ? '' : (m.type === 'hint' ? 'hint' : m.color);
@@ -429,11 +529,11 @@ function renderStatus() {
 
 function renderMoves() {
   $('guesses').innerHTML = game.moves.slice().reverse().map(m => {
-    const p = DATA.provinces[m.sigla];
+    const p = area(m.sigla);
     if (m.type === 'hint') {
       return `<li class="hint-row"><span class="dot hint"></span><span>💡 ${esc(p.name)}</span><span class="reg">suggerimento</span></li>`;
     }
-    return `<li><span class="dot ${m.color}"></span><span>${esc(p.name)}</span><span class="reg">${esc(p.region)}</span></li>`;
+    return `<li><span class="dot ${m.color}"></span><span>${esc(p.name)}</span><span class="reg">${esc(p.group)}</span></li>`;
   }).join('');
 }
 
@@ -457,10 +557,10 @@ function shake() {
 // ---------- Mosse ----------
 function submitGuess(sig) {
   if (game.over) return;
-  if (!sig) { showMessage('Provincia non riconosciuta', 'err'); shake(); return; }
-  const name = DATA.provinces[sig].name;
+  if (!sig) { showMessage(MAP.unknown, 'err'); shake(); return; }
+  const name = area(sig).name;
   if (sig === game.start || sig === game.end) { showMessage(`${name} è già la partenza o l'arrivo`, 'warn'); shake(); return; }
-  if (isGuessed(sig)) { showMessage(`${name} è già stata inserita`, 'warn'); shake(); return; }
+  if (isGuessed(sig)) { showMessage(`${name} ${MAP.already}`, 'warn'); shake(); return; }
 
   game.moves.push({ sigla: sig, type: 'guess', color: colorFor(sig) });
   clearMessage();
@@ -470,13 +570,13 @@ function submitGuess(sig) {
 function giveHint() {
   if (game.over) return;
   const pending = game.moves.find(m => m.type === 'hint' && !isGuessed(m.sigla));
-  if (pending) { showMessage(`Hai già un suggerimento: prova con ${DATA.provinces[pending.sigla].name}!`, 'info'); return; }
+  if (pending) { showMessage(`Hai già un suggerimento: prova con ${area(pending.sigla).name}!`, 'info'); return; }
   if (remaining() <= 1) { showMessage('Non hai abbastanza tentativi per un suggerimento', 'warn'); return; }
   const sig = bestCompletion()[0];
   if (!sig) return;
   game.moves.push({ sigla: sig, type: 'hint' });
-  const p = DATA.provinces[sig];
-  showMessage(`💡 Prova con ${p.name} (${p.region})`, 'info');
+  const p = area(sig);
+  showMessage(`💡 Prova con ${p.name} (${p.group})`, 'info');
   afterMove();
 }
 
@@ -520,7 +620,8 @@ function onGiveUpClick() {
 
 function finish() {
   recordStats();
-  setTimeout(showResult, REDUCED_MOTION ? 0 : 700);
+  const shown = game;
+  setTimeout(() => { if (game === shown) showResult(); }, REDUCED_MOTION ? 0 : 700);
 }
 
 // ---------- Risultato e condivisione ----------
@@ -530,7 +631,7 @@ function scoreText() {
 }
 
 function showResult() {
-  const route = `${DATA.provinces[game.start].name} → ${DATA.provinces[game.end].name}`;
+  const route = `${area(game.start).name} → ${area(game.end).name}`;
   let title;
   if (game.won) title = overPar() <= 0 ? '🏆 Perfetto!' : '✅ Completato!';
   else title = game.gaveUp ? '🏳️ Ti sei arreso' : '😞 Tentativi esauriti';
@@ -539,8 +640,8 @@ function showResult() {
   $('result-grid').textContent = game.moves.map(m => EMOJI[m.type === 'hint' ? 'hint' : m.color]).join('') || '—';
 
   const path = shortestPath(game.start, game.end);
-  $('result-path').innerHTML = `<b>Un percorso ideale (${game.needed} province):</b><br>` +
-    path.map(s => `<span class="step">${esc(DATA.provinces[s].name)}</span>`).join(' <span class="sep">›</span> ');
+  $('result-path').innerHTML = `<b>Un percorso ideale (${game.needed} ${MAP.many}):</b><br>` +
+    path.map(s => `<span class="step">${esc(area(s).name)}</span>`).join(' <span class="sep">›</span> ');
 
   $('btn-practice').textContent = game.mode === 'daily' ? '🎲 Allenamento' : '🎲 Nuova partita';
   $('share-ok').hidden = true;
@@ -573,15 +674,15 @@ function startCountdown() {
 
 function gameUrl() {
   if (!/^https?:/.test(location.protocol)) return '';
-  const base = location.origin + location.pathname;
-  return game.mode === 'daily' ? base : `${base}?da=${game.start}&a=${game.end}`;
+  const params = game.mode === 'daily' ? {} : { da: game.start, a: game.end };
+  return location.origin + urlFor(params);
 }
 
 function shareText() {
   const head = game.mode === 'daily'
-    ? `Province Italiane #${game.id} · ${scoreText()}`
-    : `Province Italiane (${game.label.toLowerCase()}) · ${scoreText()}`;
-  const route = `${DATA.provinces[game.start].name} → ${DATA.provinces[game.end].name}`;
+    ? `${MAP.title} #${game.id} · ${scoreText()}`
+    : `${MAP.title} (${game.label.toLowerCase()}) · ${scoreText()}`;
+  const route = `${area(game.start).name} → ${area(game.end).name}`;
   const grid = game.moves.map(m => EMOJI[m.type === 'hint' ? 'hint' : m.color]).join('');
   return [head, route, `${grid} (${game.moves.length}/${game.maxGuesses})`, gameUrl()].filter(Boolean).join('\n');
 }
@@ -626,7 +727,7 @@ function defaultStats() {
 }
 
 function loadStats() {
-  const s = Object.assign(defaultStats(), store.get(STATS_KEY, {}));
+  const s = Object.assign(defaultStats(), store.get(statsKey(), {}));
   // compatibilità con la versione precedente, che non salvava lastWonId
   if (s.lastWonId == null && s.streak > 0) s.lastWonId = s.lastDailyId;
   return s;
@@ -649,7 +750,7 @@ function recordStats() {
     s.dist.X = (s.dist.X || 0) + 1;
   }
   s.lastDailyId = game.id;
-  store.set(STATS_KEY, s);
+  store.set(statsKey(), s);
 }
 
 function renderStats() {
@@ -677,14 +778,14 @@ function renderStats() {
 // ---------- Salvataggio della partita quotidiana ----------
 function saveState() {
   if (game.mode !== 'daily') return;
-  store.set(DAILY_PREFIX + game.id, {
+  store.set(dailyPrefix() + game.id, {
     start: game.start, end: game.end,
     moves: game.moves, over: game.over, won: game.won, gaveUp: game.gaveUp,
   });
 }
 
 function restoreState() {
-  const saved = store.get(DAILY_PREFIX + game.id, null);
+  const saved = store.get(dailyPrefix() + game.id, null);
   // Il salvataggio vale solo se si riferisce allo stesso puzzle.
   if (!saved || saved.start !== game.start || saved.end !== game.end || !Array.isArray(saved.moves)) return;
   game.moves = saved.moves.filter(m => NB[m.sigla]);
@@ -695,8 +796,12 @@ function restoreState() {
 
 function pruneOldStates() {
   const keep = dailyId() - 7;
-  for (const k of store.keys()) {
-    if (k.startsWith(DAILY_PREFIX) && parseInt(k.slice(DAILY_PREFIX.length), 10) < keep) store.remove(k);
+  for (const map of Object.values(MAPS)) {
+    const prefix = map.storagePrefix + 'daily_';
+    for (const k of store.keys()) {
+      const n = k.startsWith(prefix) ? Number(k.slice(prefix.length)) : NaN;
+      if (Number.isInteger(n) && n < keep) store.remove(k);
+    }
   }
 }
 
@@ -704,11 +809,11 @@ function pruneOldStates() {
 let suggestionList = [];
 let activeSug = -1;
 
-// Restituisce [[sigla, punteggio]] ordinati: 0 esatto, 1 inizio, 2 inizio parola, 3 contenuto.
-function searchProvinces(q) {
+// Restituisce [[id, punteggio]] ordinati: 0 esatto, 1 inizio, 2 inizio parola, 3 contenuto.
+function searchAreas(q) {
   const best = new Map();
   const consider = (sig, score) => { if (!best.has(sig) || score < best.get(sig)) best.set(sig, score); };
-  if (NAME_INDEX[q] && q.length <= 2) consider(NAME_INDEX[q], 0);   // sigla esatta
+  if (MAP.codes && NAME_INDEX[q] && q.length <= 2) consider(NAME_INDEX[q], 0);   // sigla esatta
   for (const { sigla, key } of SEARCH_KEYS) {
     if (key === q) consider(sigla, 0);
     else if (key.startsWith(q)) consider(sigla, 1);
@@ -716,19 +821,19 @@ function searchProvinces(q) {
     else if (q.length >= 3 && key.includes(q)) consider(sigla, 3);
   }
   return [...best].sort((a, b) => a[1] - b[1] ||
-    DATA.provinces[a[0]].name.localeCompare(DATA.provinces[b[0]].name, 'it'));
+    area(a[0]).name.localeCompare(area(b[0]).name, 'it'));
 }
 
 const available = (sig) => sig !== game.start && sig !== game.end && !isGuessed(sig);
 
 function updateSuggestions() {
   const q = norm($('guess-input').value);
-  suggestionList = q ? searchProvinces(q).filter(([s]) => available(s)).slice(0, 8).map(([s]) => s) : [];
+  suggestionList = q ? searchAreas(q).filter(([s]) => available(s)).slice(0, 8).map(([s]) => s) : [];
   activeSug = -1;
   const box = $('suggestions');
   box.innerHTML = suggestionList.map((s, i) => {
-    const p = DATA.provinces[s];
-    return `<li id="sug-${i}" role="option" data-sig="${s}"><span>${esc(p.name)}</span><span class="reg">${esc(p.region)}</span></li>`;
+    const p = area(s);
+    return `<li id="sug-${i}" role="option" data-sig="${s}"><span>${esc(p.name)}</span><span class="reg">${esc(p.group)}</span></li>`;
   }).join('');
   setSuggestionsOpen(suggestionList.length > 0);
 }
@@ -751,7 +856,7 @@ function resolveTyped(raw) {
   const q = norm(raw);
   if (!q) return { empty: true };
   if (NAME_INDEX[q]) return { sig: NAME_INDEX[q] };
-  const found = searchProvinces(q);
+  const found = searchAreas(q);
   const open = found.filter(([s]) => available(s));
   if (open.length === 1) return { sig: open[0][0] };
   if (open.length > 1 && open[0][1] < open[1][1]) return { sig: open[0][0] };
@@ -771,7 +876,7 @@ function onSubmit(e) {
   if (activeSug >= 0) { pick(suggestionList[activeSug]); return; }
   const r = resolveTyped($('guess-input').value);
   if (r.empty) return;
-  if (r.ambiguous) { showMessage('Più province corrispondono: scegline una dalla lista', 'warn'); return; }
+  if (r.ambiguous) { showMessage(MAP.ambiguous, 'warn'); return; }
   pick(r.sig);
 }
 
@@ -795,10 +900,10 @@ function startGame(mode, fixed) {
   game = makeGame(mode, fixed);
   if (mode === 'daily') {
     restoreState();
-    if (location.search) history.replaceState(null, '', location.pathname);
+    syncUrl();
   }
   showAll = false;
-  $('btn-zoom').textContent = '🇮🇹';
+  renderZoomButton();
   clearMessage();
   setSuggestionsOpen(false);
   $('guess-input').value = '';
@@ -808,16 +913,37 @@ function startGame(mode, fixed) {
 
 function newPractice() {
   closeModals(false);
-  if (location.search) history.replaceState(null, '', location.pathname);
+  syncUrl();
   startGame('practice');
   $('guess-input').focus();
 }
 
+async function switchMap(key) {
+  if (key === mapKey && game) return;
+  closeModals(false);
+  await loadData(key);
+  view = null;
+  buildMap();
+  renderMapTexts();
+  syncUrl();
+  startGame('daily');
+}
+
 function init() {
   buildMap();
+  renderMapTexts();
   pruneOldStates();
   const challenge = puzzleFromUrl();
   startGame(challenge ? 'practice' : 'daily', challenge);
+
+  const svg = $('map');
+  svg.addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse') showTooltip(e); });
+  svg.addEventListener('pointerleave', hideTooltip);
+  svg.addEventListener('click', (e) => {
+    showTooltip(e);
+    clearTimeout(showTooltip.timer);
+    showTooltip.timer = setTimeout(hideTooltip, 1800);
+  });
 
   $('guess-form').addEventListener('submit', onSubmit);
   const input = $('guess-input');
@@ -837,6 +963,9 @@ function init() {
     if (li) pick(li.dataset.sig);
   });
 
+  for (const btn of document.querySelectorAll('[data-map]')) {
+    btn.addEventListener('click', () => switchMap(btn.dataset.map).catch(showLoadError));
+  }
   $('btn-hint').addEventListener('click', giveHint);
   $('btn-giveup').addEventListener('click', onGiveUpClick);
   $('btn-show-result').addEventListener('click', showResult);
@@ -869,7 +998,9 @@ function init() {
   }
 }
 
-loadData().then(init).catch(err => {
+function showLoadError(err) {
   document.querySelector('main').innerHTML =
     `<p class="load-error">Errore nel caricamento dei dati: ${esc(err.message)}</p>`;
-});
+}
+
+loadData(mapFromUrl()).then(init).catch(showLoadError);
