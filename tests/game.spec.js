@@ -70,6 +70,20 @@ test('in allenamento la mappa è sempre completa', async ({ page }) => {
   await expect(page.locator('.prov:not(.hidden)')).toHaveCount(110);
 });
 
+test('il pulsante per il caffè porta al PayPal in una nuova scheda', async ({ page }) => {
+  await open(page, CHALLENGE);
+  const links = page.locator('a.coffee');
+  await expect(links.first()).toBeVisible();
+  for (const link of await links.all()) {
+    await expect(link).toHaveAttribute('href', 'https://paypal.me/mastercruelty');
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', /noopener/);
+  }
+  await page.click('#btn-giveup');
+  await page.click('#btn-giveup');
+  await expect(page.locator('#result-modal a.coffee')).toBeVisible();
+});
+
 test('l\'aiuto compare alla prima visita e si chiude con Esc', async ({ browser }) => {
   const page = await browser.newPage();
   await page.goto('/');
