@@ -225,6 +225,17 @@
    "https://www.cavesbranch.com/great-blue-hole-of-belize/"
   ]
  },
+ "BOL": {
+  "facts": [
+   "Il paese prende il nome da Simón Bolívar: nel 1825 fu proclamato come \"Repubblica di Bolívar\", poi divenuta Bolivia.",
+   "La capitale costituzionale è Sucre, sede del potere giudiziario, mentre governo e parlamento si trovano a La Paz, a circa 3.600 metri di quota."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bolivia",
+   "https://en.wikipedia.org/wiki/Sucre",
+   "https://en.wikipedia.org/wiki/La_Paz"
+  ]
+ },
  "BRA": {
   "facts": [
    "Il Brasile prende il nome dal pau-brasil, albero da cui si ricavava una tintura rossa: \"brasil\" deriva da \"brasa\", brace, per il colore.",
@@ -244,6 +255,16 @@
    "https://www.royalwestmoreland.com/blog/uncategorised/interesting-facts-about-barbados/",
    "https://www.tastingtable.com/971998/grapefruit-was-once-called-the-forbidden-fruit/",
    "https://ttao.ca/news--info/the-origin-of-the-grapefruit-a-bajan-story"
+  ]
+ },
+ "BRN": {
+  "facts": [
+   "Il nome ufficiale è Negara Brunei Darussalam: \"Darussalam\" in arabo significa \"dimora della pace\".",
+   "Kampong Ayer, nella capitale Bandar Seri Begawan, è un insieme di villaggi su palafitte sul fiume Brunei, abitato da secoli e detto \"Venezia d'Oriente\"."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Brunei",
+   "https://en.wikipedia.org/wiki/Kampong_Ayer"
   ]
  },
  "BTN": {
@@ -433,6 +454,18 @@
    "https://factretriever.com/germany-facts"
   ]
  },
+ "DJI": {
+  "facts": [
+   "Il lago Assal, circa 155 metri sotto il livello del mare, è il punto più basso dell'Africa ed è più salato del Mar Morto.",
+   "Prima dell'indipendenza del 1977 era una colonia francese chiamata Somalia francese e, dal 1967, Territorio francese degli Afar e degli Issa."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Lake_Assal_(Djibouti)",
+   "https://www.britannica.com/place/Lake-Assal",
+   "https://en.wikipedia.org/wiki/History_of_Djibouti",
+   "https://www.britannica.com/topic/history-of-Djibouti"
+  ]
+ },
  "DMA": {
   "facts": [
    "Il Boiling Lake, nel parco nazionale Morne Trois Pitons (patrimonio UNESCO), è il secondo lago bollente più grande del mondo: una fessura allagata da cui risalgono gas vulcanici.",
@@ -543,6 +576,16 @@
    "https://www.thejakartapost.com/life/2020/12/18/unesco-puts-finnish-sauna-culture-on-heritage-list.html"
   ]
  },
+ "FJI": {
+  "facts": [
+   "L'isola di Taveuni è uno dei pochi luoghi in cui il 180° meridiano attraversa terre emerse; la linea del cambiamento di data però devia per lasciare tutte le Figi nello stesso giorno.",
+   "La prima medaglia olimpica delle Figi è stata l'oro nel rugby a 7 maschile ai Giochi di Rio 2016."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Taveuni",
+   "https://en.wikipedia.org/wiki/Fiji_at_the_Olympics"
+  ]
+ },
  "FRA": {
   "facts": [
    "Il cinematografo nacque a Lione, dove i fratelli Lumière lo misero a punto; tra le invenzioni francesi si contano anche la macchina da cucire e l'alfabeto Braille.",
@@ -562,6 +605,18 @@
    "https://www.globalsecurity.org/military/world/oceania/fsm-history.htm",
    "https://blog.hmns.org/?p=18024",
    "https://en.wikivoyage.org/wiki/Federated_States_of_Micronesia"
+  ]
+ },
+ "GAB": {
+  "facts": [
+   "A Oklo, circa due miliardi di anni fa, alcuni giacimenti di uranio funzionarono come reattori nucleari naturali; lo scoprirono i francesi nel 1972.",
+   "A Lambaréné, su un'isola del fiume Ogooué, Albert Schweitzer fondò nel 1913 l'ospedale dove lavorò per decenni e dove è sepolto."
+  ],
+  "sources": [
+   "https://encycloreader.org/r/wikidoc.php?q=Oklo",
+   "https://www.businessinsider.in/2-billion-years-ago-nature-built-the-first-nuclear-reactor-heres-how-it-worked/articleshow/52573192.cms",
+   "https://www.britannica.com/place/Lambarene",
+   "https://en.wikipedia.org/wiki/Albert_Schweitzer"
   ]
  },
  "GBR": {
@@ -603,6 +658,16 @@
   "sources": [
    "https://en.wikipedia.org/wiki/Tembakounda",
    "https://documents.worldbank.org/pt/publication/documents-reports/documentdetail/399711520435836338"
+  ]
+ },
+ "GMB": {
+  "facts": [
+   "È il più piccolo stato dell'Africa continentale: una striscia larga meno di 50 km lungo il fiume Gambia, quasi interamente circondata dal Senegal.",
+   "I confini furono fissati nel 1889 da un accordo tra Regno Unito e Francia; la storia che seguano la gittata dei cannoni è una leggenda senza prove."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/The_Gambia",
+   "https://en.wikipedia.org/wiki/Geography_of_the_Gambia"
   ]
  },
  "GNB": {
@@ -795,6 +860,17 @@
    "https://www.geopop.it/il-curioso-caso-delle-enclavi-stati-dentro-altri-stati-ne-esistono-solo-tre-al-mondo/"
   ]
  },
+ "JAM": {
+  "facts": [
+   "Il nome deriva dal taíno Xaymaca, interpretato come \"terra del legno e dell'acqua\" o \"terra delle sorgenti\".",
+   "Port Royal, porto dei bucanieri, fu in gran parte inghiottita dal mare nel terremoto del 7 giugno 1692; dopo il disastro fu fondata Kingston."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Jamaica",
+   "https://en.wikipedia.org/wiki/Port_Royal",
+   "https://www.britannica.com/place/Kingston-Jamaica"
+  ]
+ },
  "JOR": {
   "facts": [
    "Petra, la città dei Nabatei, ha centinaia di tombe e templi scolpiti direttamente nelle pareti di arenaria.",
@@ -942,6 +1018,18 @@
    "https://kids.nationalgeographic.com/geography/countries/article/libya"
   ]
  },
+ "LCA": {
+  "facts": [
+   "Ha dato due premi Nobel: Arthur Lewis per l'economia nel 1979 e il poeta Derek Walcott per la letteratura nel 1992.",
+   "Prende il nome da santa Lucia di Siracusa ed è tra i pochi stati intitolati a una figura femminile."
+  ],
+  "sources": [
+   "https://www.britannica.com/place/Saint-Lucia",
+   "https://en.wikipedia.org/wiki/List_of_Nobel_laureates_by_country",
+   "https://en.wikipedia.org/wiki/List_of_countries_named_after_people",
+   "https://en.wikipedia.org/wiki/Saint_Lucy"
+  ]
+ },
  "LIE": {
   "facts": [
    "Il Liechtenstein è uno dei due soli Stati doppiamente senza sbocco al mare (l'altro è l'Uzbekistan): anche i suoi vicini, Svizzera e Austria, non hanno coste."
@@ -970,6 +1058,28 @@
    "https://geographyworlds.com/blog/top-10-facts-lesotho/"
   ]
  },
+ "LTU": {
+  "facts": [
+   "Il Granducato di Lituania fu l'ultimo stato pagano d'Europa: la conversione al cristianesimo iniziò nel 1386 con Jogaila e si completò in Samogizia nel 1413.",
+   "Nel 1989 un geografo francese calcolò che il centro geografico dell'Europa si trova in Lituania, circa 26 km a nord di Vilnius."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Lithuania",
+   "https://en.wikipedia.org/wiki/Christianization_of_Lithuania"
+  ]
+ },
+ "LUX": {
+  "facts": [
+   "Il nome deriva da Lucilinburhuc, piccola fortezza sulla rocca acquistata nel 963 dal conte Sigfrido; la città fu poi così fortificata da essere detta \"Gibilterra del Nord\".",
+   "È l'unico granducato sovrano rimasto al mondo: il rango di granducato fu stabilito dal Congresso di Vienna nel 1815."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/History_of_Luxembourg",
+   "https://en.wikipedia.org/wiki/Fortress_of_Luxembourg",
+   "https://en.wikipedia.org/wiki/Outline_of_Luxembourg",
+   "https://www.britannica.com/place/Luxembourg/History"
+  ]
+ },
  "LVA": {
   "facts": [
    "Riga rivendica il primo albero di Natale decorato, eretto nel 1510 dalla Confraternita delle Teste Nere; Tallinn contesta il primato con un albero del 1441."
@@ -977,6 +1087,17 @@
   "sources": [
    "https://www.lrt.lt/en/news-in-english/19/1302535/was-the-first-ever-christmas-tree-put-up-in-the-baltics",
    "https://www.medievalists.net/2023/12/first-christmas-tree"
+  ]
+ },
+ "MAR": {
+  "facts": [
+   "Nel 1777 il sultano Mohammed III fu il primo sovrano a riconoscere l'indipendenza degli Stati Uniti; il trattato di amicizia del 1786 è tuttora in vigore.",
+   "L'università al-Qarawiyyin di Fès, nata da una moschea fondata nel IX secolo da Fatima al-Fihri, è considerata la più antica istituzione di studi superiori ancora attiva."
+  ],
+  "sources": [
+   "https://www.britannica.com/topic/Morocco-and-recognition-of-the-United-States",
+   "https://en.wikipedia.org/wiki/Fatima_al-Fihriya",
+   "https://en.wikipedia.org/wiki/F%C3%A9s"
   ]
  },
  "MCO": {
@@ -1044,6 +1165,18 @@
   "sources": [
    "https://www.globotreks.com/destinations/macedonia/14-facts-you-might-not-know-about-macedonia/",
    "https://www.atlanticcouncil.org/blogs/new-atlanticist/seven-things-you-should-know-about-macedonia/"
+  ]
+ },
+ "MLI": {
+  "facts": [
+   "La Grande Moschea di Djenné è la più grande costruzione in fango del mondo: ogni anno gli abitanti ne rinnovano le pareti con nuovo intonaco di argilla.",
+   "A Timbuctù la moschea di Djinguereber è attribuita dalle cronache a Mansa Musa, sovrano dell'impero del Mali celebre per il ricchissimo pellegrinaggio alla Mecca."
+  ],
+  "sources": [
+   "https://www.britannica.com/place/Djenne",
+   "https://en.wikipedia.org/wiki/Timbuktu",
+   "https://en.wikipedia.org/wiki/Mansa_Musa",
+   "https://www.britannica.com/biography/Musa-I-of-Mali"
   ]
  },
  "MLT": {
@@ -1115,6 +1248,26 @@
   "sources": [
    "https://www.historyhit.com/the-tragic-tale-of-the-dodo-bird-facts-about-how-human-interference-led-to-its-extinction/",
    "https://wikipedia.com/wiki/Blue_Mauritius"
+  ]
+ },
+ "MWI": {
+  "facts": [
+   "Il nome Malawi richiama il regno dei Maravi, popolo bantu giunto nella regione intorno al 1400, e viene associato al significato di \"fiamme\".",
+   "Il lago Malawi è detto \"lago delle stelle\"; il Parco nazionale del lago Malawi, a Cape Maclear, è patrimonio UNESCO e protegge centinaia di specie di ciclidi che non vivono altrove."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/The_Warm_Heart_of_Africa",
+   "https://en.wikipedia.org/wiki/Tourism_in_Malawi"
+  ]
+ },
+ "MYS": {
+  "facts": [
+   "Il re, Yang di-Pertuan Agong, è eletto per cinque anni dai nove sovrani ereditari degli stati malesi, che si alternano sul trono.",
+   "Le Torri Petronas di Kuala Lumpur, 88 piani, furono gli edifici più alti del mondo dal 1998 al 2004; la pianta riprende una stella a otto punte dell'arte islamica."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Malaysia",
+   "https://en.wikipedia.org/wiki/Petronas_Towers"
   ]
  },
  "NAM": {
@@ -1629,6 +1782,16 @@
    "https://koryogroup.com/blog/timor-leste-name-meaning-east-east"
   ]
  },
+ "TON": {
+  "facts": [
+   "È l'unica monarchia indigena sopravvissuta nel Pacifico e l'unico stato insulare dell'area mai colonizzato formalmente, pur essendo stato protettorato britannico dal 1900 al 1970.",
+   "James Cook, che vi sbarcò negli anni Settanta del Settecento, le chiamò \"Isole degli Amici\" per l'accoglienza ricevuta."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Tonga",
+   "https://www.britannica.com/place/Tonga/History"
+  ]
+ },
  "TTO": {
   "facts": [
    "Lo steelpan, strumento ricavato da fusti metallici, è nato a Trinidad e Tobago ed è considerato l'unico nuovo strumento acustico del XX secolo diffuso in tutto il mondo.",
@@ -1693,6 +1856,17 @@
    "https://altezzatravel.com/articles/15-interesting-facts-about-tanzania"
   ]
  },
+ "UGA": {
+  "facts": [
+   "Nel 1862 l'esploratore John Speke individuò nelle cascate Ripon, presso Jinja, il punto in cui il Nilo esce dal lago Vittoria; le cascate furono poi sommerse da una diga.",
+   "I monti Ruwenzori, al confine con il Congo, sono identificati con i \"Monti della Luna\" descritti da Tolomeo nel II secolo come origine del Nilo."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ripon_Falls",
+   "https://en.wikipedia.org/wiki/Mountains_of_the_Moon_(Africa)",
+   "https://www.britannica.com/place/Ruwenzori-Range"
+  ]
+ },
  "UKR": {
   "facts": [
    "La stazione Arsenalna della metropolitana di Kiev si trova a circa 105 metri di profondità, sotto la riva alta del Dnipro: è tra le stazioni più profonde del mondo e le sue scale mobili durano fino a cinque minuti."
@@ -1700,6 +1874,16 @@
   "sources": [
    "https://en.wikipedia.org/wiki/Arsenalna_(Kyiv_Metro)",
    "https://discover.ua/en/locations/arsenalna-metro-station"
+  ]
+ },
+ "URY": {
+  "facts": [
+   "Ospitò e vinse il primo Mondiale di calcio, nel 1930, battendo l'Argentina 4-2 in finale a Montevideo.",
+   "L'Estadio Centenario, costruito per quel Mondiale, celebra il centenario della prima costituzione uruguaiana ed è stato dichiarato dalla FIFA monumento storico del calcio mondiale."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/1930_FIFA_World_Cup",
+   "https://en.wikipedia.org/wiki/Estadio_Centenario"
   ]
  },
  "USA": {
@@ -1728,6 +1912,17 @@
   "sources": [
    "https://en.wikipedia.org/wiki/Military_in_Vatican_City",
    "https://www.walksinsiderome.com/blog/vatican-fun-facts/"
+  ]
+ },
+ "VCT": {
+  "facts": [
+   "Nel 1793 il capitano William Bligh, quello dell'ammutinamento del Bounty, portò a Kingstown piante di albero del pane dal Pacifico, destinate al giardino botanico fondato nel 1765.",
+   "Dopo le guerre caraibiche contro i britannici, alla fine del Settecento circa 5.000 Garifuna, discendenti di caribi e africani, furono deportati sull'isola di Roatán, in Honduras."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Botanic_Gardens_St._Vincent",
+   "https://en.wikipedia.org/wiki/Saint_Vincent_and_the_Grenadines",
+   "https://en.wikipedia.org/wiki/History_of_Saint_Vincent_and_the_Grenadines"
   ]
  },
  "VEN": {

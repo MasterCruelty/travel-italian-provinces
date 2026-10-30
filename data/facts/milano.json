@@ -1088,6 +1088,16 @@
    "https://lombardiabeniculturali.it/architetture/schede-complete/MI100-07192"
   ]
  },
+ "015219": {
+  "facts": [
+   "Fino al 1862 il paese si chiamava semplicemente Trezzano: la specificazione «Rosa» fu aggiunta dopo l'Unità.",
+   "Una leggenda locale racconta di due famiglie nobili a lungo in lotta, una sotto un vessillo rosso e l'altra sotto uno bianco, quasi un Romeo e Giulietta lombardo."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Trezzano_Rosa",
+   "https://www.ilgiorno.it/milano/cronaca/sulle-tracce-di-teodolinda-i-77929d37"
+  ]
+ },
  "015220": {
   "facts": [
    "Il nome di Trezzano sul Naviglio deriva dall'aggiunta di \"sul Naviglio\" al toponimo Trezzano: il paese è attraversato dal Naviglio Grande.",
@@ -1234,6 +1244,17 @@
   ],
   "sources": [
    "https://www.tuttitalia.it/variazioni-amministrative/nuovo-comune-di-vermezzo-con-zelo/"
+  ]
+ },
+ "108001": {
+  "facts": [
+   "Ad Agrate nacque nel 1897 padre Clemente Vismara, missionario del PIME in Birmania per 65 anni, beatificato a Milano nel 2011.",
+   "Vismara, detto «Patriarca della Birmania», è stato il primo missionario dei tempi moderni beatificato senza essere martire, vescovo o fondatore."
+  ],
+  "sources": [
+   "https://www.asianews.it/it/sud-est-asiatico/myanmar/diventa-beato-p-clemente-vismara-patriarca-della-birmania",
+   "https://www.avvenire.it/chiesa/chiesa-italiana/tre-nuovi-beati-a-milano-vite-al-servizio-degli-altri_7693",
+   "https://en.wikipedia.org/wiki/Agrate_Brianza"
   ]
  },
  "108002": {
@@ -1752,6 +1773,842 @@
   "sources": [
    "https://siviaggia.it/varie/duomo-milano-segreti-curiosita/564063/",
    "https://www.idealista.it/news/node/180145"
+  ]
+ },
+ "MI02": {
+  "facts": [
+   "Il nome deriva da \"braida\", termine di origine longobarda che indicava un campo erboso alle porte della città.",
+   "Sulla braida donata da Algisio del Guercio gli Umiliati costruirono un convento, poi divenuto Palazzo di Brera, sede di Pinacoteca, Accademia e Osservatorio."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Brera,_Milan",
+   "https://www.milanofree.it/milano/turismo/brera-storia-mercatino-e-pinacoteca.html"
+  ]
+ },
+ "MI03": {
+  "facts": [
+   "I Giardini pubblici, progettati da Giuseppe Piermarini e aperti nel 1784, sono il più antico parco pubblico di Milano.",
+   "Per oltre due secoli chiamati Giardini di Porta Venezia, nel 2002 furono intitolati a Indro Montanelli; ospitano il Museo di Storia Naturale e il Planetario Hoepli."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Giardini_Pubblici_Indro_Montanelli",
+   "https://www.comune.milano.it/en/aree-tematiche/verde/verde-pubblico/parchi-cittadini/giardini-indro-montanelli"
+  ]
+ },
+ "MI04": {
+  "facts": [
+   "Il Giardino della Guastalla, nato a metà Cinquecento per volere della contessa Paola Ludovica Torelli, è considerato il più antico giardino pubblico di Milano.",
+   "La contessa di Guastalla vi fondò nel 1557 un collegio per educare le fanciulle di famiglie nobili decadute; il giardino divenne pubblico alla fine degli anni Trenta."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/architetture/schede-complete/1j590-00027",
+   "https://www.comune.milano.it/en/aree-tematiche/verde/verde-pubblico/parchi-cittadini/giardino-della-guastalla",
+   "https://www.milanofree.it/tradizioni/storia/il-giardino-della-guastalla-uno-dei-meno-noti-di-milano.html"
+  ]
+ },
+ "MI05": {
+  "facts": [
+   "Porta Vigentina e l'omonima via prendono il nome da Vigentino, comune rurale autonomo che nel 1869 inglobò Quintosole e Vaiano Valle e fu annesso a Milano nel 1923."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Vigentino",
+   "https://www.milanofree.it/turismo/monumenti/porta-vigentina-a-milano-storia-e-curiosita.html"
+  ]
+ },
+ "MI06": {
+  "facts": [
+   "La piazza davanti alle sedici colonne romane di San Lorenzo fu aperta tra il 1936 e il 1938, demolendo un quartiere popolare di origine medievale.",
+   "Il quartiere ha due Porte Ticinesi: quella medievale vicino alle colonne e quella neoclassica di Luigi Cagnola in piazza XXIV Maggio, del 1801-1814."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/fotografie/schede-complete/IMM-3a130-0005644",
+   "https://en.wikipedia.org/wiki/Porta_Ticinese"
+  ]
+ },
+ "MI07": {
+  "facts": [
+   "Il carcere di San Vittore, inaugurato nel 1879, fu progettato da Francesco Lucca sul modello del panopticon, con sei bracci che partono da un corpo centrale.",
+   "Corso Magenta era il corso di Porta Vercellina: nel 1860 porta e strada furono ribattezzate in onore della battaglia di Magenta del 1859."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/San_Vittore_Prison",
+   "https://lombardiabeniculturali.it/architetture/schede-complete/LMD80-00361",
+   "https://www.milanofree.it/turismo/monumenti/porta-vercellina.html"
+  ]
+ },
+ "MI08": {
+  "facts": [
+   "Il Parco Sempione fu disegnato da Emilio Alemagna all'inglese negli anni 1890 sull'ex piazza d'armi del Castello, inglobando l'Arena Civica e l'Arco della Pace di età napoleonica.",
+   "La Torre Branca, nel Parco Sempione, fu progettata da Gio Ponti nel 1933 con il nome di Torre Littoria."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Parco_Sempione",
+   "https://www.comune.milano.it/en/aree-tematiche/verde/verde-pubblico/parchi-cittadini/parco-sempione"
+  ]
+ },
+ "MI09": {
+  "facts": [
+   "Porta Garibaldi si chiamava Porta Comasina, perché sulla strada per Como; prese il nome attuale nel 1860.",
+   "L'area dell'ex stazione delle Varesine rimase abbandonata per decenni e ospitò un grande luna park, prima del progetto Porta Nuova avviato nel 2009."
+  ],
+  "sources": [
+   "https://wikipedia.com/wiki/Porta_Comasina",
+   "https://www.milanofree.it/turismo/monumenti/porta-nuova-a-milano-storia-della-porta-neoclassica-e-del-quartiere-moderno.html",
+   "https://www.italia.it/it/lombardia/milano/porta-nuova"
+  ]
+ },
+ "MI10": {
+  "facts": [
+   "La Stazione Centrale, progettata da Ulisse Stacchini, fu inaugurata il 1 luglio 1931 in piazza Duca d'Aosta.",
+   "Dal binario 21, sotto la stazione, partirono tra il 1943 e il 1945 i treni della deportazione; dal 2013 vi ha sede il Memoriale della Shoah."
+  ],
+  "sources": [
+   "https://www.wikipedia.com/wiki/Milan_Centrale",
+   "https://www.milanofree.it/turismo/monumenti/stazione-centrale-di-milano-storia-curiosita-foto-e-collegamenti-utili.html"
+  ]
+ },
+ "MI11": {
+  "facts": [
+   "Il nome Isola è antico: già nel catasto del 1720-23 la zona compariva come \"Insola de Porta Comasina\". Si dice anche che l'abbiano isolata i binari della ferrovia ottocentesca.",
+   "Nato come quartiere operaio e artigiano tra Ottocento e Novecento, l'Isola confina oggi con il Bosco Verticale e i grattacieli di Porta Nuova."
+  ],
+  "sources": [
+   "https://www.gamberorosso.it/notizie/mangiare-quartiere-isola-milano-migliori-ristoranti/",
+   "https://www.hmdb.org/m.asp?m=218932",
+   "https://www.spotahome.com/it/blog/quartiere-isola-milano/"
+  ]
+ },
+ "MI12": {
+  "facts": [
+   "In via Lepanto, alla Maggiolina, sopravvivono le case a igloo progettate da Mario Cavallè nel 1946 per gli sfollati del dopoguerra, con tetto a cupola in mattoni forati.",
+   "La Maggiolina, con il Villaggio dei Giornalisti, nacque come città giardino quando la zona apparteneva ancora al comune autonomo di Greco."
+  ],
+  "sources": [
+   "https://www.domusweb.it/it/notizie/2023/06/12/a-milano--in-vendita-una-delle-famose-case-a-igloo-del-villaggio-dei-giornalisti.html",
+   "https://www.ilgiorno.it/milano/cronaca/quelle-case-come-igloo-immerse-in-citta-be7b7d63"
+  ]
+ },
+ "MI13": {
+  "facts": [
+   "Greco fu un comune autonomo, Greco Milanese, fino al 1923, quando venne annesso a Milano insieme ad altri comuni della cintura."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Greco_(district_of_Milan)",
+   "https://www.ilgiorno.it/milano/cronaca/greco-il-quartiere-citta-0287c14a"
+  ]
+ },
+ "MI14": {
+  "facts": [
+   "Niguarda fu un comune autonomo fino al 1923, anno della sua annessione a Milano.",
+   "L'ospedale di Niguarda, inaugurato nel 1939, prese il nome Ca' Granda dal legame con l'Ospedale Maggiore fondato da Francesco Sforza nel 1456, il più antico di Milano."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ospedale_Niguarda_Ca%27_Granda",
+   "https://Www.wikipedia.org/wiki/Niguarda",
+   "https://www.ilgiorno.it/milano/cronaca/ospedale-niguarda-85-anni-cavw05x3"
+  ]
+ },
+ "MI15": {
+  "facts": [
+   "Il nome deriva dalla Bicocca degli Arcimboldi, villa quattrocentesca della famiglia Arcimboldi: \"bicocca\" indicava una piccola casa fortificata.",
+   "Nel 1522 presso la Bicocca si combatté la battaglia tra spagnoli e francesi per il Ducato di Milano; nel Novecento l'area divenne il polo industriale della Pirelli."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bicocca_degli_Arcimboldi",
+   "https://lombardiabeniculturali.it/architetture/schede-complete/3o100-00001",
+   "https://en.wikipedia.org/wiki/Bicocca_(district_of_Milan)"
+  ]
+ },
+ "MI16": {
+  "facts": [
+   "Viale Monza nasce dall'Imperial Regio Stradone verso la Villa Reale di Monza; Gorla e Precotto si opposero al tracciato, che tagliava in due i loro territori.",
+   "Nel 1920 Gorla e Precotto si fusero nel comune di Gorlaprecotto per evitare l'annessione a Milano, che arrivò comunque nel 1923."
+  ],
+  "sources": [
+   "https://foresyteapp.com/viale-monza-milan/",
+   "https://cavac.at/cavacopedia/gorla_%28district_of_milan%29"
+  ]
+ },
+ "MI17": {
+  "facts": [
+   "Il quartiere Adriano sorge su terreni storicamente appartenenti a Crescenzago, comune autonomo fino all'annessione a Milano nel 1923.",
+   "La storia del quartiere è legata alla vicina fabbrica Magneti Marelli, dove lavoravano centinaia di operai e operaie alla catena di montaggio."
+  ],
+  "sources": [
+   "https://www.ilgiorno.it/milano/cronaca/quartiere-adriano-cinema-e69mw2x5",
+   "https://en.wikipedia.org/wiki/Baggio_(district_of_Milan)"
+  ]
+ },
+ "MI18": {
+  "facts": [
+   "Dal 1974 al 1976 il Parco Lambro ospitò il festival della rivista controculturale Re Nudo, la \"Woodstock italiana\"; l'edizione del 1976 attirò circa 200.000 giovani.",
+   "Le colline artificiali del Parco Lambro sono state costruite con le macerie delle case distrutte dai bombardamenti della Seconda guerra mondiale."
+  ],
+  "sources": [
+   "https://www.rollingstone.it/musica/storie-musica/si-giocava-a-fare-woodstock-le-foto-dei-festival-di-re-nudo-al-parco-lambro/981943/",
+   "https://www.ilgiorno.it/cultura/re-nudo-parco-lambro-c353f20c",
+   "https://www.milanofree.it/milano/bambini/parco-lambro-il-verde-a-nordest-di-milano.html"
+  ]
+ },
+ "MI19": {
+  "facts": [
+   "Via Padova ricalca la Strada postale veneta, che sostituì l'antica strada per Bergamo uscendo da Loreto verso Crescenzago e il Naviglio della Martesana.",
+   "La periferia di via Padova si formò tra il 1900 e gli anni Venti lungo la strada e attorno agli antichi borghi fuori dalle porte; oggi è considerata la via più multietnica di Milano."
+  ],
+  "sources": [
+   "https://www.politesi.polimi.it/retrieve/a81cb05d-59f7-616b-e053-1605fe0a889a/book.pdf",
+   "https://www.domusweb.it/it/notizie/2019/11/08/la-rigenerazione-urbana-di-via-padova-promossa-da-fondazione-cariplo.html",
+   "https://prestatest.bazzacco.net/libri/637721-via-padova-nascita-di-una-periferia-milanese-1900-1926-9791280682055.html"
+  ]
+ },
+ "MI20": {
+  "facts": [
+   "Il nome Loreto viene da un santuario della Madonna di Loreto progettato da Francesco Maria Richini nel Seicento e demolito intorno al 1914.",
+   "In piazzale Loreto il 10 agosto 1944 furono fucilati quindici partigiani e il 29 aprile 1945 vi fu esposto il corpo di Mussolini."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Piazzale_Loreto",
+   "https://en.wikipedia.org/wiki/Piazzale_Loreto_massacre"
+  ]
+ },
+ "MI21": {
+  "facts": [
+   "Corso Buenos Aires nasce dall'antico \"stradone di Loreto\" verso Monza; prese il nome attuale nel 1906, anno dell'Esposizione universale di Milano.",
+   "Nell'area dell'attuale corso sorgeva il Lazzaretto descritto da Manzoni nei Promessi sposi; ne restano tracce in via San Gregorio."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Corso_Buenos_Aires",
+   "https://www.milanofree.it/tradizioni/storia/conoscere-milano-una-via-la-sua-storia-corso-buenos-aires.html",
+   "https://www.ilgiorno.it/milano/cronaca/corso-baires-lex-stradone-loreto-e-la-polveriera-austroungarica-8d0f7518"
+  ]
+ },
+ "MI22": {
+  "facts": [
+   "Il nome indicava in origine l'area di piazza Leonardo da Vinci, costruita tra il 1915 e il 1927 per Politecnico e facoltà scientifiche.",
+   "Nel quartiere si trova il Villaggio del Sarto, complesso di villette costruito per i docenti del Politecnico."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Citt%C3%A0_Studi",
+   "https://fondoambiente.it/luoghi/citta-studi-le-sedi-storiche-dell-universita-statale",
+   "https://moveo.telepass.com/lambrate-citta-studi-milano/"
+  ]
+ },
+ "MI23": {
+  "facts": [
+   "Lambrate fu comune autonomo, annesso a Milano già in età napoleonica, poi di nuovo indipendente dal 1816 e definitivamente aggregato alla città nel 1923.",
+   "Nello stabilimento Innocenti di Lambrate nacque nel 1947 la Lambretta: il nome dello scooter richiama il quartiere e il fiume Lambro."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Lambrate",
+   "https://www.insella.it/da-sapere/storie-di-moto/1947-lora-della-lambretta-vera-storia-dello-scooter-milanese-72843"
+  ]
+ },
+ "MI24": {
+  "facts": [
+   "Il Parco Forlanini porta il nome di Enrico Forlanini, ingegnere milanese pioniere del volo: costruì dirigibili e nel 1877 fece volare ai Giardini Pubblici un elicottero a vapore senza pilota.",
+   "All'Ortica il progetto OR.ME ha dipinto una ventina di murales sulla storia del Novecento. Si dice che \"Faceva il palo\" di Jannacci sia dedicata alla banda dell'Ortica."
+  ],
+  "sources": [
+   "https://www.comune.milano.it/en/aree-tematiche/verde/verde-pubblico/parchi-cittadini/parco-enrico-forlanini",
+   "https://en.wikipedia.org/wiki/Enrico_Forlanini",
+   "https://libreriamo.it/arte/or-me-il-primo-museo-di-street-art-dove-i-muri-raccontano-la-storia/",
+   "https://www.linkiesta.it/2021/09/ortica-periferia-quartiere-milano/"
+  ]
+ },
+ "MI26": {
+  "facts": [
+   "Corso XXII Marzo ricorda l'ultimo giorno delle Cinque Giornate del 1848; prima si chiamava corso di Porta Vittoria e, ancora prima, corso di Porta Tosa.",
+   "La Palazzina Liberty di largo Marinai d'Italia, progettata da Alberto Migliorini nel 1908, è l'unico edificio rimasto del vecchio mercato ortofrutticolo."
+  ],
+  "sources": [
+   "https://foresyteapp.com/porta-vittoria-milan/",
+   "https://www.lombardiabeniculturali.it/architetture/schede-complete/LMD80-00394/"
+  ]
+ },
+ "MI27": {
+  "facts": [
+   "L'arco di Porta Romana fu costruito nel 1598 per l'ingresso a Milano di Margherita d'Austria, in viaggio per sposare Filippo III di Spagna.",
+   "Nel 1649 l'arco fu rimaneggiato e gli furono aperti i due fornici laterali per il passaggio di Maria Anna d'Austria; accanto resta un tratto delle mura spagnole."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/architetture/schede-complete/LMD80-00213",
+   "https://www.milanofuoriclasse.it/?p=1880"
+  ]
+ },
+ "MI28": {
+  "facts": [
+   "In viale Molise sorgeva il macello pubblico di Milano, completato nel 1929 su progetto di Antonio Cecchi e dismesso del tutto nel 2005.",
+   "Il nome Molise-Calvairate viene da due grandi complessi di case popolari costruiti negli anni Trenta vicino a viale Molise."
+  ],
+  "sources": [
+   "https://fondoambiente.it/luoghi/ex-macello-di-porta-vittoria",
+   "https://re.public.polimi.it/retrieve/e0c31c0e-1569-4599-e053-1705fe0aef77/Il%20Macello%20di%20Porta%20Vittoria_11311-978510_D%27Amia.pdf",
+   "https://www.ilgiorno.it/cultura/calvairate-vecchiotto-e-popolare-dc9c43d9"
+  ]
+ },
+ "MI29": {
+  "facts": [
+   "L'Ortomercato di via Lombroso aprì nel 1965 e sostituì il Verziere, lo storico mercato della frutta e verdura vicino al centro."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Verziere",
+   "https://lombardiabeniculturali.it/fotografie/schede-complete/IMM-5w050-0000287"
+  ]
+ },
+ "MI30": {
+  "facts": [
+   "A Taliedo, lungo via Mecenate, nel 1910 fu inaugurato il primo aeroporto di Milano, dove Giovanni Caproni insediò la sua fabbrica di aerei.",
+   "Alcuni hangar Caproni di via Mecenate sono stati riconvertiti: oggi ospitano tra l'altro le Officine del Volo e il Gucci Hub."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Taliedo",
+   "https://www.officinedelvolo.it/en/forms/storia",
+   "https://www.artribune.com/tribnews/2016/09/francois-pinault-inaugura-a-milano-il-gucci-hub-di-via-mecenate-uffici-e-laboratori-creativi-negli-spazi-di-unex-hangar-dismesso/"
+  ]
+ },
+ "MI31": {
+  "facts": [
+   "Il borgo di Monluè, dal latino Mons luparium (\"monte dei lupi\"), nacque nel 1267 come grangia agricola dei frati Umiliati, con la chiesa di San Lorenzo.",
+   "Ponte Lambro prende il nome dal ponte sul Lambro della strada per Paullo. Nel 2000 Renzo Piano vi disegnò un \"laboratorio di quartiere\" per riqualificare le case popolari."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/architetture/schede-complete/LMD80-00085",
+   "https://www.milanofree.it/milano/eventi/cascina-monlue-storia-chiesa-di-san-lorenzo-e-come-visitarla-vicino-a-linate.html",
+   "https://www.edilizia.com/bandi-e-concorsi/renzo-piano-e-ponte-lambro-si-riparte-con-la-prima-casa-erasmus-deuropa/",
+   "https://www.ilgiorno.it/milano/cronaca/dentro-ponte-lambro-e-una-03769830"
+  ]
+ },
+ "MI33": {
+  "facts": [
+   "Rogoredo è citato già nell'880 come insediamento sulla via Emilia; dal 1867 fece parte del comune di Chiaravalle Milanese, annesso a Milano nel 1923.",
+   "Dal 1897 vi sorsero le Acciaierie Redaelli: sulle loro aree dismesse e su quelle della Montedison è nato Santa Giulia, detto anche «Montecity»."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Rogoredo",
+   "https://en.wikipedia.org/wiki/Milano_Santa_Giulia",
+   "https://www.lombardiabeniculturali.it/blog/up/2020/01/Acciaierie-Redaelli-.pdf"
+  ]
+ },
+ "MI34": {
+  "facts": [
+   "L'abbazia di Chiaravalle fu fondata nel 1135 da san Bernardo di Clairvaux; il chiostro attribuito a Bramante fu demolito nel 1861 per la ferrovia.",
+   "Chiaravalle Milanese fu comune autonomo, unito a Nosedo nel 1870 e annesso a Milano nel 1923."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Chiaravalle_(district_of_Milan)",
+   "https://www.milanofree.it/turismo/monumenti/abbazia-di-chiaravalle-un-gioiello-cistercense-alle-porte-di-milano.html"
+  ]
+ },
+ "MI35": {
+  "facts": [
+   "Piazzale Corvetto è dedicato a Luigi Emanuele Corvetto, giurista genovese dell'età napoleonica; da lì partono sei strade, tra cui corso Lodi, tratto storico della via Emilia.",
+   "Fino al 1870 nella zona sorgeva quasi solo la cascina Gamboloita, demolita nel Novecento: il suo nome sopravvive nella parte settentrionale del quartiere."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Corvetto_(Milan_Metro)",
+   "https://it.wikivoyage.org/wiki/Quartiere_Corvetto"
+  ]
+ },
+ "MI36": {
+  "facts": [
+   "Sull'ex scalo ferroviario di Porta Romana, circa 20 ettari, è stato costruito il Villaggio Olimpico dei Giochi invernali Milano Cortina 2026, destinato poi a residenza universitaria.",
+   "Tra gli acquirenti che nel 2020 hanno rilevato l'ex scalo da FS c'è il gruppo Prada, la cui Fondazione ha sede proprio accanto all'area."
+  ],
+  "sources": [
+   "https://www.ilpost.it/2020/11/11/porta-romana-prada-coima-covivio-scalo/",
+   "https://tg24.sky.it/milano/2021/03/31/scalo-porta-romana-milano-progetto-villaggio-olimpico"
+  ]
+ },
+ "MI37": {
+  "facts": [
+   "Le Officine Meccaniche (OM), nate nel 1899, furono uno dei maggiori poli dell'industria pesante milanese; l'area dismessa è stata trasformata tra il 1999 e il 2004.",
+   "Morivione era un borgo sviluppato attorno a una cascina di via Corrado il Salico, annesso a Milano nel 1873; la via è l'ultimo resto dell'antico abitato."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Morivione",
+   "https://www.lombardiabeniculturali.it/blog/up/2020/04/Stabilimento-OM-Fiat-Via-Pompeo-Leoni-3.pdf",
+   "https://www.ilgiorno.it/milano/cronaca/via-corrado-il-salico-lex-d19a7f73"
+  ]
+ },
+ "MI39": {
+  "facts": [
+   "La prima citazione nota di Quintosole risale al 1346; nel 1757 vi fu annesso il vicino comune di Salvanesco.",
+   "Comune autonomo, nel 1869 fu aggregato a Vigentino, annesso a Milano nel 1923; oggi è un borgo rurale dentro il Parco Agricolo Sud Milano."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Quintosole",
+   "https://foresyteapp.com/vigentino-milan/"
+  ]
+ },
+ "MI40": {
+  "facts": [
+   "Il nome richiama i «ronchi», campi disboscati, e le rane delle risaie circostanti; una leggenda popolare lo lega invece a una sosta di Napoleone.",
+   "Il piccolo borgo, quasi immutato da cinque secoli, si raccoglie attorno alla chiesa cinquecentesca dei Santi Pietro e Paolo e a tre cascine."
+  ],
+  "sources": [
+   "https://www.comune.milano.it/en/aree-tematiche/verde/milano-metropoli-rurale/cascine-a-milano/cascine-agricole-visitabili/cascina-ronchetto-delle-rane",
+   "https://lombardiabeniculturali.it/architetture/schede-complete/MI050-00123"
+  ]
+ },
+ "MI41": {
+  "facts": [
+   "Il quartiere popolare di Gratosoglio fu progettato negli anni Sessanta dallo studio BBPR per l'IACP e il Comune: le sue torri bianche, alte 56 metri, ne sono diventate il simbolo.",
+   "Gratosoglio era in origine un piccolo villaggio agricolo lungo il Lambro Meridionale. Nel quartiere è cresciuto il cantante Mahmood."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/fotografie/schede-complete/IMM-SWBU1-0000460",
+   "https://en.wikipedia.com/wiki/Gratosoglio",
+   "https://www.ilgiornale.it/news/milano/riscatto-gratosoglio-non-basta-solo-mahmood-1643290.html"
+  ]
+ },
+ "MI42": {
+  "facts": [
+   "Il quartiere fu costruito dall'IACP tra il 1927 e il 1929 per famiglie sfrattate; all'inizio si chiamava «Baia del Re», in omaggio alla spedizione polare di Umberto Nobile.",
+   "Il nome Stadera si affermò nel dopoguerra e deriva da una pesa pubblica, la «stadera», e da un'antica osteria oggi scomparse."
+  ],
+  "sources": [
+   "https://www.politesi.polimi.it/retrieve/a81cb05d-2e37-616b-e053-1605fe0a889a/2019_04_Tagliaferri.pdf",
+   "https://lombardiabeniculturali.it/fotografie/schede-complete/IMM-3g010-0018248"
+  ]
+ },
+ "MI43": {
+  "facts": [
+   "Il nome viene da viale Tibaldi, dedicato a Pellegrino Tibaldi, architetto legato a Carlo Borromeo e dal 1567 ingegnere capo del Duomo di Milano."
+  ],
+  "sources": [
+   "https://www.britannica.com/biography/Pellegrino-Tibaldi",
+   "https://ricerca.sns.it/retrieve/1aafd9a9-7dff-4032-a999-b18bd38d50f1/Tesi.pdf"
+  ]
+ },
+ "MI44": {
+  "facts": [
+   "Lungo il Naviglio Grande arrivava a Milano il marmo di Candoglia per il Duomo; le chiatte attraccavano al laghetto di Sant'Eustorgio, l'attuale Darsena.",
+   "Nel Vicolo dei Lavandai, sul Naviglio Grande, le lavandaie hanno lavato i panni nel lavatoio pubblico fino agli anni Cinquanta. L'ultimo barcone giunse in Darsena nel 1979."
+  ],
+  "sources": [
+   "https://www.milanofree.it/milano/turismo/naviglio-grande-a-milano-storia-cosa-vedere-e-gite-in-bici-o-in-barca.html",
+   "https://www.milanofree.it/turismo/monumenti/vicolo-dei-lavandai-a-milano-storia-del-lavatoio-sui-navigli-come-arrivare-e-cosa-vedere.html",
+   "https://www.milanofree.it/turismo/monumenti/la-darsena-di-milano-tra-presente-e-passato.html"
+  ]
+ },
+ "MI45": {
+  "facts": [
+   "San Cristoforo sul Naviglio è una rara «chiesa doppia»: due edifici affiancati, uno romanico e uno gotico, lungo l'alzaia del Naviglio Grande.",
+   "Sul portale romanico compare lo stemma del cardinale Pietro Filargo, arcivescovo di Milano e poi antipapa con il nome di Alessandro V."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/San_Cristoforo_sul_Naviglio",
+   "https://www.milanofree.it/turismo/monumenti/chiesa-di-san-cristoforo-sul-naviglio.html"
+  ]
+ },
+ "MI46": {
+  "facts": [
+   "Il quartiere prende il nome dalla cascina \"la Barona\", appartenuta ai monaci benedettini; il significato del nome è incerto.",
+   "Tra le ipotesi sull'origine del nome c'è un'antica voce ligure o celtica (\"bar\") legata all'acqua; un documento del 793 cita un \"vicus Baroni\"."
+  ],
+  "sources": [
+   "https://www.ilgiorno.it/cultura/nel-villaggio-della-barona-tra-c6a5c7aa",
+   "https://www.milanofree.it/milano/turismo/quartiere-barona-a-milano.html"
+  ]
+ },
+ "MI48": {
+  "facts": [
+   "Fu comune autonomo fino al 1870, poi frazione di Buccinasco fino all'annessione a Milano nel 1923.",
+   "Il 25 aprile 1945 Ronchetto sul Naviglio fu teatro di uno scontro tra partigiani ed esercito tedesco."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ronchetto_sul_Naviglio"
+  ]
+ },
+ "MI49": {
+  "facts": [
+   "Il quartiere prende il nome dalla cascina Giambellino, inglobata dalle lottizzazioni a partire dal 1925.",
+   "Qui è ambientata \"La ballata del Cerutti\" (1960) di Giorgio Gaber e Umberto Simonetta, sul ladruncolo Cerutti Gino che frequentava il bar del Giambellino."
+  ],
+  "sources": [
+   "https://www.milanofree.it/milano/tradizioni/al-bar-del-giambellino.html",
+   "https://libreriamo.it/intrattenimento/ballata-del-cerutti-giorgio-gaber/",
+   "https://www.editorialedomani.it/idee/cultura/simonetta-umberto-riscoprire-paroliere-giorgio-gaber-liirxp3q"
+  ]
+ },
+ "MI50": {
+  "facts": [
+   "Le ex officine Ansaldo di via Tortona, con capannoni dal 1904, producevano motori elettrici, radio e materiale ferroviario; oggi ospitano tra l'altro i laboratori del Teatro alla Scala.",
+   "Il Mudec, Museo delle Culture progettato da David Chipperfield, è stato aperto nel 2015 recuperando gli spazi industriali dell'ex Ansaldo."
+  ],
+  "sources": [
+   "https://www.lombardiabeniculturali.it/blog/up/2020/02/Stabilimento-Ansaldo-1.pdf",
+   "https://www.italia.it/it/lombardia/milano/ex-ansaldo-milano",
+   "https://www.domusweb.it/it/citta/milano/2018/07/24/MUDEC.html"
+  ]
+ },
+ "MI52": {
+  "facts": [
+   "Il nome viene da piazza Giovanni dalle Bande Nere, dedicata al condottiero Giovanni de' Medici, che nel 1521 aggiunse bande nere alle sue insegne in lutto per papa Leone X.",
+   "La stazione Bande Nere della linea M1 fu aperta il 18 aprile 1975 con la tratta Gambara-Inganni."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Giovanni_delle_Bande_Nere",
+   "https://www.Wikipedia.org/wiki/Bande_Nere_(Milan_Metro)"
+  ]
+ },
+ "MI53": {
+  "facts": [
+   "Tra il 1938 e il 1944 l'Istituto case popolari costruì tra via Lorenteggio e via Giambellino il quartiere Renzo e Mario Mina, grande complesso di edilizia popolare.",
+   "Nel quartiere sorge l'oratorio di San Protaso al Lorenteggio, piccola chiesa di origine medievale tra gli edifici più antichi della zona."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Giambellino-Lorenteggio",
+   "https://www.politesi.polimi.it/retrieve/a81cb05d-3fa8-616b-e053-1605fe0a889a/relazione.pdf",
+   "https://www.milanofree.it/tradizioni/storia/via-lorenteggio-storia-e-curiosita.html"
+  ]
+ },
+ "MI54": {
+  "facts": [
+   "Muggiano fu comune autonomo fino al 1869, quando fu aggregato a Baggio, che a sua volta passò a Milano nel 1923.",
+   "Secondo una tradizione, il nome deriverebbe dal latino Modianus, da un certo Modius che governava il territorio. Il borgo conserva cascine, fontanili e un piccolo cimitero."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Muggiano_(district_of_Milan)",
+   "https://www.milanofree.it/turismo/monumenti/cimitero-di-muggiano-milano-storia-orari-come-arrivare-e-consigli-di-visita.html"
+  ]
+ },
+ "MI55": {
+  "facts": [
+   "Baggio fu comune autonomo fino al 1923, quando fu annesso a Milano con altri dieci comuni con il regio decreto n. 1912.",
+   "Il 15 aprile 1928 dall'aerodromo di Baggio partì il dirigibile Italia di Umberto Nobile per la tragica spedizione al Polo Nord."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Baggio_(district_of_Milan)",
+   "https://it.wikisource.org/wiki/R.D._2_settembre_1923,_n._1912_-_Aggregazione_al_comune_di_Milano_di_undici_comuni_contermini",
+   "https://www.milanofree.it/milano/turismo/quartiere-baggio-a-milano.html"
+  ]
+ },
+ "MI56": {
+  "facts": [
+   "La piazza d'Armi di Baggio sostituì alla fine degli anni Venti quella vecchia, che sorgeva nell'area poi occupata dalla Fiera campionaria.",
+   "Il progetto del 1929 prevedeva cinque caserme e un ospedale militare attorno alla piazza, realizzati solo in parte; l'ospedale militare fu inaugurato nel 1931."
+  ],
+  "sources": [
+   "https://fondoambiente.it/luoghi/piazza-d-armi-di-baggio",
+   "https://www.domusweb.it/it/architettura/2022/06/06/ospedale-militare-di-baggio-da-piazza-armi-a-piazza-arti.html"
+  ]
+ },
+ "MI57": {
+  "facts": [
+   "Le case popolari attorno a piazzale Selinunte, avviate nel 1934, fanno parte del più grande insieme di edilizia pubblica di Milano, con circa 6.000 alloggi."
+  ],
+  "sources": [
+   "https://www.rollingstone.it/cultura/a-san-siro-non-ce-solo-lo-stadio/561789/"
+  ]
+ },
+ "MI58": {
+  "facts": [
+   "L'area era nota come borgo della Maddalena; il nome De Angeli viene dall'industriale tessile Ernesto De Angeli, la cui De Angeli-Frua occupava circa 100.000 m².",
+   "In via Moncalvo sopravvive il villaggio operaio De Angeli-Frua, con villette e case a giardino."
+  ],
+  "sources": [
+   "https://www.saronnonews.it/2025/12/28/paesi-dentro-alla-citta-i-villaggi-operai-de-angeli-frua-a-saronno-e-a-milano-via-moncalvo/?output=pdf"
+  ]
+ },
+ "MI59": {
+  "facts": [
+   "Le tre torri sorgono sull'area della vecchia Fiera di Milano e sono soprannominate «il Dritto» (Isozaki), «lo Storto» (Hadid) e «il Curvo» (Libeskind).",
+   "La torre di Isozaki, alta circa 200 metri, è tra i grattacieli più alti d'Italia; l'ultima a essere finita fu quella di Libeskind, nel 2020."
+  ],
+  "sources": [
+   "https://www.domusweb.it/it/architettura/2023/04/04/la-guida-di-domus-a-citylife.html",
+   "https://www.city-life.it/en/the-project/the-city-life-project-over-the-years",
+   "https://archivio.blitzquotidiano.it/blitztv/la-torre-isozaki-di-milano-arriva-a-202-metri-e-il-grattacielo-piu-alto-ditalia-1941296"
+  ]
+ },
+ "MI60": {
+  "facts": [
+   "Il «Quartiere Ippico» di San Siro, con ippodromi, piste e scuderie, è tutelato da un vincolo storico-architettonico dal 2004.",
+   "Lo stadio, costruito negli anni Venti accanto all'ippodromo, dal 1980 è intitolato a Giuseppe Meazza, il calciatore che vi aveva segnato più gol."
+  ],
+  "sources": [
+   "https://fondoambiente.it/luoghi/quartiere-ippico-di-san-siro",
+   "https://en.wikipedia.org/wiki/San_Siro",
+   "https://www.geopop.it/perche-san-siro-e-soprannominato-la-scala-del-calcio-la-storia-delliconico-stadio-di-milano/"
+  ]
+ },
+ "MI61": {
+  "facts": [
+   "Fu comune autonomo fino al 1869, quando venne aggregato a Trenno insieme a Figino e Quinto Romano; con Trenno entrò poi a far parte di Milano.",
+   "Il quartiere popolare di Quarto Cagnino, costruito tra il 1964 e il 1973 accanto al vecchio nucleo rurale, è studiato come esempio di architettura razionalista."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Quarto_Cagnino",
+   "https://foresyteapp.com/quarto-cagnino-milan/",
+   "https://papiro.unizar.es/ojs/index.php/zarch/article/view/9107"
+  ]
+ },
+ "MI62": {
+  "facts": [
+   "Fu comune autonomo fino al 1869, poi frazione di Trenno fino al 1923, quando entrò a far parte di Milano.",
+   "Rimase un'area agricola fino agli anni Sessanta: il suo territorio era diviso tra otto o nove cascine."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Quinto_Romano"
+  ]
+ },
+ "MI63": {
+  "facts": [
+   "Figino fu comune autonomo, chiamato ufficialmente Figino di Milano dal 1862; nel 1869 divenne frazione di Trenno, annesso a Milano nel 1923."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Figino_(district_of_Milan)"
+  ]
+ },
+ "MI64": {
+  "facts": [
+   "Trenno fu comune autonomo fino al 1923; in passato era stato capo di una pieve, circoscrizione con ampi poteri religiosi e civili.",
+   "Nel parco di Trenno, nato nel 1971 su terreni agricoli, si trova il Milan War Cemetery, cimitero dei caduti del Commonwealth nella Seconda guerra mondiale."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Trenno",
+   "https://www.ilgiorno.it/milano/cronaca/il-borgo-di-trenno-tra-citta-e-campagna-la-grande-metropoli-non-ci-ha-schiacciati-45a389e9",
+   "https://www.milanofree.it/turismo/monumenti/cimitero-di-guerra-inglese-a-milano.html"
+  ]
+ },
+ "MI65": {
+  "facts": [
+   "Il complesso Monte Amiata, progettato da Carlo Aymonino con Aldo Rossi tra il 1967 e il 1974, è detto \"Dinosauro Rosso\" per il colore e la forma.",
+   "Il contributo di Aldo Rossi al Gallaratese è un edificio lineare porticato lungo circa 185 metri, diventato un riferimento dell'architettura del Novecento."
+  ],
+  "sources": [
+   "https://ordinearchitetti.mi.it/en/cultura/itinerari-di-architettura/50-milano-6070-esperienze-fuori-contesto/opere/1865-complesso-residenziale-monte-amiata-nel-quartiere-gallaratese-2/1",
+   "https://dilei.it/casa/design/monte-amiata-storia-dinosauro-rosso-milano/1664803/",
+   "https://www.arch2o.com/?p=722760"
+  ]
+ },
+ "MI66": {
+  "facts": [
+   "QT8 sta per «Quartiere Triennale Ottava»: il quartiere fu progettato da un gruppo guidato da Piero Bottoni come esposizione dell'ottava Triennale di Milano, nel 1947.",
+   "Il Monte Stella, collina artificiale alta circa 50 metri, fu costruito con le macerie dei bombardamenti e prende il nome da Stella, la moglie di Piero Bottoni."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/QT8",
+   "https://www.domusweb.it/it/architettura/2022/06/23/qt8-il-quartiere-ideale-della-milano-del-dopoguerra.html"
+  ]
+ },
+ "MI67": {
+  "facts": [
+   "Al Portello sorgeva lo stabilimento dove nacque l'Alfa Romeo, sull'area della Darracq: vi si produssero auto fino al 1986.",
+   "Il parco del Portello, ideato da Charles Jencks sull'ex area Alfa Romeo, ha una collina a spirale detta \"spirale del tempo\", con in cima una scultura a doppia elica di DNA."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Alfa_Romeo_Portello_Plant",
+   "https://fondoambiente.it/luoghi/parco-del-portello",
+   "https://eghn.org/en/parco-portello"
+  ]
+ },
+ "MI68": {
+  "facts": [
+   "In piazza Piemonte sorgono due edifici gemelli Art Déco del 1923: per loro in Italia si usò per la prima volta la parola \"grattacielo\"."
+  ],
+  "sources": [
+   "https://yesmilano-test.ecaas.comune.milano.it/en/articles/skyline",
+   "https://www.ilgiorno.it/milano/cronaca/larte-in-piazza-piemonte-statue-43d18a2e",
+   "https://www.italia.it/it/lombardia/cosa-fare/milano-liberty-5-cose-fare-vedere"
+  ]
+ },
+ "MI69": {
+  "facts": [
+   "Prima di diventare la Chinatown di Milano, la zona di via Paolo Sarpi era il «Borgo degli Ortolani», fatto di cascine e orti.",
+   "I primi immigrati cinesi, originari dello Zhejiang, vi arrivarono negli anni Venti e aprirono laboratori nei cortili, lavorando seta e pelletteria."
+  ],
+  "sources": [
+   "https://moveo.telepass.com/scopri-paolo-sarpi-chinatown-milano/",
+   "https://www.milanofree.it/milano/turismo/chinatown-a-milano-guida-a-via-paolo-sarpi-cosa-vedere-cibo-e-come-arrivare.html",
+   "https://zero.eu/news/benvenuti-a-chinatown/"
+  ]
+ },
+ "MI70": {
+  "facts": [
+   "Il nome viene dal ponte della Ghisolfa, che a sua volta lo prende da un'antica cascina; il ponte è ufficialmente dedicato all'aviatore Adriano Bacula.",
+   "\"Il ponte della Ghisolfa\" di Giovanni Testori (1958) ispirò Luchino Visconti per il film \"Rocco e i suoi fratelli\" (1960)."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ghisolfa",
+   "https://bookcitymilano.it/eventi/2024/la-periferia-di-giovanni-testori-una-storia-di-fughe-rivincite-e-tragici-eroismi"
+  ]
+ },
+ "MI71": {
+  "facts": [
+   "Villapizzone fu comune autonomo fino al 1869, quando venne unito a Musocco; con Musocco entrò a far parte di Milano nel 1923.",
+   "Il nome deriverebbe da «Villa Piccione»; il toponimo era quasi caduto in disuso ed è tornato in uso alla fine del Novecento con la stazione ferroviaria."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Villapizzone"
+  ]
+ },
+ "MI72": {
+  "facts": [
+   "Musocco fu un comune autonomo fino al 1923; nel 1869 aveva già inglobato comuni vicini come Quarto Oggiaro, Vialba, Villapizzone, Roserio e Garegnano.",
+   "Il Cimitero Maggiore, aperto nel 1895 quando il Monumentale non bastava più, sorge su terreni che fino al 1923 appartenevano al comune di Musocco ed è il più grande di Milano."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Cimitero_Maggiore_di_Milano",
+   "https://www.milanofree.it/turismo/monumenti/quartiere-di-musocco.html"
+  ]
+ },
+ "MI73": {
+  "facts": [
+   "Cascina Triulza, documentata dal 1346 nella pieve di Trenno, fu l'unico edificio preesistente conservato nel sito di Expo Milano 2015.",
+   "Durante Expo 2015 la cascina restaurata ospitò il Padiglione della Società Civile, il primo di questo tipo in un'Esposizione universale."
+  ],
+  "sources": [
+   "https://fondazionetriulza.org/en/fondazione/the-project-for-expo-2015/",
+   "https://fondazionetriulza.org/wp-content/uploads/2021/02/UNA-CASCINA-NELLA-CITTA-DEL-FUTURO_DEF.pdf"
+  ]
+ },
+ "MI74": {
+  "facts": [
+   "L'ospedale Luigi Sacco, che dà il nome alla zona, nacque come «sanatorio di Vialba», costruito tra il 1928 e il 1931.",
+   "Luigi Sacco, a cui è intitolato l'ospedale, fu il medico che promosse in Italia la vaccinazione contro il vaiolo."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ospedale_Luigi_Sacco",
+   "https://lombardiabeniculturali.it/architetture/schede-complete/LMD80-00940"
+  ]
+ },
+ "MI76": {
+  "facts": [
+   "Prima delle case popolari, la «Quarto Oggiaro vecchia» era una frazione di Musocco, comune annesso a Milano nel 1923.",
+   "Quando fu costruito, negli anni Sessanta, il quartiere popolare veniva soprannominato «Corea» o «Barbon City»."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Quarto_Oggiaro",
+   "https://www.ilfattoquotidiano.it/2011/09/15/l%e2%80%99orgoglio-di-quarto-oggiaro/157449/",
+   "https://www.linkiesta.it/2013/11/quarto-oggiaro-la-periferia-come-capro-espiatorio/"
+  ]
+ },
+ "MI77": {
+  "facts": [
+   "Il nome viene probabilmente da un'antica cascina e dalla radice \"bove\": fino ai primi del Novecento la zona era aperta campagna.",
+   "Nel 1905 vi si insediarono le Officine del Gas; i gasometri sopravvissuti sono il simbolo del quartiere, oggi sede di un campus del Politecnico."
+  ],
+  "sources": [
+   "https://www.touringclub.it/destinazioni/milano/vedere/217589-bovisa",
+   "https://www.milanofree.it/milano/turismo/quartiere-della-bovisa-a-milano.html",
+   "https://www.polimi.it/il-politecnico/architetture-al-politecnico-di-milano/campus-dei-gasometri"
+  ]
+ },
+ "MI78": {
+  "facts": [
+   "Via Farini, che va dal Cimitero Monumentale verso piazzale Maciachini, è dedicata a Luigi Carlo Farini, medico, storico e politico del Risorgimento nato a Russi nel 1812."
+  ],
+  "sources": [
+   "https://www.milanofree.it/tradizioni/storia/conoscere-milano-una-via-la-sua-storia-via-carlo-farini.html",
+   "https://www.ilgiorno.it/milano/cronaca/scali-ferroviari-538205cc"
+  ]
+ },
+ "MI79": {
+  "facts": [
+   "Dergano fu comune autonomo; nel 1869 confluì con Bruzzano e Bresso nel comune di Affori e uniti, annesso a Milano nel 1923.",
+   "Quartiere operaio, Dergano vide nascere all'inizio del Novecento alcune delle prime cooperative di abitazione milanesi."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Dergano",
+   "https://en.wikipedia.org/wiki/Affori",
+   "https://www.ilgiorno.it/speciali/servizi/il-quartiere-piu-giovane-tra-2b086743"
+  ]
+ },
+ "MI80": {
+  "facts": [
+   "Affori fu comune autonomo: nel 1869 si unì a Bruzzano, Bresso e Dergano nel comune di \"Affori e uniti\" e nel 1923 fu annesso a Milano.",
+   "Villa Litta fu costruita alla fine del Seicento per i Corbella, duchi di Affori; passò ai Litta Modignani e dal 1927 appartiene al Comune di Milano."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Affori",
+   "https://lombardiabeniculturali.it/architetture/schede-complete/3o010-00002",
+   "https://www.fondoambiente.it/luoghi/villa-litta-ad-affori"
+  ]
+ },
+ "MI81": {
+  "facts": [
+   "Il nome viene dalla strada Bovisasca, che portava alla Bovisa.",
+   "Nella zona sorge la chiesa di San Mamete, di origine medievale, e una cascina del primo Novecento chiamata \"Tri Coo D'Aji\", cioè tre teste d'aglio."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bovisasca",
+   "https://artemessaggio.comune.milano.it/web/municipio-9/home/luoghi-storici"
+  ]
+ },
+ "MI82": {
+  "facts": [
+   "Il quartiere popolare Comasina fu costruito tra il 1953 e il 1969 ed è considerato un esempio importante di edilizia residenziale pubblica milanese.",
+   "Il nome richiama la strada Comasina, l'antica via che da Milano portava a Como.",
+   "La chiesa di San Bernardo, costruita nel 1957 in piazza Gasparri, fa parte del progetto del quartiere ed è inserita negli itinerari di architettura dell'Ordine degli architetti."
+  ],
+  "sources": [
+   "https://ordinearchitetti.mi.it/en/cultura/itinerari-di-architettura/20-la-casa-popolare/opere/627-quartiere-comasina/1",
+   "https://ordinearchitetti.mi.it/en/cultura/itinerari-di-architettura/10-casa-per-tutti-labitare-tra-sperimentalismo-e-tradizione/opere/382-chiesa-di-san-bernardo-al-quartiere-comasina",
+   "https://www.milanofree.it/turismo/monumenti/porta-comasina.html"
+  ]
+ },
+ "MI83": {
+  "facts": [
+   "Bruzzano fu sede di pieve e comune autonomo, documentato dal 1346; nel 1869 confluì nel comune di Affori e uniti, annesso a Milano nel 1923.",
+   "La chiesa di Santa Maria Assunta di Bruzzano è attestata già nel 1011."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bruzzano",
+   "https://en.wikipedia.org/wiki/Affori"
+  ]
+ },
+ "MI84": {
+  "facts": [
+   "Il Parco Nord è nato su aree degradate attorno alle fabbriche Breda: la sua \"Montagnetta\" sorge sui cumuli di scorie degli altiforni, poi usati come discarica.",
+   "Il Teatrino del Parco Nord è ricavato da un vecchio carroponte Breda; i primi rimboschimenti del parco risalgono al 1983."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/fotografie/schede-complete/IMM-SWPN1-0000201",
+   "https://parconord.milano.it/wp-content/uploads/2019/08/allegato-1-beni-isolati.pdf",
+   "https://www.ilgiorno.it/milano/cronaca/sesto-parco-nord-milano-festa-56e8f5ea"
+  ]
+ },
+ "MI85": {
+  "facts": [
+   "L'abbazia di Chiaravalle fu fondata nel 1135 da san Bernardo di Chiaravalle come filiazione di Clairvaux; i monaci cistercensi bonificarono le paludi della zona.",
+   "Il campanile dell'abbazia, una torre ottagonale trecentesca, è chiamato dai milanesi \"Ciribiciaccola\"."
+  ],
+  "sources": [
+   "https://lombardiabeniculturali.it/architetture/schede-complete/LMD80-00427",
+   "https://www.milanofree.it/turismo/monumenti/abbazia-di-chiaravalle-un-gioiello-cistercense-alle-porte-di-milano.html",
+   "https://www.ilgiorno.it/milano/cronaca/ciribiriciaccola-alba-nebbia-h62uut9y"
+  ]
+ },
+ "MI86": {
+  "facts": [
+   "Nella fascia agricola tra Naviglio Grande e Naviglio Pavese sopravvivono cascine storiche come la Battivacco di via Barona, sede di un Punto Parco del Parco Agricolo Sud Milano."
+  ],
+  "sources": [
+   "https://www.verdinavigli.org/print/1509",
+   "https://en.wikipedia.org/wiki/Barona_(district_of_Milan)"
+  ]
+ },
+ "MI87": {
+  "facts": [
+   "Il Parco Agricolo Sud Milano fu istituito con una legge regionale del 1990 e copre circa 47.000 ettari intorno alla città.",
+   "Nel parco sorgono le abbazie di Chiaravalle, Mirasole e Viboldone; il campanile ottagonale di Chiaravalle ne è il simbolo, e vi si conservano le marcite."
+  ],
+  "sources": [
+   "https://legislazionetecnica.it/node/2156478",
+   "https://www.italianostra.org/wp-content/uploads/Parco-Sud-Milano.pdf",
+   "https://opencms10.cittametropolitana.mi.it/export/sites/default/parco_agricolo_sud_milano/pubblicazioni/.content/allegati/pieghevoli/ParcoAgricoloStoria.pdf"
+  ]
+ },
+ "MI88": {
+  "facts": [
+   "Boscoincittà nacque nel 1974 da un accordo tra Comune di Milano e Italia Nostra su terreni agricoli semiabbandonati: fu il primo esperimento italiano di forestazione urbana.",
+   "Il centro del parco è la cascina San Romano, recuperata e sede della gestione; dal 1981 vi opera il Centro per la Forestazione Urbana."
+  ],
+  "sources": [
+   "https://www.comune.milano.it/en/aree-tematiche/verde/verde-pubblico/parchi-cittadini/boscoincitta",
+   "https://www.mentelocale.it/milano/58058-1974-2024-50-anni-di-boscoincitta-festa-aperta-alla-cittadinanza.htm"
   ]
  }
 }
