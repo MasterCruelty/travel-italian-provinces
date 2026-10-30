@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera i dati delle mappe (data/<mappa>.json) dai confini ISTAT.
+"""Genera i dati delle mappe (data/<mappa>.json) dai confini ufficiali.
 
 Uso:
     pip install shapely
@@ -7,14 +7,14 @@ Uso:
     python3 tools/build_data.py milano     # solo alcune
 
 Per ogni mappa:
-  1. scarica i GeoJSON dei confini (openpolis/geojson-italy, dati ISTAT);
+  1. scarica i confini da fonti pubblicate su GitHub, fissate a un commit;
   2. calcola il grafo dei confini (aree che si toccano);
-  3. collega le parti staccate (isole, exclavi) all'area più vicina, come un
-     traghetto o un collegamento stradale;
+  3. aggiunge i collegamenti fissi (ponti, tunnel) e, dove previsto, collega
+     le parti staccate (isole, exclavi) all'area più vicina;
   4. semplifica le geometrie come "copertura" (i confini condivisi restano
      identici tra aree vicine) e le proietta in coordinate SVG;
   5. ricava per ogni area il punto per l'etichetta e il riquadro (zoom),
-     e per ogni gruppo (regione o provincia) il contorno.
+     e per ogni gruppo (regione, provincia, continente) il contorno.
 """
 import json
 import math
@@ -28,56 +28,57 @@ from shapely.ops import polylabel, unary_union
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(ROOT, 'tools', '.cache')
-SOURCE = ('https://raw.githubusercontent.com/openpolis/geojson-italy/'
-          'ba3347df3a53352891109f8198c597a0273684c0/geojson/')
+
+# Province e comuni (ISTAT, versione generalizzata) con nomi e codici.
+OPENPOLIS = ('https://raw.githubusercontent.com/openpolis/geojson-italy/'
+             'ba3347df3a53352891109f8198c597a0273684c0/geojson/')
 # Confini comunali ISTAT non generalizzati al 1° gennaio 2026, un file per comune.
 # openpolis pubblica solo la versione generalizzata (circa 40 punti per comune):
 # per le mappe comunali si prendono da qui le geometrie, da openpolis nomi e codici.
 DETAILED_MUNICIPALITIES = ('https://raw.githubusercontent.com/l1n00/confini-comuni-istat/'
                            'bdbd0301e9f8441aa7e762941e7377179c8ce657/dist/2026/comuni/')
-
-MAPS = {
-    'italia': {
-        'sources': ['limits_IT_provinces.geojson'],
-        'id': 'prov_acr', 'name': 'prov_name', 'group': 'reg_name',
-        'touch': 0.004,       # gradi: tolleranza per considerare due aree confinanti
-        'simplify': 0.012,    # gradi: tolleranza di semplificazione della copertura
-        'label_tol': 0.005,
-        'lat0': 42.0, 'scale': 100.0,
-        'link_icon': '⛴️',
-    },
-    'milano': {
-        'sources': ['limits_P_15_municipalities.geojson',
-                    'limits_P_108_municipalities.geojson'],
-        'id': 'com_istat_code', 'name': 'name', 'group': 'prov_name',
-        'detailed': True,     # geometrie da DETAILED_MUNICIPALITIES
-        'touch': 0.0002,
-        'simplify': 0.0004,
-        'label_tol': 0.0005,
-        'lat0': 45.5, 'scale': 1000.0,
-        'link_icon': '🛣️',
-    },
-}
+# Gli 88 NIL (Nuclei d'Identità Locale), i quartieri del Comune di Milano.
+MILANO_NIL = ('https://raw.githubusercontent.com/abahgat/opendata-milano/'
+              '1f8d2a7a3cd34b32373568ef055c186fbcdd341f/geojson/quartieri.geojson')
+# Natural Earth (pubblico dominio): nazioni a 1:50 milioni, Länder a 1:10 milioni.
+NATURAL_EARTH = ('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/'
+                 'ca96624a56bd078437bca8184e78163e5039ad19/geojson/')
 
 MIN_PART = 0.02      # scarta isolette sotto il 2% dell'area della parte principale
 MAX_PARTS = 6
+
+
+# ---------- Utilità ----------
+def fetch(url, name):
+    path = os.path.join(CACHE, name)
+    if not os.path.exists(path):
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        print('Scarico', name)
+        urllib.request.urlretrieve(url, path)
+    with open(path, encoding='utf-8') as f:
+        data = json.load(f)
+    return data['features'] if data.get('type') == 'FeatureCollection' else [data]
+
+
+def geom(feature):
+    return shape(feature['geometry']).buffer(0)
 
 
 def fmt(v):
     return f'{v:.1f}'.rstrip('0').rstrip('.')
 
 
-def polys_of(geom):
-    if isinstance(geom, Polygon):
-        return [geom]
-    if isinstance(geom, MultiPolygon):
-        return list(geom.geoms)
-    return [g for g in getattr(geom, 'geoms', []) if isinstance(g, Polygon)]
+def polys_of(g):
+    if isinstance(g, Polygon):
+        return [g]
+    if isinstance(g, MultiPolygon):
+        return list(g.geoms)
+    return [p for p in getattr(g, 'geoms', []) if isinstance(p, Polygon)]
 
 
-def main_parts(geom):
-    parts = sorted(polys_of(geom), key=lambda g: g.area, reverse=True)
-    return [g for g in parts if g.area >= parts[0].area * MIN_PART][:MAX_PARTS]
+def main_parts(g):
+    parts = sorted(polys_of(g), key=lambda p: p.area, reverse=True)
+    return [p for p in parts if p.area >= parts[0].area * MIN_PART][:MAX_PARTS]
 
 
 def components(adj):
@@ -97,34 +98,172 @@ def components(adj):
     return sorted(comps, key=len, reverse=True)
 
 
-def load_source(filename):
-    path = os.path.join(CACHE, filename)
-    if not os.path.exists(path):
-        os.makedirs(CACHE, exist_ok=True)
-        print('Scarico', filename)
-        urllib.request.urlretrieve(SOURCE + filename, path)
-    with open(path, encoding='utf-8') as f:
-        return json.load(f)['features']
+def equirectangular(lat0, scale):
+    cos = math.cos(math.radians(lat0))
+    return lambda lon, lat: (lon * cos * scale, -lat * scale)
 
 
-def load_detailed(code):
-    path = os.path.join(CACHE, 'comuni', f'{code}.geojson')
-    if not os.path.exists(path):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        urllib.request.urlretrieve(f'{DETAILED_MUNICIPALITIES}{code}.geojson', path)
-    with open(path, encoding='utf-8') as f:
-        data = json.load(f)
-    feature = data['features'][0] if data.get('type') == 'FeatureCollection' else data
-    assert feature['properties']['code'] == code, code
-    return shape(feature['geometry']).buffer(0)
-
-
-def build(key, cfg):
-    cos = math.cos(math.radians(cfg['lat0']))
-    scale = cfg['scale']
+def equal_earth(scale):
+    a1, a2, a3, a4 = 1.340264, -0.081106, 0.000893, 0.003796
+    m = math.sqrt(3) / 2
 
     def proj(lon, lat):
-        return lon * cos * scale, -lat * scale
+        t = math.asin(m * math.sin(math.radians(lat)))
+        t2, t6 = t * t, t ** 6
+        x = math.radians(lon) * math.cos(t) / (m * (a1 + 3 * a2 * t2 + t6 * (7 * a3 + 9 * a4 * t2)))
+        y = t * (a1 + a2 * t2 + t6 * (a3 + a4 * t2))
+        return x * scale, -y * scale
+    return proj
+
+
+# ---------- Sorgenti per mappa ----------
+def load_italia():
+    return [{'id': p['prov_acr'], 'name': p['prov_name'], 'group': p['reg_name'], 'geom': geom(f)}
+            for f in fetch(OPENPOLIS + 'limits_IT_provinces.geojson', 'limits_IT_provinces.geojson')
+            for p in [f['properties']]]
+
+
+def detailed_municipality(code):
+    feature = fetch(f'{DETAILED_MUNICIPALITIES}{code}.geojson', f'comuni/{code}.geojson')[0]
+    assert feature['properties']['code'] == code, code
+    return geom(feature)
+
+
+# Nomi dei NIL scritti come li usa il Comune, con le maiuscole corrette.
+NIL_NAMES = {
+    "CITTA' STUDI": 'Città Studi', "NIGUARDA - CA' GRANDA": "Niguarda - Ca' Granda",
+    "PARCO MONLUE' - PONTE LAMBRO": 'Parco Monluè - Ponte Lambro', 'QT 8': 'QT8',
+    'XXII MARZO': 'XXII Marzo', 'EX OM - MORIVIONE': 'Ex OM - Morivione',
+    'S. CRISTOFORO': 'San Cristoforo', 'S. SIRO': 'San Siro', 'MAGENTA - S. VITTORE': 'Magenta - San Vittore',
+}
+LOWER_WORDS = {'di', 'del', 'della', 'delle', 'dei', 'in', 'sul', 'e'}
+
+
+def nil_name(raw):
+    if raw in NIL_NAMES:
+        return NIL_NAMES[raw]
+    words = raw.lower().split(' ')
+    return ' '.join(w if (w in LOWER_WORDS and i) else w[:1].upper() + w[1:] for i, w in enumerate(words))
+
+
+def load_milano():
+    items = []
+    for name in ('limits_P_15_municipalities.geojson', 'limits_P_108_municipalities.geojson'):
+        for f in fetch(OPENPOLIS + name, name):
+            p = f['properties']
+            items.append({'id': p['com_istat_code'], 'name': p['name'], 'group': p['prov_name'],
+                          'geom': detailed_municipality(p['com_istat_code'])})
+
+    # Il comune di Milano è sostituito dai suoi 88 quartieri (NIL). I quartieri
+    # vengono ritagliati sul confine ISTAT del comune e le piccole fessure lungo
+    # il bordo vanno al quartiere con cui condividono più confine, così i
+    # quartieri combaciano esattamente con i comuni vicini.
+    city = next(a for a in items if a['id'] == '015146')
+    items.remove(city)
+    nils = []
+    for f in fetch(MILANO_NIL, 'milano_nil.geojson'):
+        p = f['properties']
+        nils.append({'id': f"MI{p['ID_NIL']:02d}", 'name': nil_name(p['NIL']),
+                     'group': 'Comune di Milano', 'geom': geom(f).intersection(city['geom'])})
+    gaps = city['geom'].difference(unary_union([n['geom'] for n in nils]))
+    for gap in polys_of(gaps):
+        best = max(nils, key=lambda n: n['geom'].buffer(1e-6).intersection(gap.boundary).length)
+        best['geom'] = unary_union([best['geom'], gap]).buffer(0)
+    assert len(nils) == 88, len(nils)
+    return items + nils
+
+
+GERMAN_NAMES = {
+    'Baden-Württemberg': 'Baden-Württemberg', 'Bayern': 'Baviera', 'Berlin': 'Berlino',
+    'Brandenburg': 'Brandeburgo', 'Bremen': 'Brema', 'Hamburg': 'Amburgo', 'Hessen': 'Assia',
+    'Mecklenburg-Vorpommern': 'Meclemburgo-Pomerania Anteriore', 'Niedersachsen': 'Bassa Sassonia',
+    'Nordrhein-Westfalen': 'Renania Settentrionale-Vestfalia', 'Rheinland-Pfalz': 'Renania-Palatinato',
+    'Saarland': 'Saarland', 'Sachsen': 'Sassonia', 'Sachsen-Anhalt': 'Sassonia-Anhalt',
+    'Schleswig-Holstein': 'Schleswig-Holstein', 'Thüringen': 'Turingia',
+}
+
+
+def load_germania():
+    name = 'ne_10m_admin_1_states_provinces.geojson'
+    return [{'id': p['iso_3166_2'].split('-')[1], 'name': GERMAN_NAMES[p['name']],
+             'group': 'Germania', 'geom': geom(f)}
+            for f in fetch(NATURAL_EARTH + name, name)
+            for p in [f['properties']] if p['adm0_a3'] == 'DEU']
+
+
+CONTINENTS = {'Europe': 'Europa', 'Asia': 'Asia', 'Africa': 'Africa', 'North America': 'Nord America',
+              'South America': 'Sud America', 'Oceania': 'Oceania'}
+REGION_UN = {'Africa': 'Africa', 'Asia': 'Asia', 'Europe': 'Europa', 'Oceania': 'Oceania', 'Americas': 'Nord America'}
+WORLD_TYPES = {'Sovereign country', 'Country', 'Sovereignty'}
+WORLD_EXTRA = {'KOS', 'ISR', 'SAH', 'PSX'}                      # contesi ma comunemente considerati
+WORLD_SKIP = {'JEY', 'GGY', 'IMN', 'ABW', 'CUW', 'ALD', 'MAC', 'HKG', 'SXM'}
+WORLD_MERGE = {'CYN': 'CYP', 'SOL': 'SOM'}                      # Cipro del Nord, Somaliland
+WORLD_NAMES = {'USA': 'Stati Uniti', 'SWZ': 'Eswatini'}
+
+
+def load_mondo():
+    name = 'ne_50m_admin_0_countries.geojson'
+    features = fetch(NATURAL_EARTH + name, name)
+    items = {}
+    for f in features:
+        p = f['properties']
+        code = p['ADM0_A3']
+        if code in WORLD_MERGE or code in WORLD_SKIP:
+            continue
+        if p['TYPE'] in WORLD_TYPES or code in WORLD_EXTRA:
+            name = WORLD_NAMES.get(code, p['NAME_IT'])
+            group = CONTINENTS.get(p['CONTINENT']) or REGION_UN[p['REGION_UN']]
+            items[code] = {'id': code, 'name': name[:1].upper() + name[1:], 'group': group, 'geom': geom(f)}
+    for f in features:
+        target = WORLD_MERGE.get(f['properties']['ADM0_A3'])
+        if target:
+            items[target]['geom'] = unary_union([items[target]['geom'], geom(f)]).buffer(0)
+    return list(items.values())
+
+
+MAPS = {
+    'italia': {
+        'load': load_italia,
+        'touch': 0.004,       # gradi: tolleranza per considerare due aree confinanti
+        'simplify': 0.012,    # gradi: tolleranza di semplificazione della copertura
+        'label_tol': 0.005,
+        'projection': equirectangular(42.0, 100.0),
+        'link_islands': '⛴️',  # collega le parti staccate con questa icona
+    },
+    'milano': {
+        'load': load_milano,
+        'touch': 0.0002,
+        'simplify': 0.0004,
+        'label_tol': 0.0005,
+        'projection': equirectangular(45.5, 1000.0),
+        'link_islands': '🛣️',
+    },
+    'germania': {
+        'load': load_germania,
+        'touch': 0.002,
+        'simplify': 0.005,
+        'label_tol': 0.005,
+        'projection': equirectangular(51.0, 100.0),
+    },
+    'mondo': {
+        'load': load_mondo,
+        'touch': 0.03,        # include Malaysia-Singapore (ponte-diga di Johor)
+        'simplify': 0.1,
+        'label_tol': 0.05,
+        'projection': equal_earth(400.0),
+        # Lo zoom segue solo la parte principale: la Francia non trascina la
+        # vista fino alla Guyana, né gli Stati Uniti fino all'Alaska.
+        'zoom_main_part': True,
+        # Le isole senza confini terrestri restano staccate, come in travle;
+        # contano solo i collegamenti fissi più noti.
+        'links': [('GBR', 'FRA', '🚆'), ('DNK', 'SWE', '🌉'), ('BHR', 'SAU', '🌉')],
+    },
+}
+
+
+# ---------- Costruzione ----------
+def build(key, cfg):
+    proj = cfg['projection']
 
     def to_path(polys):
         out = []
@@ -134,17 +273,9 @@ def build(key, cfg):
                 out.append('M' + 'L'.join(f'{fmt(x)},{fmt(y)}' for x, y in pts) + 'Z')
         return ''.join(out)
 
-    items = []
-    for filename in cfg['sources']:
-        for f in load_source(filename):
-            p = f['properties']
-            items.append({'id': p[cfg['id']], 'name': p[cfg['name']],
-                          'group': p[cfg['group']], 'geom': shape(f['geometry']).buffer(0)})
-    if cfg.get('detailed'):
-        print(f'[{key}] scarico i confini dettagliati')
-        for a in items:
-            a['geom'] = load_detailed(a['id'])
+    items = cfg['load']()
     id2geom = {a['id']: a['geom'] for a in items}
+    names = {a['id']: a['name'] for a in items}
     assert len(id2geom) == len(items), 'identificativi duplicati'
     print(f'[{key}] aree:', len(items))
 
@@ -157,24 +288,32 @@ def build(key, cfg):
             bb = b['geom'].bounds
             if ba[0] > bb[2] + pad or bb[0] > ba[2] + pad or ba[1] > bb[3] + pad or bb[1] > ba[3] + pad:
                 continue
-            if a['geom'].distance(b['geom']) <= cfg['touch']:
+            if a['geom'].distance(b['geom']) <= pad:
                 adj[a['id']].add(b['id'])
                 adj[b['id']].add(a['id'])
 
-    # 2. collegamenti per le parti staccate
-    comps = components(adj)
-    mainland = comps[0]
+    # 2. collegamenti fissi e parti staccate
     links = []
-    for comp in comps[1:]:
-        _, a, b = min(((id2geom[a].distance(id2geom[b]), a, b)
-                       for a in comp for b in mainland), key=lambda t: t[0])
+    for a, b, icon in cfg.get('links', []):
         adj[a].add(b)
         adj[b].add(a)
-        links.append([a, b, cfg['link_icon']])
-        mainland |= comp
-        names = {x['id']: x['name'] for x in items}
+        links.append([a, b, icon])
         print(f'[{key}] collegamento: {names[a]} <-> {names[b]}')
-    assert len(components(adj)) == 1, 'il grafo deve essere connesso'
+    if cfg.get('link_islands'):
+        comps = components(adj)
+        mainland = comps[0]
+        for comp in comps[1:]:
+            _, a, b = min(((id2geom[a].distance(id2geom[b]), a, b)
+                           for a in comp for b in mainland), key=lambda t: t[0])
+            adj[a].add(b)
+            adj[b].add(a)
+            links.append([a, b, cfg['link_islands']])
+            mainland |= comp
+            print(f'[{key}] collegamento: {names[a]} <-> {names[b]}')
+        assert len(components(adj)) == 1, 'il grafo deve essere connesso'
+    else:
+        alone = [names[k] for k, v in adj.items() if not v]
+        print(f'[{key}] aree senza confini: {len(alone)}')
 
     # 3. semplificazione come copertura
     simplified = shapely.coverage_simplify([a['geom'] for a in items], cfg['simplify'])
@@ -182,14 +321,16 @@ def build(key, cfg):
     areas, group_parts = {}, {}
     minx = miny = math.inf
     maxx = maxy = -math.inf
-    for a, geom in zip(items, simplified):
-        parts = main_parts(geom)
+    for a, g in zip(items, simplified):
+        parts = main_parts(g)
         group_parts.setdefault(a['group'], []).extend(parts)
-        label = polylabel(max(parts, key=lambda g: g.area), tolerance=cfg['label_tol'])
+        label = polylabel(max(parts, key=lambda p: p.area), tolerance=cfg['label_tol'])
         lx, ly = proj(label.x, label.y)
-        x0, y1 = proj(*MultiPolygon(parts).bounds[:2])
-        x1, y0 = proj(*MultiPolygon(parts).bounds[2:])
-        minx, miny, maxx, maxy = min(minx, x0), min(miny, y0), max(maxx, x1), max(maxy, y1)
+        xs, ys = zip(*(proj(x, y) for p in parts for x, y in p.exterior.coords))
+        minx, miny, maxx, maxy = min(minx, *xs), min(miny, *ys), max(maxx, *xs), max(maxy, *ys)
+        if cfg.get('zoom_main_part'):
+            xs, ys = zip(*(proj(x, y) for x, y in parts[0].exterior.coords))
+        x0, y0, x1, y1 = min(xs), min(ys), max(xs), max(ys)
         areas[a['id']] = {
             'name': a['name'],
             'group': a['group'],

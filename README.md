@@ -1,6 +1,6 @@
 # Travel Maps
 
-Un puzzle geografico quotidiano su più mappe: collega due **province italiane**, o due **comuni di Milano e Brianza**, nominando quelli che attraverseresti lungo il tragitto, nel minor numero di mosse possibile.
+Un puzzle geografico quotidiano su più mappe: collega due **province italiane**, due **comuni o quartieri di Milano e Brianza**, due **Länder tedeschi** o due **nazioni del mondo**, nominando quelli che attraverseresti lungo il tragitto, nel minor numero di mosse possibile.
 
 **Gioca online: <https://mastercruelty.github.io/travel-maps/>**
 
@@ -12,20 +12,24 @@ Ispirato a [travle](https://travle.earth/ita), riscritto da zero in HTML, CSS e 
 
 Si sceglie la mappa dalle linguette in alto. Ognuna ha il suo puzzle quotidiano, i suoi salvataggi e le sue statistiche.
 
-| Mappa | Aree | Collegamenti tratteggiati | Indirizzo |
-| --- | --- | --- | --- |
-| **Italia** | 110 province | ⛴️ Stretto di Messina e traghetto Livorno–Olbia, per raggiungere Sicilia e Sardegna | `/` |
-| **Milano e Brianza** | 188 comuni della Città metropolitana di Milano e della provincia di Monza e della Brianza | 🛣️ San Colombano al Lambro, staccato dal resto della città metropolitana, collegato a San Zenone al Lambro | `/?mappa=milano` |
+| Linguetta | Aree | Collegamenti tratteggiati | Distanza dei puzzle | Indirizzo |
+| --- | --- | --- | --- | --- |
+| **Italia** | 110 province | ⛴️ Stretto di Messina e traghetto Livorno–Olbia, per raggiungere Sicilia e Sardegna | 4–8 confini | `/` |
+| **Milano** | 187 comuni della Città metropolitana di Milano e della provincia di Monza e della Brianza, più gli 88 quartieri (NIL) del comune di Milano | 🛣️ San Colombano al Lambro, staccato dal resto della città metropolitana, collegato a San Zenone al Lambro | 4–8 confini | `/?mappa=milano` |
+| **Germania** | 16 Länder | — | 3–5 confini | `/?mappa=germania` |
+| **Mondo** | 199 nazioni | 🚆 tunnel della Manica, 🌉 ponti dell'Øresund e di re Fahd | 4–8 confini | `/?mappa=mondo` |
 
-Nella mappa di Milano il capoluogo confina con 23 comuni ed è un passaggio naturale per molti percorsi: è una caratteristica della mappa.
+- **Milano**: il comune di Milano non è un'unica area ma è diviso nei suoi 88 quartieri, che confinano tra loro e con i comuni intorno. Se scrivi "Milano" il gioco ti ricorda di indicare un quartiere.
+- **Germania**: si accettano anche i nomi in tedesco (`Bayern`, `Hessen`, `NRW`…) e le sigle (`BY`, `HE`…).
+- **Mondo**: come in travle, le nazioni senza confini terrestri (Giappone, Australia, Islanda…) si possono nominare ma non collegano nulla: si colorano di nero ⬛ e non sono mai partenza o arrivo. La Francia comprende la Guyana francese, quindi confina con Brasile e Suriname.
 
 ## Come si gioca
 
-- Ogni partita ha un'area di **partenza** e una di **arrivo**, distanti tra 4 e 8 confini.
-- Scrivi il nome di una provincia (o di un comune) qualsiasi: vinci quando quelli inseriti formano una **catena continua di aree confinanti** tra partenza e arrivo.
-- I tentativi sono il numero minimo di aree necessarie più un margine. Italia: almeno 3 in più, circa l'80% del minimo per i percorsi lunghi. Milano e Brianza, dove i nomi sono meno noti: almeno 4 in più, pari al minimo per i percorsi lunghi.
+- Ogni partita ha un'area di **partenza** e una di **arrivo**, alla distanza indicata nella tabella.
+- Scrivi il nome di un'area qualsiasi della mappa: vinci quando quelli inseriti formano una **catena continua di aree confinanti** tra partenza e arrivo.
+- I tentativi sono il numero minimo di aree necessarie più un margine: almeno 3 in più (4 a Milano, dove i nomi sono meno noti; 2 in Germania, dove i percorsi sono brevi), e circa l'80% del minimo per i percorsi lunghi (il 100% a Milano).
 - Ogni area si colora in base a quanto allunga il percorso ideale:
-  🟩 nessuna deviazione · 🟧 fino a 2 aree in più · 🟥 oltre.
+  🟩 nessuna deviazione · 🟧 fino a 2 aree in più · 🟥 oltre · ⬛ nessun collegamento via terra (solo nel mondo).
 - Il punteggio è **Perfetto** se usi esattamente il numero minimo di aree, altrimenti **+N**.
 - Il 💡 **suggerimento** funziona a livelli sul prossimo passo utile, calcolato a partire da ciò che hai già inserito: il primo aiuto ne mostra il contorno sulla mappa senza nome, il secondo le iniziali (es. `R_____ n___'E_____`). Ogni aiuto costa un tentativo; il nome compare solo quando lo indovini o a fine partita.
 - Per arrenderti premi 🏳️ due volte: la prima chiede conferma.
@@ -35,20 +39,24 @@ Nella mappa di Milano il capoluogo confina con 23 comuni ed è un passaggio natu
 ### Quotidiano e allenamento
 
 - **Quotidiano**: lo stesso puzzle per tutti, cambia a mezzanotte (ora locale). La **mappa è nascosta**: all'inizio vedi solo partenza e arrivo, e ogni area che inserisci compare sulla cartina. La mappa intera, con i confini di regioni o province e i collegamenti tratteggiati, si svela a fine partita, che tu vinca, perda o ti arrenda. Le statistiche contano solo le partite quotidiane.
-- **Allenamento**: partite casuali illimitate con la mappa sempre completa. Il risultato include un **link sfida** per far giocare a un amico lo stesso percorso, ad esempio `?da=CE&a=FI` (Caserta → Firenze) o `?mappa=milano&da=015002&a=108050` (Abbiategrasso → Vimercate).
+- **Allenamento**: partite casuali illimitate con la mappa sempre completa. Il risultato include un **link sfida** per far giocare a un amico lo stesso percorso, ad esempio `?da=CE&a=FI` (Caserta → Firenze) o `?mappa=milano&da=MI01&a=108033` (Duomo → Monza).
 
 ## Funzionalità
 
-- **Mappa interattiva**: zoom automatico sulla zona della partita, nomi sulle aree scoperte (se due nomi si sovrappongono resta il più importante, l'altro si legge toccando l'area) e pulsante 🇮🇹 / 🗺️ per vedere la mappa intera.
+- **Mappa interattiva**: zoom automatico sulla zona della partita, nomi sulle aree scoperte (se due nomi si sovrappongono resta il più importante, l'altro si legge toccando l'area) e pulsante 🇮🇹 / 🗺️ / 🇩🇪 / 🌍 per vedere la mappa intera.
 - **Autocompletamento** tollerante: accenti, apostrofi, sigle (`RM`) e nomi alternativi (`Reggio Emilia`, `Olbia`, `Bozen`…). Con Invio la provincia viene scelta solo se il testo non è ambiguo: `reggio` chiede quale delle due.
 - **Risultato condivisibile** con griglia di emoji, conto alla rovescia al prossimo quotidiano e percorso ideale.
 - **Statistiche** salvate nel browser: partite, percentuale di vittorie, serie di giorni consecutivi e distribuzione dei punteggi.
 - Partita quotidiana **salvata** automaticamente: puoi chiudere la pagina e riprendere.
 - **Tema scuro** automatico, layout per mobile, navigazione da tastiera.
 
-| Quotidiano | Allenamento | Milano e Brianza | Risultato | Curiosità | Tema scuro | Regole |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| ![Quotidiano con la mappa nascosta](docs/screenshots/quotidiano.png) | ![Allenamento su mobile](docs/screenshots/mobile.png) | ![Mappa di Milano e Brianza](docs/screenshots/milano.png) | ![Risultato](docs/screenshots/risultato.png) | ![Curiosità a fine partita](docs/screenshots/curiosita.png) | ![Tema scuro](docs/screenshots/tema-scuro.png) | ![Regole](docs/screenshots/regole.png) |
+| Quotidiano | Allenamento | Milano | Germania | Mondo |
+| :---: | :---: | :---: | :---: | :---: |
+| ![Quotidiano con la mappa nascosta](docs/screenshots/quotidiano.png) | ![Allenamento su mobile](docs/screenshots/mobile.png) | ![Milano dal Duomo a Monza attraverso i quartieri](docs/screenshots/milano.png) | ![Germania con un suggerimento](docs/screenshots/germania.png) | ![Mondo dal Portogallo alla Polonia](docs/screenshots/mondo.png) |
+
+| Risultato | Curiosità | Tema scuro | Regole |
+| :---: | :---: | :---: | :---: |
+| ![Risultato](docs/screenshots/risultato.png) | ![Curiosità a fine partita](docs/screenshots/curiosita.png) | ![Tema scuro](docs/screenshots/tema-scuro.png) | ![Regole](docs/screenshots/regole.png) |
 
 ## Avvio in locale
 
@@ -86,7 +94,7 @@ npx playwright install chromium
 npm test
 ```
 
-Coprono entrambe le mappe e il passaggio tra le linguette, il puzzle quotidiano con la mappa nascosta, l'allenamento, i salvataggi, l'autocompletamento, il tocco sui suggerimenti, i colori, i suggerimenti, la sconfitta, la resa, le statistiche, i link sfida e lo zoom. La CI (`.github/workflows/ci.yml`) li esegue con Node.js 22 a ogni pull request e a ogni push su `main`.
+Coprono tutte le mappe e il passaggio tra le linguette, il puzzle quotidiano con la mappa nascosta, l'allenamento, i salvataggi, l'autocompletamento, il tocco sui suggerimenti, i colori, i suggerimenti, la sconfitta, la resa, le statistiche, i link sfida e lo zoom. La CI (`.github/workflows/ci.yml`) li esegue con Node.js 22 a ogni pull request e a ogni push su `main`.
 
 ### Screenshot
 
@@ -94,11 +102,11 @@ Coprono entrambe le mappe e il passaggio tra le linguette, il puzzle quotidiano 
 npm run screenshots
 ```
 
-Rigenera le immagini di questo README in `docs/screenshots/`. Usa sempre le stesse partite di allenamento (Caserta → Firenze, Abbiategrasso → Vimercate) e, per il quotidiano, una data fissa, così le immagini non cambiano da un giorno all'altro. Con `CHROMIUM_PATH` si può indicare un Chromium già installato.
+Rigenera le immagini di questo README in `docs/screenshots/`. Usa sempre le stesse partite di allenamento (es. Caserta → Firenze, Duomo → Monza) e, per il quotidiano, una data fissa, così le immagini non cambiano da un giorno all'altro. Con `CHROMIUM_PATH` si può indicare un Chromium già installato.
 
 ### Dati delle mappe
 
-`data/italia.json` e `data/milano.json` sono generati da `tools/build_data.py` a partire dai confini ufficiali ISTAT:
+`data/italia.json`, `milano.json`, `germania.json` e `mondo.json` sono generati da `tools/build_data.py`:
 
 ```bash
 pip install shapely
@@ -108,11 +116,11 @@ python3 tools/build_data.py milano     # solo una
 
 Per ogni mappa lo script:
 
-1. scarica i confini da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy), fissato a un commit preciso; per le mappe comunali, dove openpolis ha solo la versione generalizzata, prende le geometrie dettagliate (ISTAT non generalizzate, 1° gennaio 2026) da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat), anch'esso fissato a un commit;
+1. scarica i confini da fonti pubblicate su GitHub, ognuna fissata a un commit preciso (vedi [Crediti](#crediti)); per Milano sostituisce il comune con i suoi 88 quartieri, ritagliati sul confine ufficiale del comune così da combaciare con i comuni vicini;
 2. calcola quali aree confinano tra loro;
-3. collega le parti staccate (isole, exclavi) all'area più vicina, come un traghetto;
+3. aggiunge i collegamenti fissi (ponti, tunnel) e, in Italia e a Milano, collega le parti staccate (isole, exclavi) all'area più vicina, come un traghetto;
 4. semplifica i confini mantenendo identici i tratti condivisi tra aree vicine;
-5. calcola per ogni area il punto in cui scrivere il nome, il riquadro per lo zoom e il contorno dei gruppi (regioni o province).
+5. calcola per ogni area il punto in cui scrivere il nome, il riquadro per lo zoom e il contorno dei gruppi (regioni, province, continenti). Il mondo usa la proiezione Equal Earth.
 
 ### Curiosità
 
@@ -122,11 +130,11 @@ Le curiosità di fine partita sono in `data/facts/<mappa>.json`, una voce per ar
 { "FI": { "facts": ["...", "..."], "sources": ["https://..."] } }
 ```
 
-Sono scritte a mano, una o due per area, verificate su fonti indicate in `sources` (Wikipedia, siti istituzionali, cataloghi dei beni culturali). Le regole: al massimo 220 caratteri, solo fatti duraturi (niente popolazione, sindaci o cronaca), tradizioni e ipotesi presentate come tali. Oggi coprono tutte le 110 province e 181 dei 188 comuni di Milano e Brianza; per le aree senza curiosità il gioco mostra solo l'altra località. Un test controlla che ogni voce corrisponda a un'area della mappa, abbia una fonte valida e rispetti la lunghezza massima.
+Sono scritte a mano, una o due per area, verificate su fonti indicate in `sources` (Wikipedia, siti istituzionali, cataloghi dei beni culturali). Le regole: al massimo 220 caratteri, solo fatti duraturi (niente popolazione, sindaci o cronaca), tradizioni e ipotesi presentate come tali. Oggi coprono tutte le 110 province, 180 dei 187 comuni di Milano e Brianza e il quartiere Duomo; Germania e mondo non ne hanno ancora. Per le aree senza curiosità il gioco mostra solo l'altra località. Un test controlla che ogni voce corrisponda a un'area della mappa, abbia una fonte valida e rispetti la lunghezza massima.
 
 ### Aggiungere una mappa
 
-1. In `tools/build_data.py` aggiungi una voce a `MAPS` con i file sorgente di openpolis, i campi da usare e le tolleranze, poi rigenera i dati.
+1. In `tools/build_data.py` aggiungi una funzione che carica le aree (codice, nome, gruppo, geometria) e una voce a `MAPS` con tolleranze e proiezione, poi rigenera i dati.
 2. In `game.js` aggiungi la stessa chiave a `MAPS`, con i testi (singolare e plurale, messaggi), il prefisso dei salvataggi e la distanza dei puzzle.
 3. In `index.html` aggiungi la linguetta con `data-map="<chiave>"`.
 
@@ -134,10 +142,10 @@ Sono scritte a mano, una o due per area, verificate su fonti indicate in `source
 
 ```
 ├── index.html, style.css, game.js   il gioco
-├── data/italia.json, milano.json    aree, confini e mappa di ogni mappa (generati)
+├── data/<mappa>.json                aree, confini e disegno di ogni mappa (generati)
 ├── data/facts/                      curiosità di fine partita per ogni mappa
 ├── tools/
-│   ├── build_data.py                genera i dati dai confini ISTAT
+│   ├── build_data.py                genera i dati delle mappe dai confini ufficiali
 │   ├── serve.mjs                    server statico per `npm start` e per i test
 │   └── screenshots.mjs              genera gli screenshot del README
 ├── tests/game.spec.js               test end-to-end
@@ -153,7 +161,10 @@ Il gioco è gratuito e senza pubblicità. Se ti piace puoi [offrirmi un caffè s
 ## Crediti
 
 - Idea e meccanica di gioco: [travle](https://travle.earth) di Oisín Carroll (Teuteuf Games).
-- Confini di province e comuni: dati ISTAT con licenza CC BY 4.0, distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) (province, nomi e codici) e da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat) (confini comunali dettagliati, Istat, *Confini delle unità amministrative a fini statistici al 1° gennaio 2026*, versione non generalizzata). Le geometrie sono semplificate per l'uso sul web.
+- Confini di province e comuni: dati ISTAT con licenza CC BY 4.0, distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) (province, nomi e codici) e da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat) (confini comunali dettagliati, Istat, *Confini delle unità amministrative a fini statistici al 1° gennaio 2026*, versione non generalizzata).
+- Quartieri di Milano: NIL (Nuclei d'Identità Locale) dal portale open data del Comune di Milano, nella conversione di [abahgat/opendata-milano](https://github.com/abahgat/opendata-milano).
+- Nazioni e Länder: [Natural Earth](https://www.naturalearthdata.com), pubblico dominio, da [nvkelso/natural-earth-vector](https://github.com/nvkelso/natural-earth-vector).
+- Tutte le geometrie sono semplificate per l'uso sul web.
 - Curiosità: testi originali basati sulle fonti indicate per ogni voce in `data/facts/`.
 
 Codice rilasciato con licenza [MIT](LICENSE).

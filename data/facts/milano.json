@@ -698,16 +698,6 @@
    "https://www.milanofree.it/tradizioni/personaggi/gianna-beretta-molla-mamma-medico-e-santa.html"
   ]
  },
- "015146": {
-  "facts": [
-   "Il Duomo fu iniziato nel 1386 e completato solo nel 1965: è la più grande cattedrale gotica d'Italia e conta oltre 3.400 statue.",
-   "La Scala, progettata da Giuseppe Piermarini nel Settecento, prende il nome dalla chiesa di Santa Maria alla Scala, demolita per costruire il teatro."
-  ],
-  "sources": [
-   "https://siviaggia.it/varie/duomo-milano-segreti-curiosita/564063/",
-   "https://www.idealista.it/news/node/180145"
-  ]
- },
  "015150": {
   "facts": [
    "L'abbazia di Morimondo fu fondata nel 1134-1135 da monaci cistercensi giunti dall'abbazia francese di Morimond, da cui deriva il nome del paese.",
@@ -1752,6 +1742,16 @@
   ],
   "sources": [
    "https://www.ilgiorno.it/monza-brianza/cronaca/pasquetta-nei-piccoli-borghi-sulle-de181527"
+  ]
+ },
+ "MI01": {
+  "facts": [
+   "Il Duomo fu iniziato nel 1386 e completato solo nel 1965: è la più grande cattedrale gotica d'Italia e conta oltre 3.400 statue.",
+   "La Scala, progettata da Giuseppe Piermarini nel Settecento, prende il nome dalla chiesa di Santa Maria alla Scala, demolita per costruire il teatro."
+  ],
+  "sources": [
+   "https://siviaggia.it/varie/duomo-milano-segreti-curiosita/564063/",
+   "https://www.idealista.it/news/node/180145"
   ]
  }
 }

@@ -43,16 +43,17 @@ const MAPS = {
     },
   },
   milano: {
-    tab: 'Milano e Brianza',
-    title: 'Comuni di Milano e Brianza',
+    tab: 'Milano',
+    title: 'Milano e Brianza',
     file: 'data/milano.json',
     facts: 'data/facts/milano.json',
-    one: 'comune', many: 'comuni',
-    placeholder: 'Scrivi un comune…',
-    unknown: 'Comune non riconosciuto',
+    one: 'comune o quartiere', many: 'comuni o quartieri',
+    placeholder: 'Scrivi un comune o un quartiere…',
+    unknown: 'Comune o quartiere non riconosciuto',
     already: 'è già stato inserito',
-    ambiguous: 'Più comuni corrispondono: scegline uno dalla lista',
-    linksNote: '🛣️ San Colombano al Lambro è staccato dal resto della città metropolitana: il tratteggio che lo unisce a San Zenone al Lambro conta come un confine.',
+    ambiguous: 'Più nomi corrispondono: scegline uno dalla lista',
+    unknownHints: { milano: 'Milano è divisa nei suoi 88 quartieri: scrivi il nome di un quartiere (es. Duomo, Isola, Lambrate)' },
+    linksNote: 'Il comune di Milano è diviso nei suoi 88 quartieri (NIL). 🛣️ San Colombano al Lambro è staccato dal resto della città metropolitana: il tratteggio che lo unisce a San Zenone al Lambro conta come un confine.',
     zoomIcon: '🗺️', zoomTitle: 'Mostra tutta la mappa',
     storagePrefix: 'pi_milano_',
     seedOffset: 54321,
@@ -61,11 +62,64 @@ const MAPS = {
     codes: false,
     aliases: {},
   },
+  germania: {
+    tab: 'Germania',
+    title: 'Länder della Germania',
+    file: 'data/germania.json',
+    facts: 'data/facts/germania.json',
+    one: 'Land', many: 'Länder',
+    placeholder: 'Scrivi un Land…',
+    unknown: 'Land non riconosciuto',
+    already: 'è già stato inserito',
+    ambiguous: 'Più Länder corrispondono: scegline uno dalla lista',
+    linksNote: 'Berlino è circondata dal Brandeburgo e Brema dalla Bassa Sassonia. Si accettano anche i nomi in tedesco.',
+    zoomIcon: '🇩🇪', zoomTitle: 'Mostra tutta la Germania',
+    storagePrefix: 'pi_germania_',
+    seedOffset: 4242,
+    minDist: 3, maxDist: 5,
+    extraMin: 2, extraFactor: 0.8,
+    codes: true,
+    aliases: {
+      BW: ['baden wurttemberg', 'baden wuerttemberg'], BY: ['bayern'], BE: ['berlin'], BB: ['brandenburg'],
+      HB: ['bremen'], HH: ['hamburg'], HE: ['hessen'], MV: ['mecklenburg vorpommern', 'meclemburgo'],
+      NI: ['niedersachsen'], NW: ['nordrhein westfalen', 'nrw', 'vestfalia'], RP: ['rheinland pfalz', 'palatinato'],
+      SL: ['saar', 'saarland'], SN: ['sachsen'], ST: ['sachsen anhalt'], SH: ['schleswig holstein'], TH: ['thuringen', 'thueringen'],
+    },
+  },
+  mondo: {
+    tab: 'Mondo',
+    title: 'Nazioni del mondo',
+    file: 'data/mondo.json',
+    facts: 'data/facts/mondo.json',
+    one: 'nazione', many: 'nazioni',
+    placeholder: 'Scrivi una nazione…',
+    unknown: 'Nazione non riconosciuta',
+    already: 'è già stata inserita',
+    ambiguous: 'Più nazioni corrispondono: scegline una dalla lista',
+    linksNote: '🚆 Il tunnel della Manica e 🌉 i ponti dell\'Øresund e di re Fahd contano come confini. Le nazioni senza confini terrestri (Giappone, Australia…) si possono nominare ma non collegano nulla e si colorano di nero.',
+    zoomIcon: '🌍', zoomTitle: 'Mostra tutto il mondo',
+    storagePrefix: 'pi_mondo_',
+    seedOffset: 777,
+    minDist: 4, maxDist: 8,
+    extraMin: 3, extraFactor: 0.8,
+    codes: false,
+    aliases: {
+      USA: ['usa', 'stati uniti d america', 'america'], GBR: ['uk', 'inghilterra', 'gran bretagna'],
+      NLD: ['olanda'], CZE: ['cechia'], MMR: ['myanmar'], SWZ: ['swaziland'], MKD: ['macedonia'],
+      TLS: ['timor leste', 'timor orientale'], RUS: ['federazione russa'], ARE: ['emirati'],
+      COD: ['congo kinshasa', 'rd congo', 'rdc'], COG: ['congo brazzaville'], CAF: ['centrafrica'],
+      DOM: ['dominicana'], VAT: ['vaticano'], MCO: ['monaco'], BIH: ['bosnia', 'erzegovina'],
+      PNG: ['papua'], FSM: ['micronesia'], KNA: ['saint kitts'], VCT: ['saint vincent'], STP: ['sao tome'],
+      ZAF: ['sud africa'], SDS: ['sud sudan'], MDA: ['moldova'], BLR: ['belarus'], KGZ: ['kirghizia'],
+      THA: ['tailandia'], AZE: ['azerbaijan'], KAZ: ['kazakhstan'], TJK: ['tajikistan'], CIV: ['costa d avorio'],
+      PSX: ['stato di palestina'], SAH: ['sahara occidentale'],
+    },
+  },
 };
 const DEFAULT_MAP = 'italia';
 const GAME_TITLE = 'Travel Maps';
 
-const EMOJI = { 'g-ok': '🟩', 'g-near': '🟧', 'g-far': '🟥', hint: '💡' };
+const EMOJI = { 'g-ok': '🟩', 'g-near': '🟧', 'g-far': '🟥', 'g-none': '⬛', hint: '💡' };
 const DAILY_EPOCH = new Date(2024, 0, 1);
 const REDUCED_MOTION = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -349,6 +403,8 @@ function revealedList() {
 
 // Colore in base a quanto l'area allunga il percorso ottimale.
 function colorFor(sig) {
+  // Aree senza alcun collegamento con partenza e arrivo (isole nel mondo).
+  if (game.distStart[sig] === undefined) return 'g-none';
   const detour = game.distStart[sig] + game.distEnd[sig] - game.opt;
   if (detour <= 0) return 'g-ok';
   if (detour <= 2) return 'g-near';
@@ -523,6 +579,7 @@ function renderMapTexts() {
   $('guess-input').setAttribute('aria-label', MAP.placeholder.replace('…', ''));
   for (const el of document.querySelectorAll('[data-u]')) el.textContent = MAP[el.dataset.u];
   $('help-links').textContent = MAP.linksNote;
+  $('legend-none').hidden = MAP !== MAPS.mondo;
   $('stats-map').textContent = MAP.tab;
 }
 
@@ -966,6 +1023,8 @@ function onSubmit(e) {
   const r = resolveTyped($('guess-input').value);
   if (r.empty) return;
   if (r.ambiguous) { showMessage(MAP.ambiguous, 'warn'); return; }
+  const tip = !r.sig && (MAP.unknownHints || {})[norm($('guess-input').value)];
+  if (tip) { showMessage(tip, 'warn'); shake(); return; }
   pick(r.sig);
 }
 
