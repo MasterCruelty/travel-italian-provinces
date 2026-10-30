@@ -456,6 +456,40 @@ test('Germania: il quotidiano è tra 3 e 5 confini', async ({ page }) => {
   expect(await page.evaluate(() => NB.BE)).toEqual(['BB']);
 });
 
+test('Germania: il selettore passa dai Länder ai distretti', async ({ page }) => {
+  await open(page, '/');
+  await expect(page.locator('#levels')).toBeHidden();
+  await page.click('[data-map="germania"]');
+  await page.waitForFunction(() => mapKey === 'germania');
+  await expect(page.locator('#levels .level')).toHaveText(['Länder', 'Distretti']);
+  await page.click('#levels [data-level="distretti"]');
+  await page.waitForFunction(() => mapKey === 'distretti' && game.mode === 'daily');
+  await expect(page).toHaveURL(/\?mappa=distretti$/);
+  await expect(page.locator('.prov')).toHaveCount(400);
+  await expect(page.locator('[data-map="germania"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#levels [data-level="distretti"]')).toHaveAttribute('aria-pressed', 'true');
+  const opt = await page.evaluate(() => game.opt);
+  expect(opt).toBeGreaterThanOrEqual(4);
+  expect(opt).toBeLessThanOrEqual(7);
+
+  // Cliccare la linguetta Germania non cambia il livello scelto.
+  await page.click('[data-map="germania"]');
+  expect(await page.evaluate(() => mapKey)).toBe('distretti');
+  await page.click('#btn-stats');
+  await expect(page.locator('#stats-map')).toHaveText('Germania · Distretti');
+});
+
+test('Distretti: città e circondario omonimi sono distinti', async ({ page }) => {
+  await open(page, '/?mappa=distretti&da=09162&a=09772');
+  await expect(page.locator('#start-name')).toHaveText('München (città)');
+  await page.fill('#guess-input', 'münchen');
+  await expect(page.locator('#suggestions li')).toHaveCount(1);       // la città è già la partenza
+  await expect(page.locator('#suggestions li')).toContainText('München (circondario)');
+  await guess(page, 'Atlantide');
+  await expect(page.locator('#message')).toHaveText('Distretto non riconosciuto');
+  expect(await page.evaluate(() => NB['11000'])).toContain('12054');    // Berlino confina con Potsdam
+});
+
 // ---------- Mondo ----------
 test('Mondo: nazioni, collegamenti fissi e isole senza confini', async ({ page }) => {
   await open(page, '/?mappa=mondo&da=PRT&a=POL');
@@ -532,7 +566,7 @@ test('senza vittoria le curiosità non compaiono', async ({ page }) => {
 test('i file delle curiosità sono validi', async ({}, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'basta una volta');
   const fs = require('fs');
-  for (const map of ['italia', 'milano', 'germania', 'mondo']) {
+  for (const map of ['italia', 'milano', 'germania', 'distretti', 'mondo']) {
     const areas = JSON.parse(fs.readFileSync(`data/${map}.json`, 'utf8')).areas;
     const facts = JSON.parse(fs.readFileSync(`data/facts/${map}.json`, 'utf8'));
     for (const [id, entry] of Object.entries(facts)) {

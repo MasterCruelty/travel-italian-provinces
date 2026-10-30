@@ -64,6 +64,8 @@ const MAPS = {
   },
   germania: {
     tab: 'Germania',
+    level: 'Länder',
+    levels: ['germania', 'distretti'],   // livelli scelti dal selettore sotto la linguetta
     title: 'Länder della Germania',
     file: 'data/germania.json',
     facts: 'data/facts/germania.json',
@@ -85,6 +87,27 @@ const MAPS = {
       NI: ['niedersachsen'], NW: ['nordrhein westfalen', 'nrw', 'vestfalia'], RP: ['rheinland pfalz', 'palatinato'],
       SL: ['saar', 'saarland'], SN: ['sachsen'], ST: ['sachsen anhalt'], SH: ['schleswig holstein'], TH: ['thuringen', 'thueringen'],
     },
+  },
+  distretti: {
+    tab: 'Germania',
+    level: 'Distretti',
+    parent: 'germania',
+    title: 'Distretti della Germania',
+    file: 'data/distretti.json',
+    facts: 'data/facts/distretti.json',
+    one: 'distretto', many: 'distretti',
+    placeholder: 'Scrivi un distretto…',
+    unknown: 'Distretto non riconosciuto',
+    already: 'è già stato inserito',
+    ambiguous: 'Più distretti corrispondono: scegline uno dalla lista',
+    linksNote: 'I distretti sono i 400 Kreise tedeschi, con i nomi in tedesco. Quando una città extracircondariale e un circondario hanno lo stesso nome sono indicati come (città) e (circondario), per esempio München (città) e München (circondario).',
+    zoomIcon: '🇩🇪', zoomTitle: 'Mostra tutta la Germania',
+    storagePrefix: 'pi_distretti_',
+    seedOffset: 9090,
+    minDist: 4, maxDist: 7,
+    extraMin: 4, extraFactor: 1,
+    codes: false,
+    aliases: {},
   },
   mondo: {
     tab: 'Mondo',
@@ -572,15 +595,21 @@ function toggleShowAll() {
 // Testi che dipendono dalla mappa: titolo, schede, input, aiuto.
 function renderMapTexts() {
   document.title = `${GAME_TITLE} · ${MAP.title}`;
+  const root = MAP.parent || mapKey;
   for (const btn of document.querySelectorAll('[data-map]')) {
-    btn.setAttribute('aria-selected', String(btn.dataset.map === mapKey));
+    btn.setAttribute('aria-selected', String(btn.dataset.map === root));
   }
+  // Selettore del livello (es. Länder | Distretti) per le mappe che ne hanno più di uno.
+  const levels = MAPS[root].levels || [];
+  $('levels').hidden = !levels.length;
+  $('levels').innerHTML = levels.map(k =>
+    `<button class="level" data-level="${k}" aria-pressed="${k === mapKey}">${esc(MAPS[k].level)}</button>`).join('');
   $('guess-input').placeholder = MAP.placeholder;
   $('guess-input').setAttribute('aria-label', MAP.placeholder.replace('…', ''));
   for (const el of document.querySelectorAll('[data-u]')) el.textContent = MAP[el.dataset.u];
   $('help-links').textContent = MAP.linksNote;
   $('legend-none').hidden = MAP !== MAPS.mondo;
-  $('stats-map').textContent = MAP.tab;
+  $('stats-map').textContent = MAP.level ? `${MAP.tab} · ${MAP.level}` : MAP.tab;
 }
 
 function renderAll() {
@@ -1068,6 +1097,7 @@ function newPractice() {
 
 async function switchMap(key) {
   if (key === mapKey && game) return;
+  if (MAPS[key].levels && MAPS[key].levels.includes(mapKey) && game) return;   // stessa linguetta
   closeModals(false);
   await loadData(key);
   view = null;
@@ -1114,6 +1144,10 @@ function init() {
   for (const btn of document.querySelectorAll('[data-map]')) {
     btn.addEventListener('click', () => switchMap(btn.dataset.map).catch(showLoadError));
   }
+  $('levels').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-level]');
+    if (btn && btn.dataset.level !== mapKey) switchMap(btn.dataset.level).catch(showLoadError);
+  });
   $('btn-hint').addEventListener('click', giveHint);
   $('btn-giveup').addEventListener('click', onGiveUpClick);
   $('btn-show-result').addEventListener('click', showResult);

@@ -40,6 +40,10 @@ DETAILED_MUNICIPALITIES = ('https://raw.githubusercontent.com/l1n00/confini-comu
 # Gli 88 NIL (Nuclei d'Identità Locale), i quartieri del Comune di Milano.
 MILANO_NIL = ('https://raw.githubusercontent.com/abahgat/opendata-milano/'
               '1f8d2a7a3cd34b32373568ef055c186fbcdd341f/geojson/quartieri.geojson')
+# Distretti tedeschi (Kreise): BKG VG250 al 31.12.2018, Datenlizenz Deutschland
+# Namensnennung 2.0, convertiti in GeoJSON da opendatalab-de.
+GERMAN_DISTRICTS = ('https://raw.githubusercontent.com/opendatalab-de/simple-geodata-selector/'
+                    '309fa25bc9d26d8e560b1ee81de0084a52f7a9e0/src/data/landkreise_sim20.geojson')
 # Natural Earth (pubblico dominio): nazioni a 1:50 milioni, Länder a 1:10 milioni.
 NATURAL_EARTH = ('https://raw.githubusercontent.com/nvkelso/natural-earth-vector/'
                  'ca96624a56bd078437bca8184e78163e5039ad19/geojson/')
@@ -191,6 +195,38 @@ def load_germania():
             for p in [f['properties']] if p['adm0_a3'] == 'DEU']
 
 
+LAND_CODES = {'01': 'Schleswig-Holstein', '02': 'Hamburg', '03': 'Niedersachsen', '04': 'Bremen',
+              '05': 'Nordrhein-Westfalen', '06': 'Hessen', '07': 'Rheinland-Pfalz', '08': 'Baden-Württemberg',
+              '09': 'Bayern', '10': 'Saarland', '11': 'Berlin', '12': 'Brandenburg',
+              '13': 'Mecklenburg-Vorpommern', '14': 'Sachsen', '15': 'Sachsen-Anhalt', '16': 'Thüringen'}
+# Fusioni avvenute dopo il 2018: Eisenach è entrata nel Wartburgkreis nel 2021.
+DISTRICT_MERGES = {'16056': '16063'}
+
+
+def load_distretti():
+    features = [f for f in fetch(GERMAN_DISTRICTS, 'germania_kreise.geojson') if f['properties']['GF'] == 4]
+    items = {}
+    for f in features:
+        p = f['properties']
+        if p['AGS'] in DISTRICT_MERGES:
+            continue
+        items[p['AGS']] = {'id': p['AGS'], 'name': p['GEN'], 'kind': p['BEZ'],
+                           'group': GERMAN_NAMES[LAND_CODES[p['AGS'][:2]]], 'geom': geom(f)}
+    for f in features:
+        target = DISTRICT_MERGES.get(f['properties']['AGS'])
+        if target:
+            items[target]['geom'] = unary_union([items[target]['geom'], geom(f)]).buffer(0)
+    # Città e circondario con lo stesso nome (München, Leipzig…) vanno distinti.
+    counts = {}
+    for a in items.values():
+        counts[a['name']] = counts.get(a['name'], 0) + 1
+    for a in items.values():
+        if counts[a['name']] > 1:
+            city = a['kind'] in ('Kreisfreie Stadt', 'Stadtkreis')
+            a['name'] += ' (città)' if city else ' (circondario)'
+    return list(items.values())
+
+
 CONTINENTS = {'Europe': 'Europa', 'Asia': 'Asia', 'Africa': 'Africa', 'North America': 'Nord America',
               'South America': 'Sud America', 'Oceania': 'Oceania'}
 REGION_UN = {'Africa': 'Africa', 'Asia': 'Asia', 'Europe': 'Europa', 'Oceania': 'Oceania', 'Americas': 'Nord America'}
@@ -244,6 +280,14 @@ MAPS = {
         'simplify': 0.005,
         'label_tol': 0.005,
         'projection': equirectangular(51.0, 100.0),
+    },
+    'distretti': {
+        'load': load_distretti,
+        'touch': 0.0005,
+        'simplify': 0.01,
+        'label_tol': 0.002,
+        'projection': equirectangular(51.0, 250.0),
+        'link_islands': '⛴️',
     },
     'mondo': {
         'load': load_mondo,

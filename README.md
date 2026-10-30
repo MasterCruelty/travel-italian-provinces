@@ -16,11 +16,12 @@ Si sceglie la mappa dalle linguette in alto. Ognuna ha il suo puzzle quotidiano,
 | --- | --- | --- | --- | --- |
 | **Italia** | 110 province | ⛴️ Stretto di Messina e traghetto Livorno–Olbia, per raggiungere Sicilia e Sardegna | 4–8 confini | `/` |
 | **Milano** | 187 comuni della Città metropolitana di Milano e della provincia di Monza e della Brianza, più gli 88 quartieri (NIL) del comune di Milano | 🛣️ San Colombano al Lambro, staccato dal resto della città metropolitana, collegato a San Zenone al Lambro | 4–8 confini | `/?mappa=milano` |
-| **Germania** | 16 Länder | — | 3–5 confini | `/?mappa=germania` |
+| **Germania · Länder** | 16 Länder | — | 3–5 confini | `/?mappa=germania` |
+| **Germania · Distretti** | 400 distretti (Kreise) | — | 4–7 confini | `/?mappa=distretti` |
 | **Mondo** | 199 nazioni | 🚆 tunnel della Manica, 🌉 ponti dell'Øresund e di re Fahd | 4–8 confini | `/?mappa=mondo` |
 
 - **Milano**: il comune di Milano non è un'unica area ma è diviso nei suoi 88 quartieri, che confinano tra loro e con i comuni intorno. Se scrivi "Milano" il gioco ti ricorda di indicare un quartiere.
-- **Germania**: si accettano anche i nomi in tedesco (`Bayern`, `Hessen`, `NRW`…) e le sigle (`BY`, `HE`…).
+- **Germania**: sotto la linguetta un selettore sceglie tra **Länder** e **Distretti**, ognuno con quotidiano e statistiche propri. Per i Länder si accettano anche i nomi in tedesco (`Bayern`, `Hessen`, `NRW`…) e le sigle (`BY`, `HE`…). I distretti usano i nomi tedeschi; città e circondario omonimi sono distinti, ad esempio `München (città)` e `München (circondario)`.
 - **Mondo**: come in travle, le nazioni senza confini terrestri (Giappone, Australia, Islanda…) si possono nominare ma non collegano nulla: si colorano di nero ⬛ e non sono mai partenza o arrivo. La Francia comprende la Guyana francese, quindi confina con Brasile e Suriname.
 
 ## Come si gioca
@@ -130,7 +131,7 @@ Le curiosità di fine partita sono in `data/facts/<mappa>.json`, una voce per ar
 { "FI": { "facts": ["...", "..."], "sources": ["https://..."] } }
 ```
 
-Sono scritte a mano, una o due per area, verificate su fonti indicate in `sources` (Wikipedia, siti istituzionali, cataloghi dei beni culturali). Le regole: al massimo 220 caratteri, solo fatti duraturi (niente popolazione, sindaci o cronaca), tradizioni e ipotesi presentate come tali. Oggi coprono tutte le 110 province, 180 dei 187 comuni di Milano e Brianza e il quartiere Duomo; Germania e mondo non ne hanno ancora. Per le aree senza curiosità il gioco mostra solo l'altra località. Un test controlla che ogni voce corrisponda a un'area della mappa, abbia una fonte valida e rispetti la lunghezza massima.
+Sono scritte a mano, una o due per area, verificate su fonti indicate in `sources` (Wikipedia, siti istituzionali, cataloghi dei beni culturali). Le regole: al massimo 220 caratteri, solo fatti duraturi (niente popolazione, sindaci o cronaca), tradizioni e ipotesi presentate come tali. Oggi coprono tutte le 110 province, 180 dei 187 comuni di Milano e Brianza e il quartiere Duomo, i 16 Länder e 181 delle 199 nazioni; i quartieri di Milano e i distretti tedeschi non ne hanno ancora. Per le aree senza curiosità il gioco mostra solo l'altra località. Un test controlla che ogni voce corrisponda a un'area della mappa, abbia una fonte valida e rispetti la lunghezza massima.
 
 ### Aggiungere una mappa
 
@@ -164,6 +165,7 @@ Il gioco è gratuito e senza pubblicità. Se ti piace puoi [offrirmi un caffè s
 - Confini di province e comuni: dati ISTAT con licenza CC BY 4.0, distribuiti da [openpolis/geojson-italy](https://github.com/openpolis/geojson-italy) (province, nomi e codici) e da [l1n00/confini-comuni-istat](https://github.com/l1n00/confini-comuni-istat) (confini comunali dettagliati, Istat, *Confini delle unità amministrative a fini statistici al 1° gennaio 2026*, versione non generalizzata).
 - Quartieri di Milano: NIL (Nuclei d'Identità Locale) dal portale open data del Comune di Milano, nella conversione di [abahgat/opendata-milano](https://github.com/abahgat/opendata-milano).
 - Nazioni e Länder: [Natural Earth](https://www.naturalearthdata.com), pubblico dominio, da [nvkelso/natural-earth-vector](https://github.com/nvkelso/natural-earth-vector).
+- Distretti tedeschi: © GeoBasis-DE / BKG 2018, VG250, [Datenlizenz Deutschland – Namensnennung 2.0](https://www.govdata.de/dl-de/by-2-0), nella conversione GeoJSON di [opendatalab-de/simple-geodata-selector](https://github.com/opendatalab-de/simple-geodata-selector); Eisenach è unita al Wartburgkreis come dal 2021.
 - Tutte le geometrie sono semplificate per l'uso sul web.
 - Curiosità: testi originali basati sulle fonti indicate per ogni voce in `data/facts/`.
 
