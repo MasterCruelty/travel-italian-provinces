@@ -17,6 +17,7 @@
   --g-ok: #22c55e;
   --g-near: #f59e0b;
   --g-far: #ef4444;
+  --g-none: #3f3f46;
   --hint: #fde68a;
   --hint-stroke: #ca8a04;
   --solution: #cfe8d5;
@@ -35,6 +36,7 @@
     --line: #34383e;
     --sea: #1d3a4a;
     --land: #3a3d40;
+    --g-none: #0a0a0c;
     --land-stroke: #5d6166;
     --region-stroke: #a5a9ae;
     --label: #f4f4f4;
@@ -91,6 +93,14 @@ main { max-width: 560px; margin: 0 auto; padding: 10px 14px 48px; }
 .map-tab:hover { color: var(--ink); }
 .stats-map { margin: -4px 0 14px; }
 
+.levels { display: flex; justify-content: center; gap: 6px; margin: 0 0 8px; }
+.levels[hidden] { display: none; }
+.level {
+  border: 2px solid var(--line); background: var(--card); color: var(--muted);
+  padding: 4px 14px; border-radius: 999px; font-weight: 700; font-size: .85rem; cursor: pointer;
+}
+.level[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); }
+
 /* ---------- Modalità ---------- */
 .modes {
   display: flex; gap: 4px; padding: 4px; margin: 2px 0 10px;
@@ -140,6 +150,7 @@ main { max-width: 560px; margin: 0 auto; padding: 10px 14px 48px; }
 .prov.g-ok { fill: var(--g-ok); }
 .prov.g-near { fill: var(--g-near); }
 .prov.g-far { fill: var(--g-far); }
+.prov.g-none { fill: var(--g-none); }
 .prov.hint { fill: var(--hint); stroke: var(--hint-stroke); stroke-dasharray: 4 3; stroke-width: 1.2; }
 .prov.solution { fill: var(--solution); }
 .prov.path-hl { stroke: var(--label); stroke-width: 1.6; }
@@ -188,6 +199,7 @@ main { max-width: 560px; margin: 0 auto; padding: 10px 14px 48px; }
 .progress .seg.g-ok { background: var(--g-ok); }
 .progress .seg.g-near { background: var(--g-near); }
 .progress .seg.g-far { background: var(--g-far); }
+.progress .seg.g-none { background: var(--g-none); }
 .progress .seg.hint {
   background: repeating-linear-gradient(-45deg, var(--hint-stroke) 0 3px, var(--hint) 3px 6px);
 }
@@ -259,6 +271,7 @@ main { max-width: 560px; margin: 0 auto; padding: 10px 14px 48px; }
 .dot.g-ok { background: var(--g-ok); }
 .dot.g-near { background: var(--g-near); }
 .dot.g-far { background: var(--g-far); }
+.dot.g-none { background: var(--g-none); }
 .dot.hint { background: var(--hint); border: 2px solid var(--hint-stroke); }
 .guesses .reg { margin-left: auto; color: var(--muted); font-weight: 500; font-size: .82rem; text-align: right; }
 
@@ -300,6 +313,8 @@ main { max-width: 560px; margin: 0 auto; padding: 10px 14px 48px; }
 .sw.g-ok { background: var(--g-ok); }
 .sw.g-near { background: var(--g-near); }
 .sw.g-far { background: var(--g-far); }
+.sw.g-none { background: var(--g-none); }
+.legend span[hidden] { display: none; }
 .sw.hint { background: var(--hint); border: 2px dashed var(--hint-stroke); }
 
 .result-grid { font-size: 1.4rem; letter-spacing: 2px; margin: 12px 0; overflow-wrap: anywhere; }

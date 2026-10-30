@@ -332,23 +332,21 @@ test('toccare un suggerimento non preme il pulsante sottostante', async ({ page,
 });
 
 // ---------- Mappa Milano e Brianza ----------
-// Abbiategrasso -> Vimercate: 8 confini, il percorso passa da Milano.
-const MI_CHALLENGE = '/?mappa=milano&da=015002&a=108050';
+// Duomo -> Monza: 6 confini, da Brera a Niguarda e poi Sesto San Giovanni.
+const MI_CHALLENGE = '/?mappa=milano&da=MI01&a=108033';
 
-test('la linguetta Milano carica i comuni con il loro quotidiano', async ({ page }) => {
+test('la linguetta Milano carica comuni e quartieri con il loro quotidiano', async ({ page }) => {
   await open(page, '/');
   const italia = await state(page);
   await page.click('[data-map="milano"]');
   await page.waitForFunction(() => mapKey === 'milano' && game.mode === 'daily');
   await expect(page).toHaveURL(/\?mappa=milano$/);
-  await expect(page.locator('.prov')).toHaveCount(188);
-  await expect(page).toHaveTitle('Travel Maps · Comuni di Milano e Brianza');
-  await expect(page.locator('#guess-input')).toHaveAttribute('placeholder', 'Scrivi un comune…');
+  await expect(page.locator('.prov')).toHaveCount(187 + 88);
+  await expect(page).toHaveTitle('Travel Maps · Milano e Brianza');
+  await expect(page.locator('#guess-input')).toHaveAttribute('placeholder', 'Scrivi un comune o un quartiere…');
   await expect(page.locator('[data-map="milano"]')).toHaveAttribute('aria-selected', 'true');
   await expect(page.locator('.prov:not(.hidden)')).toHaveCount(2);
-  await expect(page.locator('#guess-count')).toContainText('comuni');
-  const milano = await state(page);
-  expect(milano.start).toMatch(/^\d{6}$/);
+  await expect(page.locator('#guess-count')).toContainText('comuni o quartieri');
 
   await page.click('[data-map="italia"]');
   await page.waitForFunction(() => mapKey === 'italia');
@@ -368,7 +366,7 @@ test('ogni mappa ha salvataggi e statistiche separati', async ({ page }) => {
   expect(await page.evaluate(() => localStorage.getItem('pi_stats_v1'))).toBeNull();
   await page.keyboard.press('Escape');
   await page.click('#btn-stats');
-  await expect(page.locator('#stats-map')).toHaveText('Milano e Brianza');
+  await expect(page.locator('#stats-map')).toHaveText('Milano');
   await page.keyboard.press('Escape');
 
   await page.click('[data-map="italia"]');
@@ -381,30 +379,45 @@ test('ogni mappa ha salvataggi e statistiche separati', async ({ page }) => {
   expect((await state(page)).won).toBe(true);
 });
 
-test('sfida su Milano: link, testi e risultato', async ({ page }) => {
+test('sfida su Milano: quartieri, testi e risultato', async ({ page }) => {
   await open(page, MI_CHALLENGE);
   await expect(page.locator('#puzzle-id')).toHaveText('Sfida');
-  await expect(page.locator('#start-name')).toHaveText('Abbiategrasso');
-  await expect(page.locator('#end-name')).toHaveText('Vimercate');
-  await expect(page.locator('.prov:not(.hidden)')).toHaveCount(188);
-  await expect(page.locator('#guess-count')).toContainText('minimo 7 comuni');
+  await expect(page.locator('#start-name')).toHaveText('Duomo');
+  await expect(page.locator('#end-name')).toHaveText('Monza');
+  await expect(page.locator('#guess-count')).toContainText('minimo 5 comuni o quartieri');
 
   await guess(page, 'Atlantide');
-  await expect(page.locator('#message')).toHaveText('Comune non riconosciuto');
+  await expect(page.locator('#message')).toHaveText('Comune o quartiere non riconosciuto');
   await guess(page, 'Milano');
-  await guess(page, 'milano');
+  await expect(page.locator('#message')).toContainText('88 quartieri');
+  expect((await state(page)).moves).toEqual([]);
+
+  await guess(page, 'Brera');
+  await guess(page, 'brera');
   await expect(page.locator('#message')).toContainText('è già stato inserito');
+  await guess(page, 'niguarda');
   await guess(page, 'sesto s');
-  expect((await state(page)).moves).toEqual(['guess:015146', 'guess:015209']);
+  expect((await state(page)).moves).toEqual(['guess:MI02', 'guess:MI14', 'guess:015209']);
 
   const share = await page.evaluate(() => shareText());
-  expect(share).toMatch(/^Travel Maps · Comuni di Milano e Brianza \(sfida\)/);
-  expect(share).toContain('?mappa=milano&da=015002&a=108050');
+  expect(share).toMatch(/^Travel Maps · Milano e Brianza \(sfida\)/);
+  expect(share).toContain('?mappa=milano&da=MI01&a=108033');
 
   await page.click('#btn-giveup');
   await page.click('#btn-giveup');
-  await expect(page.locator('#result-path')).toContainText('(7 comuni)');
-  await expect(page.locator('#layer-regions path')).toHaveCount(2);
+  await expect(page.locator('#result-path')).toContainText('(5 comuni o quartieri)');
+  await expect(page.locator('#layer-regions path')).toHaveCount(3);
+});
+
+test('i quartieri toccano i comuni che confinavano con Milano', async ({ page }) => {
+  await open(page, MI_CHALLENGE);
+  const outside = await page.evaluate(() => {
+    const nil = SIGLAS.filter(s => s.startsWith('MI'));
+    return [...new Set(nil.flatMap(s => NB[s]).filter(s => !s.startsWith('MI')))].sort();
+  });
+  expect(outside).toHaveLength(23);
+  expect(outside).toContain('015209');       // Sesto San Giovanni
+  expect(outside).toContain('015189');       // Rozzano
 });
 
 test('San Colombano al Lambro è collegato a San Zenone al Lambro', async ({ page }) => {
@@ -417,7 +430,101 @@ test('San Colombano al Lambro è collegato a San Zenone al Lambro', async ({ pag
   expect(await page.evaluate(() => shortestPath(game.start, game.end)[1])).toBe('015202');
   await page.click('#btn-help');
   await expect(page.locator('#help-links')).toContainText('San Colombano al Lambro');
-  await expect(page.locator('#help-modal [data-u="one"]')).toHaveText('comune');
+  await expect(page.locator('#help-modal [data-u="one"]')).toHaveText('comune o quartiere');
+});
+
+// ---------- Germania ----------
+test('Germania: 16 Länder, nomi italiani e tedeschi', async ({ page }) => {
+  await open(page, '/?mappa=germania&da=BY&a=SH');
+  await expect(page.locator('.prov')).toHaveCount(16);
+  await expect(page.locator('#start-name')).toHaveText('Baviera');
+  await expect(page.locator('#end-name')).toHaveText('Schleswig-Holstein');
+  await expect(page.locator('#guess-input')).toHaveAttribute('placeholder', 'Scrivi un Land…');
+  await guess(page, 'Thüringen');                 // nome tedesco, su un percorso ottimale
+  await expect(page.locator('#p-TH')).toHaveClass(/g-ok/);
+  await guess(page, 'assia');
+  await guess(page, 'Niedersachsen');
+  await expect(page.locator('#result-title')).toHaveText(/Completato/);
+  expect((await state(page)).moves).toEqual(['guess:TH', 'guess:HE', 'guess:NI']);
+});
+
+test('Germania: il quotidiano è tra 3 e 5 confini', async ({ page }) => {
+  await open(page, '/?mappa=germania');
+  const opt = await page.evaluate(() => game.opt);
+  expect(opt).toBeGreaterThanOrEqual(3);
+  expect(opt).toBeLessThanOrEqual(5);
+  expect(await page.evaluate(() => NB.BE)).toEqual(['BB']);
+});
+
+test('Germania: il selettore passa dai Länder ai distretti', async ({ page }) => {
+  await open(page, '/');
+  await expect(page.locator('#levels')).toBeHidden();
+  await page.click('[data-map="germania"]');
+  await page.waitForFunction(() => mapKey === 'germania');
+  await expect(page.locator('#levels .level')).toHaveText(['Länder', 'Distretti']);
+  await page.click('#levels [data-level="distretti"]');
+  await page.waitForFunction(() => mapKey === 'distretti' && game.mode === 'daily');
+  await expect(page).toHaveURL(/\?mappa=distretti$/);
+  await expect(page.locator('.prov')).toHaveCount(400);
+  await expect(page.locator('[data-map="germania"]')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('#levels [data-level="distretti"]')).toHaveAttribute('aria-pressed', 'true');
+  const opt = await page.evaluate(() => game.opt);
+  expect(opt).toBeGreaterThanOrEqual(4);
+  expect(opt).toBeLessThanOrEqual(7);
+
+  // Cliccare la linguetta Germania non cambia il livello scelto.
+  await page.click('[data-map="germania"]');
+  expect(await page.evaluate(() => mapKey)).toBe('distretti');
+  await page.click('#btn-stats');
+  await expect(page.locator('#stats-map')).toHaveText('Germania · Distretti');
+});
+
+test('Distretti: città e circondario omonimi sono distinti', async ({ page }) => {
+  await open(page, '/?mappa=distretti&da=09162&a=09772');
+  await expect(page.locator('#start-name')).toHaveText('München (città)');
+  await page.fill('#guess-input', 'münchen');
+  await expect(page.locator('#suggestions li')).toHaveCount(1);       // la città è già la partenza
+  await expect(page.locator('#suggestions li')).toContainText('München (circondario)');
+  await guess(page, 'Atlantide');
+  await expect(page.locator('#message')).toHaveText('Distretto non riconosciuto');
+  expect(await page.evaluate(() => NB['11000'])).toContain('12054');    // Berlino confina con Potsdam
+});
+
+// ---------- Mondo ----------
+test('Mondo: nazioni, collegamenti fissi e isole senza confini', async ({ page }) => {
+  await open(page, '/?mappa=mondo&da=PRT&a=POL');
+  await expect(page.locator('.prov')).toHaveCount(199);
+  await expect(page.locator('#start-name')).toHaveText('Portogallo');
+  await expect(page.locator('.sea')).toHaveCount(3);
+  expect(await page.evaluate(() => NB.GBR)).toEqual(expect.arrayContaining(['FRA', 'IRL']));
+  expect(await page.evaluate(() => NB.JPN)).toEqual([]);
+
+  await guess(page, 'Giappone');
+  await expect(page.locator('#p-JPN')).toHaveClass(/g-none/);
+  await guess(page, 'spagna');
+  await guess(page, 'Francia');
+  await guess(page, 'germania');
+  await expect(page.locator('#result-title')).toHaveText(/Completato/);
+  expect(await page.evaluate(() => shareText())).toContain('⬛🟩🟩🟩');
+});
+
+test('Mondo: il quotidiano non parte mai da un\'isola senza confini', async ({ page }) => {
+  await open(page, '/?mappa=mondo');
+  const s = await state(page);
+  const counts = await page.evaluate(([a, b]) => [NB[a].length, NB[b].length], [s.start, s.end]);
+  expect(counts[0]).toBeGreaterThan(0);
+  expect(counts[1]).toBeGreaterThan(0);
+  await page.click('#btn-help');
+  await expect(page.locator('#legend-none')).toBeVisible();
+});
+
+test('quattro linguette leggibili anche su mobile', async ({ page }) => {
+  await open(page, '/');
+  await expect(page.locator('.map-tab')).toHaveCount(4);
+  for (const tab of await page.locator('.map-tab').all()) {
+    const fits = await tab.evaluate(el => el.scrollWidth <= el.clientWidth + 1);
+    expect(fits, await tab.textContent()).toBe(true);
+  }
 });
 
 test('una mappa sconosciuta nell\'indirizzo apre l\'Italia', async ({ page }) => {
@@ -459,7 +566,7 @@ test('senza vittoria le curiosità non compaiono', async ({ page }) => {
 test('i file delle curiosità sono validi', async ({}, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'basta una volta');
   const fs = require('fs');
-  for (const map of ['italia', 'milano']) {
+  for (const map of ['italia', 'milano', 'germania', 'distretti', 'mondo']) {
     const areas = JSON.parse(fs.readFileSync(`data/${map}.json`, 'utf8')).areas;
     const facts = JSON.parse(fs.readFileSync(`data/facts/${map}.json`, 'utf8'));
     for (const [id, entry] of Object.entries(facts)) {

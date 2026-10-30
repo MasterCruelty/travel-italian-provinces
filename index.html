@@ -22,8 +22,12 @@
 <main>
   <nav class="maps" role="tablist" aria-label="Mappa">
     <button class="map-tab" role="tab" data-map="italia" aria-selected="true">Italia</button>
-    <button class="map-tab" role="tab" data-map="milano" aria-selected="false">Milano e Brianza</button>
+    <button class="map-tab" role="tab" data-map="milano" aria-selected="false">Milano</button>
+    <button class="map-tab" role="tab" data-map="germania" aria-selected="false">Germania</button>
+    <button class="map-tab" role="tab" data-map="mondo" aria-selected="false">Mondo</button>
   </nav>
+
+  <nav class="levels" id="levels" aria-label="Livello" hidden></nav>
 
   <nav class="modes" aria-label="Modalità di gioco">
     <button id="mode-daily" class="mode" aria-pressed="true">📅 Quotidiano</button>
@@ -87,7 +91,8 @@
   <footer class="foot">
     <a class="coffee" href="https://paypal.me/mastercruelty" target="_blank" rel="noopener">☕ Offrimi un caffè</a>
     Ispirato a <a href="https://travle.earth/ita" rel="noopener">travle</a>.
-    Confini: dati ISTAT via <a href="https://github.com/openpolis/geojson-italy" rel="noopener">openpolis</a>.
+    Confini: Istat (CC BY 4.0), Comune di Milano, © GeoBasis-DE / BKG 2018 (dl-de/by-2-0), Natural Earth.
+    <a href="https://github.com/MasterCruelty/travel-maps#crediti" rel="noopener">Fonti e licenze</a>.
   </footer>
 </main>
 
@@ -130,6 +135,7 @@
       <span><i class="sw g-ok"></i> Sul percorso ideale</span>
       <span><i class="sw g-near"></i> Piccola deviazione</span>
       <span><i class="sw g-far"></i> Grande deviazione</span>
+      <span id="legend-none" hidden><i class="sw g-none"></i> Nessun collegamento via terra</span>
       <span><i class="sw hint"></i> Suggerimento</span>
     </div>
     <p class="muted small"><span id="help-links"></span> Ogni mappa ha il suo puzzle quotidiano, nuovo ogni mezzanotte; in <b>Allenamento</b> puoi giocare quante partite vuoi e sfidare un amico con un link.</p>

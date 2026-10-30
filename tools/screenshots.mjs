@@ -1,5 +1,5 @@
 // Rigenera gli screenshot del README: `npm run screenshots`.
-// Usa link sfida fissi (Caserta -> Firenze, Abbiategrasso -> Vimercate) e una data
+// Usa link sfida fissi (es. Caserta -> Firenze, Duomo -> Monza) e una data
 // fissa per il quotidiano, così le immagini sono sempre le stesse.
 // CHROMIUM_PATH permette di usare un Chromium già installato.
 import { spawn } from 'node:child_process';
@@ -89,12 +89,25 @@ await page.keyboard.press('Escape');
 await shot(page, 'tema-scuro');
 await page.context().close();
 
-// Milano e Brianza: partita completata in allenamento
-page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=milano&da=015002&a=108050` });
-await guess(page, 'Albairate', 'Cisliano', 'Cusago', 'Milano', 'Cologno Monzese', 'Brugherio', 'Agrate Brianza');
+// Milano e Brianza: dal Duomo a Monza attraverso i quartieri
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=milano&da=MI01&a=108033` });
+await guess(page, 'Brera', 'Centrale', 'Maciachini', 'Niguarda', 'Sesto San Giovanni');
 await page.waitForSelector('#result-modal:not([hidden])');
 await page.keyboard.press('Escape');
 await shot(page, 'milano');
+await page.context().close();
+
+// Mondo: dal Portogallo alla Polonia, con un'isola senza confini
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=mondo&da=PRT&a=POL` });
+await guess(page, 'Spagna', 'Regno Unito', 'Francia');
+await shot(page, 'mondo');
+await page.context().close();
+
+// Germania: dalla Baviera allo Schleswig-Holstein
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=germania&da=BY&a=SH` });
+await guess(page, 'Turingia');
+await page.click('#btn-hint');
+await shot(page, 'germania');
 await page.context().close();
 
 // Regole
