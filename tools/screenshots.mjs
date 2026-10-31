@@ -103,6 +103,12 @@ await guess(page, 'Spagna', 'Regno Unito', 'Francia');
 await shot(page, 'mondo');
 await page.context().close();
 
+// Regioni del mondo: dalla Lombardia alla Baviera, con la Sicilia senza confini
+page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=regioni&da=ITA-R09&a=DEU-1591` });
+await guess(page, 'Sicilia', 'Grigioni');
+await shot(page, 'regioni');
+await page.context().close();
+
 // Germania: dalla Baviera allo Schleswig-Holstein
 page = await open({ width: 390, height: 844, url: `http://localhost:${PORT}/?mappa=germania&da=BY&a=SH` });
 await guess(page, 'Turingia');

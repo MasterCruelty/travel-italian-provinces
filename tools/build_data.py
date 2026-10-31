@@ -18,6 +18,7 @@ Per ogni mappa:
 """
 import json
 import math
+import re
 import os
 import sys
 import urllib.request
@@ -257,6 +258,187 @@ def load_mondo():
     return list(items.values())
 
 
+# ---------- Regioni del mondo ----------
+# Suddivisioni di primo livello di Natural Earth (stessa fonte dei Länder). Dove
+# sono troppo minute (comuni, contee, province) si accorpano nelle regioni
+# indicate dal campo "region"; il Regno Unito usa le regioni inglesi più
+# Scozia, Galles e Irlanda del Nord.
+REGION_BY_FIELD = {'ITA', 'FRA', 'ESP', 'GBR', 'SVN', 'LVA', 'PHL', 'UGA', 'MKD', 'AZE', 'KOS'}
+REGION_NAMES = {
+    'ITA': {'Apulia': 'Puglia', 'Sicily': 'Sicilia', 'Trentino-Alto Adige': 'Trentino-Alto Adige',
+            'Friuli-Venezia Giulia': 'Friuli-Venezia Giulia'},
+    'FRA': {'Auvergne-Rhône-Alpes': 'Alvernia-Rodano-Alpi', 'Bourgogne-Franche-Comté': 'Borgogna-Franca Contea',
+            'Bretagne': 'Bretagna', 'Centre-Val de Loire': 'Centro-Valle della Loira', 'Corse': 'Corsica',
+            'Grand Est': 'Grand Est', 'Guadeloupe': 'Guadalupa', 'Guyane française': 'Guyana francese',
+            'Hauts-de-France': 'Alta Francia', 'Martinique': 'Martinica', 'Mayotte': 'Mayotte',
+            'Normandie': 'Normandia', 'Nouvelle-Aquitaine': 'Nuova Aquitania', 'Occitanie': 'Occitania',
+            'Pays de la Loire': 'Paesi della Loira', "Provence-Alpes-Côte-d'Azur": "Provenza-Alpi-Costa Azzurra",
+            'Réunion': 'Riunione', 'Île-de-France': 'Île-de-France'},
+    'ESP': {'Andalucía': 'Andalusia', 'Aragón': 'Aragona', 'Asturias': 'Asturie', 'Canary Is.': 'Canarie',
+            'Cantabria': 'Cantabria', 'Castilla y León': 'Castiglia e León', 'Castilla-La Mancha': 'Castiglia-La Mancia',
+            'Cataluña': 'Catalogna', 'Ceuta': 'Ceuta', 'Extremadura': 'Estremadura', 'Foral de Navarra': 'Navarra',
+            'Galicia': 'Galizia', 'Islas Baleares': 'Baleari', 'La Rioja': 'La Rioja', 'Madrid': 'Comunità di Madrid',
+            'Melilla': 'Melilla', 'Murcia': 'Murcia', 'País Vasco': 'Paesi Baschi', 'Valenciana': 'Comunità Valenciana'},
+    'GBR': {'East': 'Inghilterra orientale', 'East Midlands': 'Midlands orientali', 'Greater London': 'Londra',
+            'North East': 'Inghilterra nord-orientale', 'North West': 'Inghilterra nord-occidentale',
+            'South East': 'Inghilterra sud-orientale', 'South West': 'Inghilterra sud-occidentale',
+            'West Midlands': 'Midlands occidentali', 'Yorkshire and the Humber': 'Yorkshire e Humber',
+            'Scotland': 'Scozia', 'Wales': 'Galles', 'Northern Ireland': 'Irlanda del Nord'},
+    'SVN': {'Gorenjska': 'Alta Carniola', 'Goriška': 'Goriziano', 'Jugovzhodna Slovenija': 'Slovenia sud-orientale',
+            'Koroška': 'Carinzia slovena', 'Notranjsko-kraška': 'Carniola Interna-Carso', 'Obalno-kraška': 'Litorale-Carso',
+            'Osrednjeslovenska': 'Slovenia centrale', 'Podravska': 'Podravska', 'Pomurska': 'Oltremura',
+            'Savinjska': 'Savinjska', 'Spodnjeposavska': 'Bassa Sava', 'Zasavska': 'Zasavska'},
+    'LVA': {'Kurzeme': 'Curlandia', 'Latgale': 'Latgalia', 'Riga': 'Riga', 'Vidzeme': 'Vidzeme', 'Zemgale': 'Semigallia'},
+    'PHL': {'Autonomous Region in Muslim Mindanao (ARMM)': 'Bangsamoro', 'Bicol (Region V)': 'Bicol',
+            'CALABARZON (Region IV-A)': 'Calabarzon', 'Cagayan Valley (Region II)': 'Valle di Cagayan',
+            'Central Luzon (Region III)': 'Luzon Centrale', 'Central Visayas (Region VII)': 'Visayas Centrale',
+            'Cordillera Administrative Region (CAR)': 'Cordillera', 'Davao (Region XI)': 'Davao',
+            'Dinagat Islands (Region XIII)': 'Caraga', 'Eastern Visayas (Region VIII)': 'Visayas Orientale',
+            'Ilocos (Region I)': 'Ilocos', 'MIMAROPA (Region IV-B)': 'Mimaropa',
+            'National Capital Region': 'Metro Manila', 'Northern Mindanao (Region X)': 'Mindanao Settentrionale',
+            'SOCCSKSARGEN (Region XII)': 'Soccsksargen', 'Western Visayas (Region VI)': 'Visayas Occidentale',
+            'Zamboanga Peninsula (Region IX)': 'Penisola di Zamboanga'},
+    'UGA': {'Central': 'Uganda centrale', 'Eastern': 'Uganda orientale', 'Northern': 'Uganda settentrionale',
+            'Western': 'Uganda occidentale'},
+    'MKD': {'Eastern': 'Macedonia orientale', 'Greater Skopje': 'Skopje', 'Skopje': 'Skopje',
+            'Northeastern': 'Macedonia nord-orientale', 'Pelagonia': 'Pelagonia', 'Polog': 'Polog',
+            'Southeastern': 'Macedonia sud-orientale', 'Southwestern': 'Macedonia sud-occidentale', 'Vardar': 'Vardar'},
+    'AZE': {'Absheron Economic Region': 'Abşeron', 'Aran Economic Region': 'Aran',
+            'Daghlig Shirvan Economic Region': 'Shirvan montano', 'Ganja-Gazakh Economic Region': 'Ganja-Gazakh',
+            'Guba-Khachmaz Economic Region': 'Guba-Khachmaz', 'Kalbajar-Lachin Economic Region': 'Kalbajar-Lachin',
+            'Lankaran Economic Region': 'Lankaran', 'Naxçıvan Autonomous Republic': 'Naxçıvan',
+            'Shaki-Zaqatala Economic Region': 'Shaki-Zaqatala', 'Yukhari Garabakh Economic Region': 'Alto Karabakh'},
+    'KOS': {'Gnjilane': 'Gjilan', 'Kosovska Mitrovica': 'Mitrovica', 'Peć': 'Peja', 'Pristina': 'Pristina',
+            'Prizren': 'Prizren', 'Uroševac': 'Ferizaj', 'Đakovica': 'Gjakova'},
+}
+# Territori che Natural Earth tiene a parte ma che la mappa delle nazioni unisce.
+REGION_COUNTRY = {'CYN': 'CYP', 'SOL': 'SOM', 'KAB': 'KAZ', 'KAS': 'IND', 'ESB': 'CYP', 'WSB': 'CYP', 'USG': 'CUB'}
+SMALL_COUNTRY = 3000      # km²: sotto questa superficie la nazione resta un'unica area
+SMALL_REGION = 150        # km²: le aree più piccole si uniscono alla vicina con più confine in comune
+NAME_PREFIX = re.compile(r"(?i)^(?:dipartimento|regione autonoma|regione|voivodato|divisione|governatorato|"
+                         r"circondario autonomo|distretto|provincia|contea|cantone?|prefettura)?"
+                         r"\s*(?:dell'|della |dello |degli |delle |del |dei |di |de )\s*")
+ARTICLE = re.compile(r"^(?:La |Le |L'|Il |Lo |Gli )")
+# Capitali con lo stesso nome della regione che le circonda e nomi italiani
+# sbagliati nella fonte.
+NAME_FIX = {
+    'RUS-2364': 'Oblast di Mosca', 'RUS-2365': 'Mosca', 'UKR-321': 'Oblast di Kiev', 'UKR-4826': 'Kiev',
+    'BLR-2345': 'Regione di Minsk', 'BLR-4825': 'Minsk', 'KAZ-3207': 'Regione di Almaty', 'KAZ-4829': 'Almaty',
+    'HRV-1588': 'Regione di Zagabria', 'HRV-1589': 'Zagabria', 'ARG-1295': 'Provincia di Buenos Aires',
+    'ARG-5493': 'Buenos Aires', 'PER-591': 'Regione di Lima', 'PER-587': 'Lima', 'TWN-1162': 'Contea di Hsinchu',
+    'TWN-1161': 'Hsinchu', 'LAO-3284': 'Provincia di Vientiane', 'LAO-3283': 'Vientiane',
+    'YEM-3496': "Governatorato di Sana'a", 'YEM-3498': "Sana'a", 'RUS-2399': "Territorio dell'Altaj",
+    'RUS-2400': "Repubblica dell'Altaj", 'RUS-2613': 'Oblast autonoma ebraica', 'RUS-2321': 'Čukotka',
+    'RUS-2396': 'Chanty-Mansi',
+}
+
+
+def km2(g):
+    c = g.centroid
+    return g.area * 111.32 ** 2 * math.cos(math.radians(c.y))
+
+
+def region_name(p):
+    if p['adm1_code'] in NAME_FIX:
+        return NAME_FIX[p['adm1_code']]
+    for raw in (p.get('name_it'), p.get('name_en'), p.get('name')):
+        if raw and raw[0].isalpha():
+            name = NAME_PREFIX.sub('', raw.strip())
+            # "La Slesia", "L'Atlantico": l'articolo cade se non fa parte del nome.
+            if ARTICLE.match(name) and not ARTICLE.match(p.get('name_en') or ''):
+                name = ARTICLE.sub('', name)
+            return name[:1].upper() + name[1:]
+    return None
+
+
+def merge_into_neighbour(items, small):
+    """Unisce ogni area in `small` alla vicina della stessa nazione con più confine in comune."""
+    for a in sorted(small, key=lambda a: km2(a['geom'])):
+        border = a['geom'].buffer(0.01)
+        others = [b for b in items if b is not a and b['country'] == a['country']
+                  and b['geom'].distance(a['geom']) < 0.01]
+        if not others:
+            continue
+        best = max(others, key=lambda b: b['geom'].intersection(border).area)
+        best['geom'] = unary_union([best['geom'], a['geom']]).buffer(0)
+        items.remove(a)
+
+
+def load_regioni():
+    countries = {code: a['name'] for code, a in
+                 json.load(open(os.path.join(ROOT, 'data', 'mondo.json'), encoding='utf-8'))['areas'].items()}
+    name = 'ne_10m_admin_1_states_provinces.geojson'
+    by_country = {}
+    for f in fetch(NATURAL_EARTH + name, name):
+        p = f['properties']
+        code = REGION_COUNTRY.get(p['adm0_a3'], p['adm0_a3'])
+        if code in countries:
+            by_country.setdefault(code, []).append((p, geom(f)))
+
+    items = []
+    for code, feats in sorted(by_country.items()):
+        if code in REGION_BY_FIELD:
+            parts = {}
+            for p, g in feats:
+                key = p['region'] if code != 'GBR' or p['geonunit'] == 'England' else p['geonunit']
+                parts.setdefault(key, []).append(g)
+            names = REGION_NAMES[code]
+            merged, loose = {}, parts.pop(None, [])
+            for key, gs in parts.items():
+                merged.setdefault(names.get(key, key), []).extend(gs)     # Skopje e Greater Skopje
+            group = [{'id': f'{code}-R{i + 1:02d}', 'name': rname, 'aliases': [],
+                      'country': code, 'geom': unary_union(gs).buffer(0)}
+                     for i, (rname, gs) in enumerate(sorted(merged.items()))]
+            orphans = [{'country': code, 'geom': g} for g in loose]   # comuni senza regione
+            group += orphans
+            merge_into_neighbour(group, orphans)
+            items.extend(group)
+            continue
+        whole = unary_union([g for _, g in feats]).buffer(0)
+        if km2(whole) < SMALL_COUNTRY or len(feats) == 1:
+            items.append({'id': code, 'name': countries[code], 'aliases': [], 'country': code, 'geom': whole})
+            continue
+        group = []
+        for p, g in feats:
+            rname = region_name(p)
+            aliases = sorted({x for x in (p.get('name'), p.get('name_en'), p.get('name_it'))
+                              if x and x != rname and x[0].isalpha()})
+            group.append({'id': re.sub(r'[^A-Z0-9-]', '', p['adm1_code'].upper()), 'name': rname,
+                          'aliases': aliases, 'country': code, 'geom': g, 'local': p.get('name'),
+                          'merge': not rname or p['type_en'] == 'Urban county'})
+        # Stesso nome nella stessa nazione: si usa il nome locale se è diverso
+        # (le regioni del Madagascar), altrimenti sono pezzi della stessa area.
+        same = {}
+        for a in group:
+            same.setdefault(a['name'], []).append(a)
+        for twins in same.values():
+            if len(twins) < 2 or not twins[0]['name']:
+                continue
+            local = [a['local'] for a in twins]
+            if len(set(local)) == len(local):
+                for a in twins:
+                    a['aliases'] = sorted(set(a['aliases'] + [a['name']]) - {a['local']})
+                    a['name'] = a['local']
+            else:
+                twins[0]['geom'] = unary_union([a['geom'] for a in twins]).buffer(0)
+                for a in twins[1:]:
+                    group.remove(a)
+        merge_into_neighbour(group, [a for a in group if a.pop('merge') or km2(a['geom']) < SMALL_REGION])
+        items.extend(group)
+
+    # Le isolette senza nome e senza vicini nella stessa nazione si scartano.
+    items = [a for a in items if a.get('name')]
+    # Nomi uguali in nazioni diverse (Limburgo, Punjab…): si aggiunge la nazione.
+    counts = {}
+    for a in items:
+        counts[a['name']] = counts.get(a['name'], 0) + 1
+    for a in items:
+        a['group'] = countries[a['country']]
+        if counts[a['name']] > 1:
+            a['name'] += f" ({a['group']})"
+    return items
+
+
 MAPS = {
     'italia': {
         'load': load_italia,
@@ -302,6 +484,19 @@ MAPS = {
         # contano solo i collegamenti fissi più noti.
         'links': [('GBR', 'FRA', '🚆'), ('DNK', 'SWE', '🌉'), ('BHR', 'SAU', '🌉')],
     },
+    'regioni': {
+        'load': load_regioni,
+        'touch': 0.01,
+        'simplify': 0.08,
+        'label_tol': 0.02,
+        'projection': equal_earth(400.0),
+        'zoom_main_part': True,
+        # Gli stessi collegamenti fissi delle nazioni, più il ponte dello Storebælt
+        # tra Selandia e Fionia. Le aree si indicano per nome.
+        'links': [('Inghilterra sud-orientale', 'Alta Francia', '🚆'), ('Hovedstaden', 'Scania', '🌉'),
+                  ('Bahrein', 'Al-Sharqiyya', '🌉'), ('Selandia', 'Danimarca meridionale', '🌉'),
+                  ('Singapore', 'Johor', '🌉')],
+    },
 }
 
 
@@ -338,7 +533,9 @@ def build(key, cfg):
 
     # 2. collegamenti fissi e parti staccate
     links = []
+    by_name = {a['name']: a['id'] for a in items}
     for a, b, icon in cfg.get('links', []):
+        a, b = by_name.get(a, a), by_name.get(b, b)
         adj[a].add(b)
         adj[b].add(a)
         links.append([a, b, icon])
@@ -383,6 +580,8 @@ def build(key, cfg):
             'bbox': [round(v, 1) for v in (x0, y0, x1, y1)],
             'path': to_path(parts),
         }
+        if a.get('aliases'):
+            areas[a['id']]['aliases'] = a['aliases']
 
     groups = {name: to_path(polys_of(unary_union(parts).buffer(0)))
               for name, parts in sorted(group_parts.items())}

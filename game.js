@@ -111,6 +111,8 @@ const MAPS = {
   },
   mondo: {
     tab: 'Mondo',
+    level: 'Nazioni',
+    levels: ['mondo', 'regioni'],
     title: 'Nazioni del mondo',
     file: 'data/mondo.json',
     facts: 'data/facts/mondo.json',
@@ -138,6 +140,31 @@ const MAPS = {
       PSX: ['stato di palestina'], SAH: ['sahara occidentale'],
     },
   },
+};
+MAPS.regioni = {
+  tab: 'Mondo',
+  level: 'Regioni',
+  parent: 'mondo',
+  title: 'Regioni del mondo',
+  file: 'data/regioni.json',
+  facts: 'data/facts/regioni.json',
+  one: 'regione', many: 'regioni',
+  placeholder: 'Scrivi una regione…',
+  unknown: 'Regione non riconosciuta',
+  already: 'è già stata inserita',
+  ambiguous: 'Più regioni corrispondono: scegline una dalla lista',
+  // Scrivere una nazione divisa in regioni non basta: si spiega cosa serve.
+  unknownHints: Object.fromEntries(['italia', 'francia', 'germania', 'spagna', 'russia', 'cina', 'india',
+    'brasile', 'stati uniti', 'usa', 'canada', 'australia', 'argentina', 'messico', 'regno unito', 'inghilterra']
+    .map(n => [n, 'Qui si gioca con le regioni: scrivi una regione, uno stato o una provincia (es. Lombardia, Baviera, Texas)'])),
+  linksNote: 'Le aree sono le suddivisioni di primo livello di ogni nazione (stati, regioni, province); nei paesi dove sono molto piccole, come Italia, Francia, Spagna e Regno Unito, sono accorpate in regioni. I piccoli stati restano interi. 🚆 Il tunnel della Manica e 🌉 i ponti dell\'Øresund, dello Storebælt, di re Fahd e di Johor contano come confini; le isole senza collegamenti si colorano di nero. Si accettano anche i nomi locali e in inglese.',
+  zoomIcon: '🌍', zoomTitle: 'Mostra tutto il mondo',
+  storagePrefix: 'pi_regioni_',
+  seedOffset: 31337,
+  minDist: 6, maxDist: 50,
+  extraMin: 5, extraFactor: 0.6,
+  codes: false,
+  aliases: {},
 };
 const DEFAULT_MAP = 'italia';
 const GAME_TITLE = 'Travel Maps';
@@ -324,7 +351,7 @@ async function loadData(key) {
   }
   for (const sig of SIGLAS) {
     const p = area(sig);
-    const names = [p.name, ...p.name.split('/'), ...(MAP.aliases[sig] || [])];
+    const names = [p.name, ...p.name.split('/'), ...(MAP.aliases[sig] || []), ...(p.aliases || [])];
     const keys = new Set([...names.map(norm), ...names.map(normSpaced)]);
     for (const k of keys) {
       if (!k) continue;
@@ -608,7 +635,7 @@ function renderMapTexts() {
   $('guess-input').setAttribute('aria-label', MAP.placeholder.replace('…', ''));
   for (const el of document.querySelectorAll('[data-u]')) el.textContent = MAP[el.dataset.u];
   $('help-links').textContent = MAP.linksNote;
-  $('legend-none').hidden = MAP !== MAPS.mondo;
+  $('legend-none').hidden = MAP !== MAPS.mondo && MAP !== MAPS.regioni;
   $('stats-map').textContent = MAP.level ? `${MAP.tab} · ${MAP.level}` : MAP.tab;
 }
 
