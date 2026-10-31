@@ -1,1 +1,2228 @@
-{}
+{
+ "01001": {
+  "facts": [
+   "Flensburg è nota come città del rum: dal Settecento vi si raffinava lo zucchero di canna importato dalle Indie Occidentali danesi, le attuali Isole Vergini americane."
+  ],
+  "sources": [
+   "https://www.sh-tourismus.de/en/holiday-worlds/cities/flensburg-1"
+  ]
+ },
+ "01002": {
+  "facts": [
+   "La Kieler Woche, nata da una regata disputata nel 1882, è considerata la più grande settimana velica del mondo.",
+   "Kiel ha ospitato le gare di vela dei Giochi olimpici del 1972."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Kiel_Week",
+   "https://www.sailing.org/2007/05/30/from-small-beginningsa%C2%A6"
+  ]
+ },
+ "01003": {
+  "facts": [
+   "Lubecca, detta regina della Lega anseatica, ha per simbolo la Holstentor, porta gotica in mattoni rossi del XV secolo.",
+   "Vi nacque Thomas Mann: la Buddenbrookhaus è dedicata al suo romanzo I Buddenbrook, in gran parte autobiografico."
+  ],
+  "sources": [
+   "https://www.blumenbecker.com/company/company-magazine/solutions-2025-2026/the-queen-of-the-hanseatic-league",
+   "https://www.wanderlustmagazine.com/inspiration/short-break-lubeck-germany/"
+  ]
+ },
+ "01004": {
+  "facts": [
+   "Il nome deriva dal «nuovo monastero» (novum monasterium) fondato intorno al 1127 dal missionario Vicelino, che morì qui nel 1154."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Neum%C3%BCnster",
+   "https://en.wikipedia.org/wiki/Vicelinus"
+  ]
+ },
+ "01051": {
+  "facts": [
+   "Il Dithmarschen è la più vasta area contigua di coltivazione di cavoli d'Europa, con oltre 2800 ettari di cavolo bianco, rosso e verza."
+  ],
+  "sources": [
+   "https://www.echt-dithmarschen.de/en/typically-dithmarschen/culinary-delights",
+   "https://www.freshplaza.com/article/9390384/dithmarschen-offers-optimal-conditions-for-summer-broccoli-and-cauliflower-cultivation/"
+  ]
+ },
+ "01053": {
+  "facts": [
+   "Secondo la tradizione Till Eulenspiegel morì nel 1350 a Mölln, nel circondario: una lapide del 1544 lo ricorda presso la chiesa di San Nicola.",
+   "Da Mölln passava la Vecchia via del sale, che nel Medioevo portava il sale di Lüneburg fino a Lubecca."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Till_Eulenspiegel",
+   "https://en.wikipedia.org/wiki/Old_Salt_Route"
+  ]
+ },
+ "01054": {
+  "facts": [
+   "Husum, capoluogo del circondario, è detta «la città grigia sul mare» da una poesia del suo concittadino Theodor Storm.",
+   "L'isola di Sylt è collegata alla terraferma dall'Hindenburgdamm, un terrapieno percorso dalla ferrovia."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Theodor_Storm",
+   "https://de.wikivoyage.org/wiki/Husum"
+  ]
+ },
+ "01057": {
+  "facts": [
+   "Il Großer Plöner See, accanto alla città di Plön, è il lago più grande dello Schleswig-Holstein, con circa 30 km² di superficie."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Gro%C3%9Fer_Pl%C3%B6ner_See"
+  ]
+ },
+ "01058": {
+  "facts": [
+   "Il ponte ferroviario di Rendsburg sul canale di Kiel, costruito nel 1911-1913, sorregge un traghetto sospeso: l'unico al mondo appeso a un ponte ferroviario."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Rendsburg_High_Bridge",
+   "https://www.erih.net/i-want-to-go-there/high-level-cantilever-bridge"
+  ]
+ },
+ "01059": {
+  "facts": [
+   "Nel circondario si trovano Haithabu, emporio commerciale dell'epoca vichinga, e il vallo del Danewerk: dal 2018 sono patrimonio UNESCO."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Hedeby",
+   "https://www.haithabu.de/en/world-heritage"
+  ]
+ },
+ "01060": {
+  "facts": [
+   "A Bad Segeberg si tengono ogni estate dal 1952 i Karl-May-Spiele, spettacoli tratti dai romanzi western di Karl May, in un anfiteatro ricavato da una cava del Kalkberg."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Karl_May_Festival_in_Bad_Segeberg",
+   "https://en.wikipedia.org/wiki/Bad_Segeberg"
+  ]
+ },
+ "02000": {
+  "facts": [
+   "La Speicherstadt è il più grande complesso di magazzini portuali del mondo; dal 2015 è patrimonio UNESCO insieme al quartiere del Kontorhaus e al Chilehaus.",
+   "L'Elbphilharmonie, inaugurata nel gennaio 2017, unisce un magazzino in mattoni degli anni Sessanta a una sovrastruttura di vetro."
+  ],
+  "sources": [
+   "https://www.hamburg-travel.com/see-explore/maritime-hamburg/maritime-culture-unesco/",
+   "https://www.deutschland.de/en/topic/culture/arts-architecture/hamburgs-old-warehouse-district"
+  ]
+ },
+ "03101": {
+  "facts": [
+   "Il leone di bronzo voluto da Enrico il Leone, secondo la tradizione nel 1166, è ritenuto la più antica grande scultura libera medievale a nord delle Alpi.",
+   "Il leone sulla Burgplatz è una copia: l'originale è custodito nel castello di Dankwarderode."
+  ],
+  "sources": [
+   "https://www.braunschweig.de/tourismus/touristinfo/prospekte/katalog/Braunschweig-entdecken_ein-Stadtrundgang.pdf",
+   "https://smb.museum-digital.de/pdf/object/140409.pdf?lang=de"
+  ]
+ },
+ "03102": {
+  "facts": [
+   "Salzgitter nacque il 1° aprile 1942 come città unificata al servizio delle acciaierie statali Reichswerke Hermann Göring, fondate nel 1937."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Salzgitter",
+   "https://en.wikipedia.org/wiki/Reichswerke_Hermann_G%C3%B6ring"
+  ]
+ },
+ "03103": {
+  "facts": [
+   "Wolfsburg fu fondata il 1° luglio 1938 come «Città dell'auto KdF», per gli operai della fabbrica Volkswagen; prese il nome attuale nel 1945."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Wolfsburg",
+   "https://www.dhm.de/lemo/kapitel/ns-regime/industrie-und-wirtschaft/volkswagen.html"
+  ]
+ },
+ "03153": {
+  "facts": [
+   "Le miniere del Rammelsberg e il centro storico di Goslar, patrimonio UNESCO dal 1992, formano uno dei più antichi complessi minerari e metallurgici del mondo."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Rammelsberg",
+   "https://www.harzinfo.de/en/experiences/places-of-interest/unesco-world-heritage-site-in-the-harz-mountains"
+  ]
+ },
+ "03155": {
+  "facts": [
+   "Il nome della birra Bock viene da Einbeck: in dialetto bavarese la sua «Ainpöckisch Bier» divenne «Ainpock» e poi semplicemente «Bock».",
+   "Con l'ingresso di Einbeck nella Lega anseatica, nel 1368, la sua birra forte fu esportata fino ad Anversa, Riga e Stoccolma."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Einbecker_Brewery"
+  ]
+ },
+ "03158": {
+  "facts": [
+   "La Herzog August Bibliothek, fondata nel 1572 dal duca Giulio di Braunschweig-Lüneburg, ebbe come bibliotecario dal 1770 al 1781 lo scrittore Gotthold Ephraim Lessing."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Herzog_August_Library",
+   "https://www.lessingstadt-wolfenbuettel.de/en/translate-to-englisch-poi/lessinghaus-en"
+  ]
+ },
+ "03159": {
+  "facts": [
+   "Per tradizione chi consegue il dottorato a Gottinga bacia la Gänseliesel, la statua della guardiana d'oche sulla fontana del mercato, eretta nel 1901.",
+   "All'università di Gottinga hanno studiato, insegnato o fatto ricerca oltre quaranta premi Nobel."
+  ],
+  "sources": [
+   "https://www.uni-goettingen.de/de/about-g%C3%B6ttingen/555529.html",
+   "https://www.amusingplanet.com/2016/06/the-goose-girl-of-gottingen.html"
+  ]
+ },
+ "03241": {
+  "facts": [
+   "Il Großer Garten di Herrenhausen, giardino barocco voluto dall'elettrice Sofia e cinto da un canale, ha grotte decorate dall'artista Niki de Saint Phalle."
+  ],
+  "sources": [
+   "https://www.leinetal24.de/niedersachsen/messestadt-mit-barocken-gaerten-niedersachsen-bietet-ueberraschende-vielfalt-94425514.html"
+  ]
+ },
+ "03252": {
+  "facts": [
+   "Secondo la leggenda, il 26 giugno 1284 un pifferaio condusse via da Hameln 130 bambini; un'iscrizione del 1603 ricorda l'evento."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pied_Piper_of_Hamelin",
+   "https://www.hameln.de/en/thepiedpiper/thepiedpiper/the-pied-piper-an-unsolved-mystery"
+  ]
+ },
+ "03254": {
+  "facts": [
+   "La chiesa di San Michele e il duomo di Hildesheim, legati all'XI secolo, sono patrimonio dell'umanità UNESCO."
+  ],
+  "sources": [
+   "https://www.niedersachsen-tourism.com/experiences/culture-in-lower-saxony/unesco-world-heritage"
+  ]
+ },
+ "03255": {
+  "facts": [
+   "A Bodenwerder, nel circondario, nacque il barone di Münchhausen, da cui prendono nome le celebri storie di avventure impossibili."
+  ],
+  "sources": [
+   "https://germanyiswunderbar.com/northern-germany/germany-holidays-the-pied-piper-of-hamelin/"
+  ]
+ },
+ "03351": {
+  "facts": [
+   "Il centro storico di Celle conserva oltre 400 case a graticcio; il castello, antica residenza ducale sull'Aller, ha origini nel XIII secolo."
+  ],
+  "sources": [
+   "https://www.deutsche-fachwerkstrasse.de/en/Routes_Cities/From-the-River-Elbe-to-the-Harz-Mountains/Celle.html",
+   "https://celle.travel/that-is-celle/worth-seeing"
+  ]
+ },
+ "03352": {
+  "facts": [
+   "La Kugelbake, segnale marittimo in legno alto 29 metri alla foce dell'Elba, è il simbolo di Cuxhaven e compare nel suo stemma."
+  ],
+  "sources": [
+   "https://homeoftravel.de/top-sehenswurdigkeiten-cuxhaven/"
+  ]
+ },
+ "03355": {
+  "facts": [
+   "Il sale di Lüneburg, l'«oro bianco» del Medioevo, viaggiava lungo la Vecchia via del sale fino a Lubecca, da dove i mercanti anseatici lo smerciavano nel Baltico."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Old_Salt_Route",
+   "https://www.hamburg-tourism.de/sehen-erleben/metropolregion/lueneburg/"
+  ]
+ },
+ "03356": {
+  "facts": [
+   "Nel 1889 Fritz Mackensen, Otto Modersohn e Hans am Ende fondarono la colonia di artisti di Worpswede, dove visse e morì la pittrice Paula Modersohn-Becker."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Worpswede",
+   "https://www.dhm.de/lemo/biografie/paula-modersohn-becker.html"
+  ]
+ },
+ "03360": {
+  "facts": [
+   "La stazione di Uelzen fu trasformata dall'artista austriaco Friedensreich Hundertwasser per l'Expo 2000 ed è nota come Hundertwasser-Bahnhof."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Uelzen_station",
+   "https://www.tt.com/artikel/16682741/hundertwasser-bahnhof-in-deutschland-wird-20-jahre-alt"
+  ]
+ },
+ "03404": {
+  "facts": [
+   "Nella Sala della Pace del municipio di Osnabrück fu negoziata, insieme a Münster, la pace di Vestfalia del 1648, che chiuse la guerra dei Trent'anni.",
+   "Alle pareti della Sala della Pace sono appesi i ritratti dei 42 inviati europei ai negoziati."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Osnabr%C3%BCck_Town_Hall",
+   "https://friedensstadt.osnabrueck.de/en/die-friedensstadt-wo-frieden-geschichte-und-zukunft-hat/peace-of-westphalia"
+  ]
+ },
+ "03453": {
+  "facts": [
+   "Il Museumsdorf di Cloppenburg, fondato nel 1934, è il più antico museo-villaggio della Germania: oltre 50 edifici raccontano la vita rurale della Bassa Sassonia."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Cloppenburg_Museum_Village"
+  ]
+ },
+ "03454": {
+  "facts": [
+   "Le navi da crociera costruite dal cantiere Meyer Werft di Papenburg raggiungono il mare discendendo il fiume Ems, di solito a poppa avanti con l'aiuto dei rimorchiatori."
+  ],
+  "sources": [
+   "https://www.meyerwerft.de/en/press/press_detail/river_ems_conveyance_of_odyssey_of_the_seas.jsp"
+  ]
+ },
+ "03455": {
+  "facts": [
+   "A Jever il Friesisches Brauhaus produce birra dal 1848; dal 1934 la vende come Jever Pilsener, nota per il gusto particolarmente amaro."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Jever_Brewery"
+  ]
+ },
+ "03460": {
+  "facts": [
+   "Nel capoluogo Vechta si tiene lo Stoppelmarkt, fiera popolare le cui origini risalgono al 1298: è una delle più antiche feste documentate della Germania nord-occidentale."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Vechta",
+   "https://wikiwand.com/en/articles/Stoppelmarkt"
+  ]
+ },
+ "03462": {
+  "facts": [
+   "Il circondario corrisponde allo storico Harlingerland, nella Frisia orientale, affacciato sul Mare del Nord.",
+   "La frazione di Carolinensiel, villaggio di pescatori fondato nel 1730, prende il nome dalla moglie del principe Georg Albrecht di Frisia orientale, che lo fondò."
+  ],
+  "sources": [
+   "https://download.osmand.net/wiki/Landkreis_Wittmund",
+   "https://wikiwand.com/de/articles/Carolinensiel"
+  ]
+ },
+ "04011": {
+  "facts": [
+   "Il municipio di Brema e la statua del Roland sulla piazza del mercato sono stati iscritti nel 2004 nella lista del patrimonio mondiale dell'UNESCO."
+  ],
+  "sources": [
+   "https://www.welterbe.bremen.de/sixcms/media.php/13/Rathausflyer_deutsch_2026.pdf",
+   "https://www.deutsche-maerchenstrasse.com/en/start/poi/bremen-town-hall"
+  ]
+ },
+ "04012": {
+  "facts": [
+   "Bremerhaven ospita il Deutsches Auswandererhaus, museo che racconta le migrazioni storiche attraverso il porto, e il Klimahaus 8° Ost, dedicato ai climi della Terra lungo l'ottavo meridiano est."
+  ],
+  "sources": [
+   "https://www.wfb-bremen.de/sixcms/media.php/49/standort-broschuere-bremen.pdf"
+  ]
+ },
+ "05111": {
+  "facts": [
+   "Il poeta Heinrich Heine nacque a Düsseldorf il 13 dicembre 1797, quando la città apparteneva al ducato di Berg."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Heinrich_Heine"
+  ]
+ },
+ "05112": {
+  "facts": [
+   "Il porto di Duisburg, alla confluenza della Ruhr nel Reno, è considerato il più grande porto fluviale d'Europa."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Route_der_Industriekultur_%E2%80%93_Duisburg:_Stadt_und_Hafen",
+   "https://www.verkehrsrundschau.de/nachrichten/transport-logistik/duisburg-europas-groesster-binnenhafen-weiter-auf-wachstumskurs-3024455"
+  ]
+ },
+ "05113": {
+  "facts": [
+   "Il complesso minerario della Zeche Zollverein, attivo dal 1851 al 1986, è patrimonio mondiale dell'UNESCO dal 2001.",
+   "La miniera prende il nome dallo Zollverein, l'unione doganale tedesca fondata nel 1834."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Zeche_Zollverein",
+   "https://www.zollverein.de/app/uploads/2018/02/Deutsch.pdf"
+  ]
+ },
+ "05114": {
+  "facts": [
+   "Krefeld è detta \"città del velluto e della seta\" per la produzione di tessuti di seta che nel Settecento e nell'Ottocento la rese una delle città più ricche della Prussia.",
+   "Ospita Haus Lange e Haus Esters, due ville progettate da Ludwig Mies van der Rohe."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Krefeld"
+  ]
+ },
+ "05116": {
+  "facts": [
+   "La città si sviluppò attorno all'abbazia benedettina fondata nel 974 dall'arcivescovo Gerone di Colonia; la chiesa abbaziale, il Münster St. Vitus, è basilica minore dal 1974."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/M%C3%B6nchengladbach",
+   "https://de-academic.com/dic.nsf/dewiki/525933"
+  ]
+ },
+ "05117": {
+  "facts": [
+   "Il castello di Broich, sorto nell'inverno 883/884 come accampamento fortificato sopra la Ruhr, è considerato la più antica fortificazione carolingia a nord delle Alpi e il nucleo originario della città."
+  ],
+  "sources": [
+   "https://www.ruhr-tourismus.de/en/poi/schloss-broich/",
+   "https://geo.muelheim-ruhr.de/print/15659"
+  ]
+ },
+ "05119": {
+  "facts": [
+   "Il Gasometer di Oberhausen, costruito tra il 1927 e il 1929 come serbatoio di gas, dal 1994 è uno spazio espositivo."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Gasometer_Oberhausen"
+  ]
+ },
+ "05120": {
+  "facts": [
+   "Wilhelm Conrad Röntgen, scopritore dei raggi X, nacque il 27 marzo 1845 a Lennep, oggi quartiere di Remscheid, dove ha sede il Deutsches Röntgen-Museum."
+  ],
+  "sources": [
+   "https://www.wikipedia.org/wiki/Wilhelm_Röntgen",
+   "https://www.naturparkbergischesland.de/en/poi/lenneps-old-town"
+  ]
+ },
+ "05122": {
+  "facts": [
+   "Solingen è conosciuta in tutto il mondo per le sue lame e posate, da cui il soprannome di Klingenstadt, \"città delle lame\"."
+  ],
+  "sources": [
+   "https://maps.adac.de/show/bergisches-staedtedreieck"
+  ]
+ },
+ "05124": {
+  "facts": [
+   "La Schwebebahn, la ferrovia sospesa progettata da Eugen Langen che corre sopra il fiume Wupper, è in servizio dal 1901.",
+   "Friedrich Engels nacque nel 1820 a Barmen, oggi parte di Wuppertal; la casa della sua infanzia fa parte del Museo dell'industria cittadino."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Wuppertal_Schwebebahn",
+   "https://fr.vikidia.org/wiki/Wuppertal"
+  ]
+ },
+ "05154": {
+  "facts": [
+   "La torre del Cigno (Schwanenturm) del castello di Kleve è legata alla leggenda del cavaliere del cigno, resa celebre dal Lohengrin di Richard Wagner."
+  ],
+  "sources": [
+   "https://wikipedia.com/wiki/Schwanenburg_Castle",
+   "https://britannica.com/topic/Lohengrin-German-legendary-figure/images-videos"
+  ]
+ },
+ "05158": {
+  "facts": [
+   "Nella valle di Neander, tra Erkrath e Mettmann, nel 1856 alcuni operai trovarono in una grotta le ossa poi riconosciute come primi resti descritti scientificamente dell'uomo di Neanderthal."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Neandertal_(valley)",
+   "https://neanderthal.de/en/our-museum/exhibition/discovery-history-neanderthals/"
+  ]
+ },
+ "05314": {
+  "facts": [
+   "Ludwig van Beethoven nacque a Bonn il 16 o 17 dicembre 1770 nella casa di Bonngasse 20, oggi museo Beethoven-Haus."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Beethoven_House"
+  ]
+ },
+ "05315": {
+  "facts": [
+   "Il duomo di Colonia è iscritto dal 1996 nella lista del patrimonio mondiale dell'UNESCO."
+  ],
+  "sources": [
+   "https://www.land.nrw/pressemitteilung/ministerin-scharrenbach-kulturelle-giganten-oeffnen-am-unesco-welterbetag-ihre"
+  ]
+ },
+ "05316": {
+  "facts": [
+   "La città porta il nome del chimico Carl Leverkus, che produceva blu oltremare artificiale; nel 1930 i comuni fusi di Wiesdorf, Schlebusch, Steinbüchel e Rheindorf adottarono il nome del suo villaggio operaio.",
+   "La fabbrica di Leverkus, acquistata dalla Bayer nel 1891, divenne il nucleo dell'attuale stabilimento Bayer di Leverkusen."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Carl_Leverkus",
+   "https://www.deutsche-biographie.de/sfz50801.html"
+  ]
+ },
+ "05334": {
+  "facts": [
+   "Il duomo di Aquisgrana, il cui nucleo ottagonale risale a Carlo Magno, nel 1978 fu il primo sito tedesco iscritto nel patrimonio mondiale dell'UNESCO.",
+   "Nel duomo sono custodite le spoglie di Carlo Magno."
+  ],
+  "sources": [
+   "https://www.aachen-tourismus.de/wp-content/uploads/2024/04/Aachener-Dom.pdf",
+   "https://www.deutschland.de/de/topic/kultur/stadt-land/entdecke-de-die-kaiserstadt-aachen"
+  ]
+ },
+ "05362": {
+  "facts": [
+   "I castelli barocchi di Augustusburg e Falkenlust a Brühl sono patrimonio mondiale dell'UNESCO dal 1984."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Augustusburg_and_Falkenlust_Palaces,_Br%C3%BChl",
+   "https://welterbedeutschland.de/?p=1253"
+  ]
+ },
+ "05515": {
+  "facts": [
+   "Nella Sala della Pace del municipio di Münster si svolsero i negoziati della pace di Vestfalia, che nel 1648 pose fine alla guerra dei Trent'anni.",
+   "Nella stessa sala il 15 maggio 1648 fu giurata la pace tra Spagna e Paesi Bassi, che sancì l'indipendenza olandese."
+  ],
+  "sources": [
+   "https://www.stadt-muenster.de/tourismus/kunst-und-kultur/museen/friedenssaal",
+   "https://www.stadt-muenster.de/frieden/unsere-themen/europaeisches-kulturerbe-siegel"
+  ]
+ },
+ "05762": {
+  "facts": [
+   "L'abbazia di Corvey, fondata nell'822, conserva l'unico Westwerk carolingio quasi interamente integro ed è patrimonio mondiale dell'UNESCO dal 2014."
+  ],
+  "sources": [
+   "https://welterbedeutschland.de/karolingisches-westwerk-und-civitas-corvey/",
+   "https://www.land.nrw/pressemitteilung/kloster-corvey-als-5-unesco-welterbe-nrw-ausgezeichnet"
+  ]
+ },
+ "05766": {
+  "facts": [
+   "Sulla collina della Grotenburg, nella Foresta di Teutoburgo, sorge l'Hermannsdenkmal, la statua di Arminio costruita tra il 1838 e il 1875.",
+   "Le Externsteine sono imponenti formazioni di arenaria; l'ipotesi che fossero un luogo di culto pagano non è confermata dall'archeologia."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Hermannsdenkmal",
+   "https://en.teutoburgerwald.de/nature/my-day-in-nature/tour/hermannshoehen-etappe-09-vom-hermannsdenkmal-ueber-die-externsteine-nach-leopoldstal"
+  ]
+ },
+ "05770": {
+  "facts": [
+   "Sul Wittekindsberg, sopra la gola del Weser detta Porta Westfalica, sorge il monumento all'imperatore Guglielmo I, costruito tra il 1892 e il 1896."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Emperor_William_Monument_(Porta_Westfalica)",
+   "https://www.kaiser-wilhelm-denkmal.lwl.org/en/monument/architectural-history/"
+  ]
+ },
+ "05774": {
+  "facts": [
+   "La Pader, che nasce da oltre 200 sorgenti attorno al duomo e dopo circa quattro chilometri si getta nella Lippe, è considerata il fiume più corto della Germania.",
+   "Nel chiostro del duomo si trova la Dreihasenfenster, finestra dei primi del Cinquecento con tre lepri in movimento disposte in triangolo."
+  ],
+  "sources": [
+   "https://en.teutoburgerwald.de/region/excursion/poi/die-pader-deutschlands-kuerzester-fluss",
+   "https://www.paderborn.de/microsite/Paderborner-Natur/download/Pader-erleben.pdf"
+  ]
+ },
+ "05911": {
+  "facts": [
+   "Bochum ospita il Deutsches Bergbau-Museum, il museo tedesco delle miniere, uno dei punti cardine della Route der Industriekultur della Ruhr."
+  ],
+  "sources": [
+   "https://www.route-industriekultur.ruhr/wp-content/uploads/2026/01/RIK_Entdeckerpass2026_WEB.pdf"
+  ]
+ },
+ "05913": {
+  "facts": [
+   "L'ex miniera Zeche Zollern, oggi museo del LWL, è uno dei punti cardine della Route der Industriekultur e dell'itinerario europeo del patrimonio industriale."
+  ],
+  "sources": [
+   "https://www.route-industriekultur.ruhr/wp-content/uploads/2026/01/RIK_Entdeckerpass2026_WEB.pdf"
+  ]
+ },
+ "05958": {
+  "facts": [
+   "Sul Kahler Asten, alto circa 842 metri presso Winterberg, nasce a circa 820 metri di quota la Lenne, affluente della Ruhr: è la sorgente fluviale più alta della Germania nord-occidentale."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Kahler_Asten"
+  ]
+ },
+ "05962": {
+  "facts": [
+   "Nel castello di Altena il maestro Richard Schirrmann aprì nel 1912 quello che è considerato il primo ostello della gioventù permanente al mondo; gli ambienti originali sono oggi un museo."
+  ],
+  "sources": [
+   "https://www.lwl.org/westfalen-regional-download/PDF/S258_Jugendherbergen.pdf",
+   "https://wikipedia.com/wiki/Richard_Schirrmann"
+  ]
+ },
+ "05970": {
+  "facts": [
+   "Il pittore Peter Paul Rubens nacque a Siegen alla fine di giugno del 1577; poco dopo la famiglia si trasferì a Colonia."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Peter_Paul_Rubens",
+   "https://www.deutsche-biographie.de/11860354X.html"
+  ]
+ },
+ "05974": {
+  "facts": [
+   "Soest, città anseatica, è costruita in gran parte con l'arenaria verde locale, che dà al centro storico il suo colore grigio-verde.",
+   "La chiesa romanica di St. Patrokli custodisce le reliquie di san Patroclo, traslate da Troyes a Soest nel 964."
+  ],
+  "sources": [
+   "https://www.so-ist-soest.de/de-wAssets/docs/service/medienbereich-downloads/WMS_Stadtrundgang_Flyer_englisch_20210224-final.pdf"
+  ]
+ },
+ "06411": {
+  "facts": [
+   "La Mathildenhöhe, colonia di artisti fondata nel 1899 dal granduca Ernst Ludwig, è dal 2021 patrimonio UNESCO; il suo simbolo è la Hochzeitsturm, la torre con il tetto a cinque dita."
+  ],
+  "sources": [
+   "https://www.hessenschau.de/kultur/unesco-auszeichnung-darmstaedter-mathildenhoehe-ist-jetzt-offiziell-welterbe,mathildenhoehe-welterbe-102.html",
+   "https://vielfaltdermoderne.de/en/hochzeitsturm-2/"
+  ]
+ },
+ "06412": {
+  "facts": [
+   "Johann Wolfgang von Goethe nacque a Francoforte il 28 agosto 1749 nella casa del Großer Hirschgraben, oggi museo.",
+   "Nella Paulskirche si riunì dal 18 maggio 1848 l'Assemblea nazionale di Francoforte, il primo parlamento tedesco eletto liberamente."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Goethe_House",
+   "https://www.bundestag.de/parlament/geschichte/schauplaetze/paulskirche",
+   "https://www.wissen.de/lexikon/frankfurter-nationalversammlung"
+  ]
+ },
+ "06414": {
+  "facts": [
+   "Dostoevskij perse forti somme ai tavoli da gioco di Wiesbaden nel 1863; la città è considerata il modello principale della Roulettenburg del suo romanzo Il giocatore.",
+   "L'attuale Kurhaus di Wiesbaden, edificio neoclassico, fu costruito nel 1907 al posto di quello frequentato da Dostoevskij."
+  ],
+  "sources": [
+   "https://www.thestar.com.my/lifestyle/travel/2025/01/26/tracing-dostoyevskys-wayward-path-through-three-german-spa-towns"
+  ]
+ },
+ "06431": {
+  "facts": [
+   "L'abbazia di Lorsch, fondata nel 764, è patrimonio UNESCO dal 1991: la sua Torhalle del IX secolo è una rara testimonianza dell'architettura carolingia."
+  ],
+  "sources": [
+   "https://whc.unesco.org/en/list/515",
+   "https://schloesser-hessen.de/en/kloster-lorsch/kloster-lorsch"
+  ]
+ },
+ "06432": {
+  "facts": [
+   "La cava di Messel, ex miniera di scisti bituminosi, conserva fossili di circa 47 milioni di anni fa con pelliccia, piume e perfino organi interni; dal 1995 è patrimonio UNESCO."
+  ],
+  "sources": [
+   "https://www.darmstadt-tourismus.de/en/visit/detailsen/poidetail/welterbe-grube-messel.html",
+   "https://wikiwand.com/en/Messel_pit"
+  ]
+ },
+ "06433": {
+  "facts": [
+   "A Rüsselsheim, nel circondario, Adam Opel avviò nel 1862 una fabbrica di macchine da cucire; seguirono le biciclette dal 1886 e la prima automobile nel 1899."
+  ],
+  "sources": [
+   "https://wikipedia.com/wiki/Adam_Opel",
+   "https://www.encyclopedia.com/social-sciences-and-law/economics-business-and-labor/businesses-and-occupations/adam-opel-ag"
+  ]
+ },
+ "06434": {
+  "facts": [
+   "Il forte romano della Saalburg, sul limes, fu ricostruito per volere dell'imperatore Guglielmo II a partire dal 1897; dal 2005 è patrimonio UNESCO come parte del limes."
+  ],
+  "sources": [
+   "https://www.saalburgmuseum.de/en/angebote-2/roemerkastell-saalburg/",
+   "https://www.uni-marburg.de/de/fotomarburg/das-besonderes-bild/limes",
+   "https://www.waymarking.com/waymarks/WMQN62_UNESCO_Kastell_Saalburg_Bad_Homburg_Germany"
+  ]
+ },
+ "06435": {
+  "facts": [
+   "Hanau, nel circondario, è la città natale dei fratelli Grimm, ricordati da un monumento in piazza del mercato.",
+   "A Gelnhausen Federico Barbarossa fondò nel 1170 un palazzo imperiale su un'isola del fiume Kinzig."
+  ],
+  "sources": [
+   "https://www.deutsche-maerchenstrasse.com/en/poi/national-monument-of-the-brothers-grimm",
+   "https://maps.adac.de/ort/gelnhausen-hessen",
+   "https://wikipedia.com/wiki/Pfalz_Gelnhausen"
+  ]
+ },
+ "06439": {
+  "facts": [
+   "Nell'abbazia cistercense di Eberbach, fondata nel 1136 da Bernardo di Chiaravalle, furono girate molte scene interne del film Il nome della rosa."
+  ],
+  "sources": [
+   "https://www.travelbook.de/orte/drehorte/das-kloster-eberbach-ist-deutschlands-hollywood-abtei",
+   "https://kloster-eberbach.de/media/pages/presse-und-oeffentlichkeitsarbeit/aktuelle-meldungen/kloster-eberbach-feiert-der-name-der-rose/2931771966-1695131976/pm-kloster-eberbach-feiert-name-der-rose.pdf"
+  ]
+ },
+ "06531": {
+  "facts": [
+   "A Gießen insegnarono il chimico Justus Liebig e Wilhelm Conrad Röntgen, primo premio Nobel per la fisica, sepolto nel vecchio cimitero cittadino.",
+   "Il Mathematikum di Gießen è considerato il primo museo al mondo in cui la matematica si sperimenta con le mani."
+  ],
+  "sources": [
+   "https://wikiwand.com/en/articles/Giessen,_Germany"
+  ]
+ },
+ "06532": {
+  "facts": [
+   "A Wetzlar, nel 1772, il giovane Goethe conobbe Charlotte Buff, modello della Lotte dei Dolori del giovane Werther; la sua casa natale è oggi un museo."
+  ],
+  "sources": [
+   "https://wikiwand.com/en/articles/Giessen,_Germany",
+   "https://freizeitmonster.de/blog/museen-asslar"
+  ]
+ },
+ "06533": {
+  "facts": [
+   "Il duomo di Limburg, su uno sperone roccioso sopra il fiume Lahn, è l'unica chiesa tedesca con sette torri e dal 1964 al 1992 comparve sul retro della banconota da 1000 marchi."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Limburger_Dom",
+   "https://www.ich-geh-wandern.de/dom-zu-limburg"
+  ]
+ },
+ "06534": {
+  "facts": [
+   "L'università di Marburgo, fondata nel 1527 dal langravio Filippo il Magnanimo, è la più antica università protestante tuttora esistente.",
+   "La Elisabethkirche di Marburgo, costruita dal 1235 dall'Ordine teutonico sulla tomba di santa Elisabetta d'Ungheria, è tra le prime chiese gotiche tedesche."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Marburg_University",
+   "https://www.uni-marburg.de/de/universitaet/geschichte",
+   "https://www.britannica.com/topic/Philipps-University-of-Marburg"
+  ]
+ },
+ "06535": {
+  "facts": [
+   "Il Vogelsberg, con circa 2500 km², è la più grande area vulcanica continua dell'Europa centrale: non un unico vulcano, ma numerosi centri eruttivi attivi tra 18 e 7 milioni di anni fa."
+  ],
+  "sources": [
+   "https://www.hlnug.de/fileadmin/dokumente/geologie/geotope/Geotopfuehrer_Vogelsberg/Teil1-Geologischer_UEberblick.pdf"
+  ]
+ },
+ "06611": {
+  "facts": [
+   "Il Bergpark Wilhelmshöhe, con la statua di Ercole e i suoi giochi d'acqua, è patrimonio UNESCO dal 2013.",
+   "Dal 1999 Kassel porta ufficialmente il titolo di città della documenta, la grande mostra d'arte contemporanea."
+  ],
+  "sources": [
+   "https://www.kmk.org/aktuelles-1/artikelansicht/wasserspiele-und-herkules-im-bergpark-wilhelmshoehe-fuer-das-welterbe-nominiert.html",
+   "https://maps.adac.de/ort/kassel-hessen",
+   "https://en.wikipedia.com/wiki/Wilhelmsh%C3%B6he"
+  ]
+ },
+ "06631": {
+  "facts": [
+   "Nel duomo di Fulda si trova la tomba di san Bonifacio, l'apostolo dei Germani, che nel 744 aveva fatto fondare il monastero della città."
+  ],
+  "sources": [
+   "https://www.festivalsindeutschland.de/festival/bonifatiusfest-fulda",
+   "https://de.wikivoyage.org/wiki/Fulda"
+  ]
+ },
+ "06632": {
+  "facts": [
+   "La Stiftsruine di Bad Hersfeld, indicata come la più grande rovina di chiesa romanica d'Europa, ospita dal 1951 il festival teatrale Bad Hersfelder Festspiele."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bad_Hersfelder_Festspiele",
+   "https://en.wikipedia.com/wiki/Bad_Hersfeld"
+  ]
+ },
+ "06635": {
+  "facts": [
+   "La diga dell'Edersee, costruita tra il 1908 e il 1914 vicino a Waldeck, fu squarciata il 17 maggio 1943 dalle bombe rimbalzanti della RAF durante l'operazione Chastise."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Edersee_Dam",
+   "https://en.wikipedia.org/wiki/Operation_Chastise",
+   "https://www.iwm.org.uk/history/the-incredible-story-of-the-dambusters-raid"
+  ]
+ },
+ "07111": {
+  "facts": [
+   "Il Deutsches Eck è il promontorio alla confluenza di Reno e Mosella; il nome ricorda l'Ordine teutonico, insediato qui dal 1216, e la città deriva il suo nome dal latino Confluentes."
+  ],
+  "sources": [
+   "https://www.ich-geh-wandern.de/deutsches-eck",
+   "https://www.wandernundmehr.at/faq/warum-heit-das-deutsche-eck-in-koblenz-deutsches-eck"
+  ]
+ },
+ "07131": {
+  "facts": [
+   "Le rovine del castello di Nürburg sorgono all'interno della Nordschleife, l'anello nord del circuito del Nürburgring."
+  ],
+  "sources": [
+   "https://en.Wikipedia.com/wiki/N%C3%BCrburg_Castle"
+  ]
+ },
+ "07132": {
+  "facts": [
+   "Friedrich Wilhelm Raiffeisen, padre delle casse rurali cooperative, nacque nel 1818 a Hamm an der Sieg e fu sindaco di Weyerbusch e Flammersfeld, dove dopo la carestia del 1846-47 fondò associazioni di soccorso."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Friedrich_Wilhelm_Raiffeisen",
+   "https://www.deutsche-biographie.de/pnd118597884.html"
+  ]
+ },
+ "07134": {
+  "facts": [
+   "Idar-Oberstein è un celebre centro di taglio delle pietre preziose, nato dall'estrazione locale delle agate.",
+   "La Felsenkirche di Oberstein è una chiesa costruita in una nicchia della roccia sopra la città; l'edificio attuale risale al 1484."
+  ],
+  "sources": [
+   "https://www.wissen.de/lexikon/idar-oberstein",
+   "https://www.kuladig.de/Objektansicht/Drucken/KLD-344439"
+  ]
+ },
+ "07135": {
+  "facts": [
+   "La Reichsburg di Cochem domina la Mosella da una collina; le sue origini risalgono all'XI secolo, ma l'aspetto attuale è frutto di una ricostruzione ottocentesca."
+  ],
+  "sources": [
+   "https://www.wandernundmehr.at/faq/warum-ist-cochem-beruhmt"
+  ]
+ },
+ "07137": {
+  "facts": [
+   "Il castello di Eltz, nascosto nella valle dell'Elz, è una Ganerbenburg: più rami della stessa famiglia vi abitavano insieme, ognuno nel proprio edificio. Appartiene ancora ai conti di Eltz."
+  ],
+  "sources": [
+   "https://maps.adac.de/ort/wierschem-rheinland-pfalz"
+  ]
+ },
+ "07138": {
+  "facts": [
+   "A Heddesdorf, oggi quartiere di Neuwied, Raiffeisen fondò una cassa di prestiti che divenne il modello delle sue cooperative di credito; vi morì nel 1888."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Friedrich_Wilhelm_Raiffeisen",
+   "https://www.dhm.de/archiv/ausstellungen/gruenderzeit/biografien/raiffeisen_friedrich_wilhelm.html"
+  ]
+ },
+ "07141": {
+  "facts": [
+   "La rupe della Loreley, parete di ardesia dove il Reno si restringe, si trova presso Sankt Goarshausen, insieme ai castelli Katz e Maus."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Sankt_Goarshausen",
+   "https://de.wikivoyage.org/wiki/St._Goarshausen"
+  ]
+ },
+ "07211": {
+  "facts": [
+   "La Porta Nigra, simbolo di Treviri e parte del patrimonio UNESCO, è considerata la più antica porta urbana romana a nord delle Alpi.",
+   "Karl Marx nacque a Treviri nella casa di Brückenstraße 10, oggi museo dedicato alla sua vita e alla sua opera."
+  ],
+  "sources": [
+   "https://www.goethe.de/ins/it/de/kul/den/25489666.html",
+   "https://www.promobil.de/uebernachtungstipps/trier-eine-reise-in-das-alte-roemische-reich-camping-tipps-und-sehenswuerdigkeiten/",
+   "https://www.planet-wissen.de/natur/fluesse_und_seen/die_mosel/pwietrierroemernrebenundkarlmarx100.html"
+  ]
+ },
+ "07233": {
+  "facts": [
+   "Nella Vulkaneifel si contano circa 75 maar, crateri nati da esplosioni di vapore; i tre maar di Daun (Weinfelder, Schalkenmehrener e Gemündener) sono pieni d'acqua."
+  ],
+  "sources": [
+   "https://eifel.info/en/a-maare-der-vulkaneifel",
+   "https://www.ich-geh-wandern.de/dauner-maare"
+  ]
+ },
+ "07312": {
+  "facts": [
+   "Federico Barbarossa vi fece costruire un palazzo imperiale tra il 1152 e il 1160, e la città si fregia del titolo di Barbarossastadt.",
+   "Lo stadio di Kaiserslautern porta il nome di Fritz Walter, capitano della Germania campione del mondo nel 1954, che giocò tutta la carriera nel club cittadino."
+  ],
+  "sources": [
+   "https://maps.adac.de/ort/kaiserslautern-rheinland-pfalz",
+   "https://en.wikipedia.com/wiki/Fritz-Walter-Stadion",
+   "https://en.wikipedia.org/wiki/Fritz_Walter"
+  ]
+ },
+ "07314": {
+  "facts": [
+   "Helmut Kohl, il cancelliere della riunificazione tedesca, nacque a Ludwigshafen il 3 aprile 1930, quando la città faceva ancora parte della Baviera."
+  ],
+  "sources": [
+   "https://Www.Wikipedia.org/wiki/Helmut_Kohl",
+   "https://www.deutsche-biographie.de/ppn118564595.html"
+  ]
+ },
+ "07315": {
+  "facts": [
+   "A Magonza, a metà del Quattrocento, Johannes Gutenberg mise a punto la stampa a caratteri mobili, che rivoluzionò la diffusione del sapere."
+  ],
+  "sources": [
+   "https://www.rheinhessen.de/en/museums-rheinhessen",
+   "https://www.worms.de/erleben-wAssets/docs/Geschichte/anekdoten/Wormser-Almanach-auf-das-Jahr-1941-_-Stadt-Worms.pdf"
+  ]
+ },
+ "07316": {
+  "facts": [
+   "Al castello di Hambach, nel maggio 1832, tra 20.000 e 30.000 persone si riunirono per l'Hambacher Fest chiedendo unità e libertà, sotto i colori nero, rosso e oro."
+  ],
+  "sources": [
+   "https://www.dhm.de/lemo/kapitel/vormaerz-und-revolution/der-deutsche-bund/das-hambacher-fest-1832.html",
+   "https://www.bpb.de/kurz-knapp/hintergrund-aktuell/508682/vor-190-jahren-hambacher-fest/"
+  ]
+ },
+ "07318": {
+  "facts": [
+   "Il duomo di Spira, iniziato nel 1030 sotto Corrado II, custodisce le tombe degli imperatori salici ed è patrimonio UNESCO dal 1981.",
+   "Il bagno rituale ebraico medievale di Spira fa parte dei siti SchUM, patrimonio UNESCO dal 2021."
+  ],
+  "sources": [
+   "https://www.lonelyplanet.com/germany/speyer/attractions/kaiserdom/a/poi-sig/1143177/1316436",
+   "https://www.wochenblatt-reporter.de/speyer/c-lokales/sehenswuerdigkeiten-in-speyer-12-highlights-fuer-ausflug-und-urlaub_a870091"
+  ]
+ },
+ "07319": {
+  "facts": [
+   "Nel 1521 Martin Lutero comparve alla Dieta di Worms davanti a Carlo V e rifiutò di ritrattare; l'editto di Worms dell'8 maggio 1521 lo dichiarò eretico."
+  ],
+  "sources": [
+   "https://www.bpb.de/themen/zeit-kulturgeschichte/reformation/235570/schlaglicht-1521-luther-und-karl-v-in-worms/",
+   "https://mediengeschichte.dnb.de/DBSMZBN/Content/EN/Censorship/06-wormser-edikt-en.html"
+  ]
+ },
+ "07332": {
+  "facts": [
+   "A Bad Dürkheim si tiene il Wurstmarkt, presentato come la più grande festa del vino al mondo.",
+   "Il Dürkheimer Riesenfass, botte gigante costruita nel 1934 con una capacità di circa 1,7 milioni di litri, non ha mai contenuto vino e ospita un ristorante."
+  ],
+  "sources": [
+   "https://www.tageskarte.io/tourismus/detail/bad-duerkheim-groesstes-weinfest-der-welt-beginnt.html",
+   "https://www.amusingplanet.com/2020/06/durkheimer-riesenfass-giant-cask.html"
+  ]
+ },
+ "07337": {
+  "facts": [
+   "Nel castello di Trifels, presso Annweiler, fu tenuto prigioniero Riccardo Cuor di Leone tra il 1193 e il 1194.",
+   "Il castello di Trifels custodì per un periodo le insegne imperiali, oggi conservate a Vienna; nel castello se ne espongono delle copie."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Trifels_Castle"
+  ]
+ },
+ "07338": {
+  "facts": [
+   "Nel 1835 vicino a Schifferstadt fu trovato il Cappello d'oro di Schifferstadt, un cono d'oro dell'età del bronzo oggi esposto al Museo storico del Palatinato a Spira."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Golden_Hat_of_Schifferstadt"
+  ]
+ },
+ "07339": {
+  "facts": [
+   "Il Mäuseturm, la torre dei topi su uno scoglio nel Reno davanti a Bingen, era una torre di pedaggio degli arcivescovi di Magonza; la leggenda vuole che il vescovo Hatto vi fosse divorato dai topi.",
+   "Ildegarda di Bingen fondò intorno al 1150 il monastero del Rupertsberg, presso Bingen."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Bingen_am_Rhein",
+   "https://en.wikivoyage.org/wiki/Bingen"
+  ]
+ },
+ "07340": {
+  "facts": [
+   "Il Dahner Felsenland è un paesaggio di torri e pareti di arenaria rossa nel Pfälzerwald, punteggiato di castelli costruiti sulla roccia.",
+   "Il castello di Berwartstein è legato a Hans von Trotha, detto Hans Trapp, che la tradizione locale descrive come un cavaliere predone."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Dahner_Felsenland"
+  ]
+ },
+ "08111": {
+  "facts": [
+   "A Stoccarda nacque nel 1770 il filosofo Georg Wilhelm Friedrich Hegel; la sua casa natale ospita un museo.",
+   "Le case progettate da Le Corbusier nel quartiere modello Weissenhof di Stoccarda sono dal 2016 patrimonio mondiale UNESCO."
+  ],
+  "sources": [
+   "https://www.britannica.com/print/article/259378",
+   "https://www.wikipedia.com/wiki/Hegelhaus",
+   "https://www.baden-wuerttemberg.de/de/service/presse/pressemitteilung/pid/land-foerdert-unesco-welterbestaetten"
+  ]
+ },
+ "08116": {
+  "facts": [
+   "A Esslingen ha sede Kessler, la più antica cantina di spumante della Germania, fondata nel 1826 da Georg Christian von Kessler, che aveva lavorato presso Veuve Clicquot in Champagne."
+  ],
+  "sources": [
+   "https://www.visit-bw.com/en/tips-and-stories/kessler-sekt-winery",
+   "https://www.deutsche-biographie.de/sfz40693.html"
+  ]
+ },
+ "08117": {
+  "facts": [
+   "Göppingen sorge ai piedi dell'Hohenstaufen, il monte dove si trovava il castello d'origine della dinastia degli Staufer, quella di Federico Barbarossa.",
+   "A Göppingen fu fondata nel 1859 la Märklin, celebre produttrice di trenini elettrici."
+  ],
+  "sources": [
+   "https://stuttgart-tourist.de/en/a-goeppingen",
+   "https://en.wikipedia.org/wiki/M%C3%A4rklin"
+  ]
+ },
+ "08118": {
+  "facts": [
+   "Il castello residenziale di Ludwigsburg, costruito tra il 1704 e il 1733, conta 452 stanze ed è tra i più grandi palazzi barocchi conservati in Germania.",
+   "A Marbach am Neckar, nel circondario di Ludwigsburg, nacque nel 1759 il poeta Friedrich Schiller."
+  ],
+  "sources": [
+   "https://EN.wikipedia.com/wiki/Ludwigsburg_Palace",
+   "https://www.schloss-ludwigsburg.de/fileadmin/Broschueren/monumentflyer_2021_deutsch/ssg_residenzschloss-ludwigsburg_monumentbroschuere-D_2021.pdf"
+  ]
+ },
+ "08119": {
+  "facts": [
+   "A Schorndorf nacque nel 1834 Gottlieb Daimler, pioniere dell'automobile; la sua casa natale è oggi un museo."
+  ],
+  "sources": [
+   "https://presse.stuttgart-tourist.de/en/freizeit/zwischen-mittelalterstadt-barockem-gesamtkunstwerk-schillers-spuren-und-daimlers-geburtsort"
+  ]
+ },
+ "08121": {
+  "facts": [
+   "A Heilbronn nacque nel 1814 il medico e fisico Julius Robert Mayer, tra i primi a formulare il principio di conservazione dell'energia."
+  ],
+  "sources": [
+   "https://www.deutsche-biographie.de/sfz59524.html"
+  ]
+ },
+ "08125": {
+  "facts": [
+   "Secondo una leggenda legata all'assedio di Weinsberg del 1140, le donne ottennero di lasciare il castello con ciò che potevano portare e uscirono con i mariti sulle spalle; per questo la rovina si chiama Weibertreu."
+  ],
+  "sources": [
+   "https://www.baden-wuerttemberg.de/de/unser-land/traditionen/sagen-und-legenden/die-weiber-von-weinsberg",
+   "https://de.wikivoyage.org/wiki/Weinsberg"
+  ]
+ },
+ "08127": {
+  "facts": [
+   "L'Heller, moneta diffusa in tutto il mondo germanico, prende il nome da Schwäbisch Hall, dove fu coniato a partire dal XII secolo."
+  ],
+  "sources": [
+   "https://www.deutsche-digitale-bibliothek.de/item/I4IGH3S666YY4U6V66PRCFDOSHWKCZL3"
+  ]
+ },
+ "08135": {
+  "facts": [
+   "A Giengen an der Brenz ha sede la Steiff: qui nel 1902 Richard Steiff, nipote della fondatrice Margarete, ideò un orso di peluche snodato, antenato del teddy bear."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Richard_Steiff",
+   "https://corporate.steiff.com/en/steiff-teddy/history/"
+  ]
+ },
+ "08211": {
+  "facts": [
+   "Dal 2021 Baden-Baden è patrimonio mondiale UNESCO insieme alle altre città termali del gruppo Great Spa Towns of Europe."
+  ],
+  "sources": [
+   "https://www.baden-wuerttemberg.de/de/service/presse/pressemitteilung/pid/land-foerdert-unesco-welterbestaetten"
+  ]
+ },
+ "08212": {
+  "facts": [
+   "A Karlsruhe nacque nel 1785 Karl Drais, inventore della Laufmaschine, il velocipede senza pedali antenato della bicicletta."
+  ],
+  "sources": [
+   "https://www.deutsche-handwerks-zeitung.de/?p=92296",
+   "https://cyclinguk.org/node/38606"
+  ]
+ },
+ "08221": {
+  "facts": [
+   "L'Università di Heidelberg, aperta nel 1386 dal principe elettore Ruprecht I, è la più antica della Germania attuale."
+  ],
+  "sources": [
+   "https://www.uni-heidelberg.de/de/universitaet/geschichte",
+   "https://www.goethe.de/ins/il/de/spr/mag/kuq/27099704-.html"
+  ]
+ },
+ "08222": {
+  "facts": [
+   "Il 12 giugno 1817 Karl Drais partì da Mannheim per la prima corsa documentata con la sua Laufmaschine, il velocipede senza pedali considerato l'antenato della bicicletta."
+  ],
+  "sources": [
+   "https://www.historyofinformation.com/detail.php?id=2054",
+   "https://cyclinguk.org/node/38606"
+  ]
+ },
+ "08226": {
+  "facts": [
+   "Nel 1907 in una cava di sabbia a Mauer, a sud-est di Heidelberg, fu trovata la mandibola che servì a descrivere la specie Homo heidelbergensis, datata a circa 600.000 anni fa."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Mauer_1",
+   "https://en.wikipedia.org/wiki/Homo_heidelbergensis"
+  ]
+ },
+ "08235": {
+  "facts": [
+   "A Calw nacque nel 1877 lo scrittore Hermann Hesse, premio Nobel per la letteratura; la città è lo sfondo di molti suoi racconti."
+  ],
+  "sources": [
+   "https://www.deutsche-biographie.de/sfz70139.html",
+   "https://www.museum.de/en/p/286/1"
+  ]
+ },
+ "08236": {
+  "facts": [
+   "Il monastero cistercense di Maulbronn è patrimonio mondiale UNESCO dal 1993."
+  ],
+  "sources": [
+   "https://www.baden-wuerttemberg.de/de/service/presse/pressemitteilung/pid/land-foerdert-unesco-welterbestaetten"
+  ]
+ },
+ "08237": {
+  "facts": [
+   "Freudenstadt ha la piazza del mercato più grande della Germania, circa 4,5 ettari: intorno al 1600 l'area era destinata a un castello del duca Federico I di Württemberg, mai costruito."
+  ],
+  "sources": [
+   "https://www.alpen-guide.de/reisefuehrer/uebersicht/freudenstadt-72250"
+  ]
+ },
+ "08311": {
+  "facts": [
+   "La torre ovest del Duomo di Friburgo, alta circa 116 metri in arenaria rossa, fu definita dallo storico dell'arte Jacob Burckhardt forse la più bella torre della terra."
+  ],
+  "sources": [
+   "https://www.schwarzwald-tourismus.info/attraktionen/freiburger-muenster-63fbba12cc",
+   "https://www.Wikipedia.com/wiki/Freiburg_Minster"
+  ]
+ },
+ "08325": {
+  "facts": [
+   "Rottweil, fondata dai Romani intorno al 73 d.C. come Arae Flaviae, è considerata la città più antica del Baden-Württemberg."
+  ],
+  "sources": [
+   "https://www.heidelberg24.de/deutschland/baden-wuerttemberg/flaviae-aelteste-stadt-baden-wuerttemberg-rottweil-geschichte-arae-93191488.html",
+   "https://encycloreader.org/r/wikipedia.php?q=Rottweil"
+  ]
+ },
+ "08326": {
+  "facts": [
+   "A Donaueschingen la Brigach e la Breg si uniscono formando il Danubio; nel parco del castello dei principi di Fürstenberg si trova la sorgente considerata già dai Romani l'origine del fiume."
+  ],
+  "sources": [
+   "https://www.alpen-guide.de/reisefuehrer/uebersicht/donaueschingen-aasen-78166"
+  ]
+ },
+ "08335": {
+  "facts": [
+   "L'isola monastica di Reichenau, nella parte occidentale del lago di Costanza, è patrimonio mondiale UNESCO dal 2000.",
+   "Durante il Concilio di Costanza (1414-1418), l'11 novembre 1417 fu eletto papa Martino V: è l'unico conclave mai tenuto a nord delle Alpi."
+  ],
+  "sources": [
+   "https://www.baden-wuerttemberg.de/de/service/presse/pressemitteilung/pid/land-foerdert-unesco-welterbestaetten",
+   "https://en.wikipedia.org/wiki/Council_of_Constance",
+   "https://www.wissen.de/lexikon/konstanzer-konzil"
+  ]
+ },
+ "08417": {
+  "facts": [
+   "Il castello di Hohenzollern, presso Hechingen, è la culla della dinastia degli Hohenzollern, da cui discesero i re di Prussia e gli imperatori tedeschi; l'edificio attuale fu costruito a partire dal 1847."
+  ],
+  "sources": [
+   "https://wikipedia.com/wiki/Burg_Hohenzollern",
+   "https://burg-hohenzollern.com/en/about-the-castle/family-history"
+  ]
+ },
+ "08421": {
+  "facts": [
+   "La torre del Duomo di Ulma, completata nel 1890, è alta circa 161,5 metri ed è stata a lungo il campanile di chiesa più alto del mondo."
+  ],
+  "sources": [
+   "https://www.oberschwaben-tourismus.de/attraktionen/ulmer-muenster-e99566ae37",
+   "https://www.evangelisch.de/inhalte/223145/13-11-2023/ausblicke-vom-hoechsten-kirchturm-impressionen-aus-dem-ulmer-muenster"
+  ]
+ },
+ "08425": {
+  "facts": [
+   "Le grotte della valle dell'Ach presso Schelklingen e Blaubeuren, dove sono state trovate alcune delle più antiche opere d'arte dell'umanità, sono dal 2017 patrimonio mondiale UNESCO."
+  ],
+  "sources": [
+   "https://www.baden-wuerttemberg.de/de/service/presse/pressemitteilung/pid/hoehlen-und-eiszeitkunst-der-schwaebischen-alb-in-unesco-welterbeliste-aufgenommen-1",
+   "https://www.schwaebische.de/regional/ulm-alb-donau/schelklingen/grosse-freude-ueber-weltkulturerbe-status-448303"
+  ]
+ },
+ "08435": {
+  "facts": [
+   "Il 2 luglio 1900 il primo dirigibile Zeppelin, LZ 1, si alzò in volo da un hangar galleggiante sul lago di Costanza presso Friedrichshafen."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Zeppelin_LZ_1"
+  ]
+ },
+ "08437": {
+  "facts": [
+   "Il castello di Sigmaringen, sul Danubio, fu dal 1576 al 1850 residenza dei principi di Hohenzollern-Sigmaringen, ramo svevo della dinastia."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Sigmaringen_Castle"
+  ]
+ },
+ "09161": {
+  "facts": [
+   "Il 23 aprile 1516 a Ingolstadt i duchi di Baviera emanarono il Reinheitsgebot, la legge sulla purezza della birra che ammetteva solo acqua, orzo e luppolo."
+  ],
+  "sources": [
+   "https://knowledgestore2.fbk.eu/pikes-demo/eswc2016/wes2015.d187.naf.html"
+  ]
+ },
+ "09162": {
+  "facts": [
+   "L'Oktoberfest nacque dai festeggiamenti per le nozze del principe ereditario Ludwig di Baviera con Teresa di Sassonia-Hildburghausen, il 12 ottobre 1810; il prato della festa si chiama Theresienwiese in suo onore."
+  ],
+  "sources": [
+   "https://unofficialroyalty.com/oktoberfests-royal-connection",
+   "https://www.aol.com/articles/origins-oktoberfest-205245245.html"
+  ]
+ },
+ "09171": {
+  "facts": [
+   "Altötting è il più celebre santuario mariano della Germania: nella Gnadenkapelle si venera una Madonna nera in legno di tiglio, giunta qui intorno al 1330.",
+   "Nella Gnadenkapelle di Altötting sono custodite le urne d'argento con i cuori dei principi elettori e dei re di Baviera della casa Wittelsbach."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Alt%C3%B6tting",
+   "https://www.muenchen.travel/pois/berge-seen/altoetting"
+  ]
+ },
+ "09172": {
+  "facts": [
+   "Il parco nazionale di Berchtesgaden, istituito nel 1978, è l'unico parco nazionale alpino della Germania; comprende il lago Königssee e il massiccio del Watzmann, alto 2713 metri."
+  ],
+  "sources": [
+   "https://nationalpark-berchtesgaden.bayern.de/natur/nationalpark/geschichte/index.htm",
+   "https://de.wikivoyage.org/wiki/Nationalpark_Berchtesgaden"
+  ]
+ },
+ "09178": {
+  "facts": [
+   "A Weihenstephan, sul colle sopra Freising, ha sede la Bayerische Staatsbrauerei Weihenstephan, considerata il più antico birrificio ancora attivo al mondo; le sue origini risalgono al 1040.",
+   "Il duomo di Freising, di origine romanica, fu rinnovato in stile barocco nel Settecento dai fratelli Asam ed è concattedrale dell'arcidiocesi di Monaco e Frisinga."
+  ],
+  "sources": [
+   "https://www.muenchen.travel/pois/berge-seen/freising",
+   "https://de.wikivoyage.org/wiki/Freising"
+  ]
+ },
+ "09179": {
+  "facts": [
+   "Il monastero cistercense di Fürstenfeld fu fondato dal duca Ludovico il Severo come atto di espiazione per aver fatto giustiziare nel 1256 la moglie Maria di Brabante, ingiustamente sospettata di adulterio.",
+   "La chiesa abbaziale di Fürstenfeld è considerata una delle opere principali del tardo barocco della Germania meridionale."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/F%C3%BCrstenfeld_Abbey",
+   "https://www.muenchen.travel/pois/berge-seen/fuerstenfeldbruck"
+  ]
+ },
+ "09180": {
+  "facts": [
+   "Nel circondario si trova la Zugspitze, la montagna più alta della Germania con circa 2962 metri.",
+   "Garmisch-Partenkirchen ospitò i Giochi olimpici invernali del 1936, i primi a includere lo sci alpino; i due villaggi di Garmisch e Partenkirchen erano stati uniti poco prima, in vista dei Giochi."
+  ],
+  "sources": [
+   "https://simple.wikipedia.com/wiki/Garmisch-Partenkirchen",
+   "https://olympics.com/en/news/relive-the-glories-of-past-olympic-winter-games-garmisch-partenkirchen-1936"
+  ]
+ },
+ "09181": {
+  "facts": [
+   "Nel carcere di Landsberg am Lech Adolf Hitler scontò nel 1924 parte della pena dopo il fallito putsch di Monaco e lì dettò il primo volume del Mein Kampf, con l'aiuto di Rudolf Hess."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Landsberg_Prison"
+  ]
+ },
+ "09182": {
+  "facts": [
+   "Nel circondario di Miesbach si trovano due noti laghi prealpini, il Tegernsee e lo Schliersee, oltre al monte Wendelstein, meta classica di escursioni."
+  ],
+  "sources": [
+   "https://www.metropolregion-muenchen.eu/en/about-us/profiles-of-member-counties-and-cities/miesbach-district",
+   "https://wikipedia.com/wiki/Miesbach_district"
+  ]
+ },
+ "09183": {
+  "facts": [
+   "Per quasi novecento anni Mühldorf am Inn fu un'exclave dell'arcivescovato di Salisburgo, fino al passaggio alla Baviera nel 1802.",
+   "Nei pressi di Mühldorf si combatté nel 1322 la battaglia in cui Ludovico il Bavaro sconfisse e fece prigioniero l'asburgico Federico il Bello."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/M%C3%BChldorf",
+   "https://en.wikipedia.org/wiki/Battle_of_M%C3%BChldorf"
+  ]
+ },
+ "09184": {
+  "facts": [
+   "A Oberschleißheim sorge il complesso di Schleißheim, residenza estiva dei Wittelsbach formata da tre palazzi: il Castello Vecchio, il Castello Nuovo e il castello di Lustheim.",
+   "A Garching si trova un grande campus di ricerca con diverse facoltà della Technische Universität München e il reattore di ricerca soprannominato \"uovo atomico\"."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Schloss_Schlei%C3%9Fheim",
+   "https://www.muenchenwiki.de/wiki/Garching"
+  ]
+ },
+ "09185": {
+  "facts": [
+   "Neuburg an der Donau fu per secoli capitale del principato di Palatinato-Neuburg, nato nel 1505; il castello rinascimentale fu fatto costruire dal conte palatino Ottone Enrico.",
+   "A Schrobenhausen nacque nel 1836 il pittore Franz von Lenbach; la zona è nota per l'asparago di Schrobenhausen, coltivato dal 1912 e tutelato da indicazione geografica protetta UE."
+  ],
+  "sources": [
+   "https://schloesser.bayern.de/englisch/palace/objects/neuburg.htm",
+   "https://en.wikipedia.org/wiki/Franz_von_Lenbach",
+   "https://en.wikipedia.com/wiki/Schrobenhausen"
+  ]
+ },
+ "09186": {
+  "facts": [
+   "Gran parte del circondario rientra nella Hallertau, la più vasta area continua di coltivazione del luppolo al mondo, con circa 18.000 ettari; Pfaffenhofen ne è la città più grande."
+  ],
+  "sources": [
+   "https://www.ich-geh-wandern.de/landkreis-pfaffenhofen-an-der-ilm",
+   "https://www.muenchen.travel/pois/berge-seen/hallertau"
+  ]
+ },
+ "09187": {
+  "facts": [
+   "Sull'isola di Herrenchiemsee, nel lago Chiemsee, Ludwig II fece costruire tra il 1878 e il 1886 un castello ispirato a Versailles; rimase incompiuto e il re vi soggiornò solo una decina di giorni."
+  ],
+  "sources": [
+   "https://www.muenchen.de/sehenswuerdigkeiten/schloss-herrenchiemsee",
+   "https://en.wikipedia.com/wiki/Herrenchiemsee"
+  ]
+ },
+ "09188": {
+  "facts": [
+   "Nel giugno 1886 il re Ludwig II di Baviera fu trovato morto nel lago di Starnberg, presso Berg; una croce di legno nell'acqua segna il punto e le circostanze della morte restano oscure."
+  ],
+  "sources": [
+   "https://secretmuenchen.com/en/votive-chapel-of-berg-on-lake-starnberg/",
+   "https://www.frommers.com/destinations/starnberger-see/things-to-do/"
+  ]
+ },
+ "09190": {
+  "facts": [
+   "Presso Steingaden sorge la Wieskirche, chiesa di pellegrinaggio rococò iscritta dal 1983 nel patrimonio mondiale dell'UNESCO."
+  ],
+  "sources": [
+   "https://maps.adac.de/ort/steingaden-bayern",
+   "https://www.ich-geh-wandern.de/könig-ludwig-weg-vom-starnberger-see-ins-allgäu"
+  ]
+ },
+ "09261": {
+  "facts": [
+   "La \"Landshuter Hochzeit\" rievoca le nozze celebrate nel 1475 tra il duca Giorgio il Ricco e Edvige Jagellona, ed è una delle maggiori feste storiche d'Europa.",
+   "Il campanile della chiesa di San Martino, alto circa 130 metri, è considerato la torre in mattoni più alta del mondo."
+  ],
+  "sources": [
+   "https://www.bahn.de/strecke/landshut",
+   "https://www.munich.travel/en/pois/lakes-mountains/landshut"
+  ]
+ },
+ "09262": {
+  "facts": [
+   "Passau è detta \"città dei tre fiumi\": vi confluiscono il Danubio, l'Inn e l'Ilz, sorvegliati dalla fortezza di Veste Oberhaus."
+  ],
+  "sources": [
+   "https://howtogermany.com/pages/lowerbavaria.html"
+  ]
+ },
+ "09263": {
+  "facts": [
+   "Nel 1435 Agnes Bernauer, moglie segreta del duca Alberto III, fu annegata nel Danubio presso Straubing per ordine del suocero, il duca Ernesto; la sua storia è rievocata da un dramma all'aperto."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Agnes_Bernauer",
+   "https://www.deutsche-biographie.de/gnd118509756.html"
+  ]
+ },
+ "09272": {
+  "facts": [
+   "Il circondario ospita parte del Parco nazionale della Foresta Bavarese, inaugurato il 7 ottobre 1970 come primo parco nazionale della Germania."
+  ],
+  "sources": [
+   "https://www.nationalpark-bayerischer-wald.bayern.de/ueber_uns/geschichte/doc/festschrift_eroeffnung_npbw.pdf",
+   "https://www.lernhelfer.de/schuelerlexikon/biologie/artikel/bayerischer-wald-nationalpark"
+  ]
+ },
+ "09273": {
+  "facts": [
+   "Sul colle Michelsberg sopra Kelheim sorge la Befreiungshalle, monumento ottocentesco che celebra le guerre di liberazione contro Napoleone.",
+   "Tra Kelheim e l'abbazia di Weltenburg il Danubio attraversa una stretta gola, il Donaudurchbruch, percorsa da battelli turistici."
+  ],
+  "sources": [
+   "https://ipfs.ssi.eecc.de/ipns/en.wikipedia-on-ipfs.org/wiki/Kelheim",
+   "https://secretmuenchen.com/befreiungshalle-kelheim-niederbayern/"
+  ]
+ },
+ "09276": {
+  "facts": [
+   "Il Parco nazionale della Foresta Bavarese, primo parco nazionale tedesco (1970), si estende lungo il confine ceco da Bayerisch Eisenstein, nel circondario di Regen, fino a Mauth."
+  ],
+  "sources": [
+   "https://www.nationalpark-bayerischer-wald.bayern.de/ueber_uns/geschichte/doc/festschrift_eroeffnung_npbw.pdf",
+   "https://www.lernhelfer.de/schuelerlexikon/biologie/artikel/bayerischer-wald-nationalpark"
+  ]
+ },
+ "09279": {
+  "facts": [
+   "Dingolfing ospita il più grande stabilimento europeo della BMW, nato nel 1967 dall'acquisizione della casa automobilistica locale Hans Glas."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/BMW_Group_Plant_Dingolfing",
+   "https://en.wikipedia.org/wiki/Dingolfing"
+  ]
+ },
+ "09362": {
+  "facts": [
+   "Il Ponte di Pietra (Steinerne Brücke) di Ratisbona, costruito tra il 1135 e il 1146, è il più antico ponte conservato della Germania; un tempo era detto \"ottava meraviglia del mondo\".",
+   "Il centro storico di Ratisbona con Stadtamhof è patrimonio mondiale dell'UNESCO."
+  ],
+  "sources": [
+   "https://www.munich.travel/pois/berge-seen/regensburg",
+   "https://www.european-traveler.com/category/germany/bavaria/regensburg"
+  ]
+ },
+ "09372": {
+  "facts": [
+   "A Furth im Wald si svolge il Drachenstich, la rappresentazione dell'uccisione di un drago, presentata dalla tradizione locale come il più antico spettacolo popolare tedesco."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Further_Drachenstich",
+   "https://www.bayerischer-wald.org/fileadmin//user_upload/koetztinger-land/shop/pdf/Festspielprospekt.pdf"
+  ]
+ },
+ "09374": {
+  "facts": [
+   "Presso Windischeschenbach si trova il pozzo del progetto di trivellazione profonda continentale (KTB), ancora oggi il foro aperto più profondo al mondo in roccia dura, servito da una torre di perforazione di 83 metri."
+  ],
+  "sources": [
+   "https://www.komoot.com/guide/223580/natural-monuments-around-windischeschenbach",
+   "https://files.battenberg-gietl.de/public/leseproben/leseprobe-faszination-oberpfalz.pdf"
+  ]
+ },
+ "09375": {
+  "facts": [
+   "A Donaustauf, sul colle Bräuberg a circa 10 km da Ratisbona, sorge il Walhalla, tempio neoclassico ispirato al Partenone e dedicato a personalità illustri di lingua tedesca."
+  ],
+  "sources": [
+   "https://blog.komoot.nl/guide/212804/attractions-in-landkreis-regensburg",
+   "https://blog.komoot.nl/guide/296086/attractions-around-tegernheim"
+  ]
+ },
+ "09377": {
+  "facts": [
+   "La chiesa dell'ex abbazia cistercense di Waldsassen fu elevata a basilica minore da papa Paolo VI nel 1969."
+  ],
+  "sources": [
+   "https://wikipedia.com/wiki/Waldsassen",
+   "https://de.wikivoyage.org/wiki/Waldsassen"
+  ]
+ },
+ "09461": {
+  "facts": [
+   "Il centro storico di Bamberga è iscritto dal 1993 nel patrimonio mondiale dell'UNESCO per l'eccezionale conservazione dei suoi edifici storici."
+  ],
+  "sources": [
+   "https://stmwk.bayern.de/art-and-culture/unesco-cultural-heritage/world-heritage-sites-in-bavaria.html",
+   "https://www.frankentourismus.com/specials/unesco-world-heritage/"
+  ]
+ },
+ "09462": {
+  "facts": [
+   "Il Teatro dell'Opera dei Margravi di Bayreuth, patrimonio UNESCO dal 2012, è considerato il miglior esempio conservato di teatro barocco in Germania.",
+   "Bayreuth ospita il festival dedicato alle opere di Richard Wagner, che si tiene nel Festspielhaus voluto dal compositore."
+  ],
+  "sources": [
+   "https://stmwk.bayern.de/art-and-culture/unesco-cultural-heritage/world-heritage-sites-in-bavaria.html",
+   "https://www.frankentourismus.com/specials/unesco-world-heritage/"
+  ]
+ },
+ "09463": {
+  "facts": [
+   "Dall'aprile all'ottobre 1530, durante la Dieta di Augusta, Martin Lutero, colpito dal bando imperiale, si rifugiò nella Veste Coburg, la fortezza che domina la città, seguendo i lavori per lettera."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Veste_Coburg",
+   "https://archiv.hdbg.de/reformation/luther_ausstellungsorte_veste-coburg_e.php"
+  ]
+ },
+ "09464": {
+  "facts": [
+   "Lo scrittore Jean Paul frequentò dal 1779 al 1781 il ginnasio Albertinum di Hof, dove viveva presso i nonni."
+  ],
+  "sources": [
+   "https://www.hof.de/en/live-experience/city-history/jean-paul",
+   "https://en.wikipedia.org/wiki/Jean_Paul"
+  ]
+ },
+ "09472": {
+  "facts": [
+   "La Teufelshöhle di Pottenstein, nella Svizzera francone, è la più grande grotta turistica a stalattiti della Germania."
+  ],
+  "sources": [
+   "https://www.infranken.de/lk/bayreuth/ausflug/teufelshoehle-pottenstein-entdeckungen-unter-der-erdoberflaeche-im-herzen-der-fraenkischen-schweiz-art-4109451",
+   "https://Www.wikipedia.org/wiki/Devil%27s_Cave_(Pottenstein)"
+  ]
+ },
+ "09474": {
+  "facts": [
+   "Pochi chilometri a est di Forchheim si alza il Walberla, monte tabulare dal nome ufficiale Ehrenbürg, uno dei luoghi simbolo della Svizzera francone."
+  ],
+  "sources": [
+   "https://www.infranken.de/lk/franken/ausflug/top-attraktionen-in-der-fraenkischen-schweiz-walberla-co-art-4125943"
+  ]
+ },
+ "09476": {
+  "facts": [
+   "Kronach è la città natale del pittore Lucas Cranach il Vecchio; la fortezza di Rosenberg, mai espugnata, ospita una galleria con sue opere."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Rosenberg_Fortress",
+   "https://museen-in-bayern.de/en/museums/museum-details/fraenkische-galerie-kronach"
+  ]
+ },
+ "09477": {
+  "facts": [
+   "La Plassenburg, fortezza rinascimentale che domina Kulmbach, ospita il Museo tedesco delle figurine di stagno, il più grande del genere al mondo."
+  ],
+  "sources": [
+   "https://www.merian.de/deutschland/bayern/schloesser-und-burgen-in-franken"
+  ]
+ },
+ "09478": {
+  "facts": [
+   "La basilica di Vierzehnheiligen, tra Bad Staffelstein e Lichtenfels, fu costruita tra il 1743 e il 1772 su progetto di Balthasar Neumann.",
+   "Lichtenfels è considerata la \"città tedesca del cesto\" e ospita l'unica scuola professionale tedesca per l'intreccio."
+  ],
+  "sources": [
+   "https://structurae.net/de/bauwerke/basilika-vierzehnheiligen",
+   "https://maps.adac.de/poi/lichtenfels-bayern"
+  ]
+ },
+ "09479": {
+  "facts": [
+   "Lo scrittore Jean Paul nacque a Wunsiedel nel 1763; la stanza in cui venne alla luce, nella casa del maestro della scuola latina, è stata aperta come luogo commemorativo nel 2013."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Jean_Paul",
+   "https://www.evangelisch.de/inhalte/80543/21-03-2013"
+  ]
+ },
+ "09561": {
+  "facts": [
+   "Il 14 dicembre 1833 Kaspar Hauser, il misterioso trovatello, fu accoltellato nel Hofgarten di Ansbach e morì tre giorni dopo; l'aggressore non fu mai identificato e una colonna di pietra ricorda il fatto."
+  ],
+  "sources": [
+   "https://www.history.co.uk/articles/he-s-a-real-wild-child-the-enigma-of-kaspar-hauser-secret-prince-hoaxer-or-victim",
+   "https://www.tourismus-ansbach.de/fileadmin/user_upload/PDFs/ansbach_kaspar-hauser-spuren_web.pdf"
+  ]
+ },
+ "09562": {
+  "facts": [
+   "Dal 1686 il margravio Christian Ernst accolse a Erlangen oltre mille ugonotti francesi, per i quali fece costruire una città nuova a pianta regolare.",
+   "La Bergkirchweih di Erlangen, festa della birra che si tiene ogni anno intorno a Pentecoste dal 1755, è più antica dell'Oktoberfest di Monaco."
+  ],
+  "sources": [
+   "https://eupedia.com/germany/erlangen-guide.shtml",
+   "https://en.visit-erlangen.de/24-stunden-erlangen/",
+   "https://www.travelsignposts.com/Germany/destinations/erlangen-bergkirchweih-bavaria"
+  ]
+ },
+ "09563": {
+  "facts": [
+   "Il 7 dicembre 1835 fu inaugurata la Ludwigsbahn tra Norimberga e Fürth, la prima ferrovia tedesca: la locomotiva Adler percorreva i sei chilometri in nove minuti."
+  ],
+  "sources": [
+   "https://www.deutschlandmuseum.de/en/history/calendar/1835-12-07-the-first-german-railway/",
+   "https://www.dhm.de/lemo/rueckblick/erste-eisenbahnen-in-deutschland.html"
+  ]
+ },
+ "09564": {
+  "facts": [
+   "Albrecht Dürer visse dal 1509 in una casa a graticcio ai piedi del castello imperiale (Kaiserburg) di Norimberga, oggi museo dedicato alla sua vita e alle sue opere.",
+   "Da Norimberga partì nel 1835 la prima ferrovia tedesca, verso Fürth; una replica della locomotiva Adler è esposta nel museo ferroviario della città."
+  ],
+  "sources": [
+   "https://www.nuernberg.de/internet/stadtportal/albrecht_duerer_haus.html",
+   "https://dbmuseum.de/en/nuremberg/vehicles/the-adler"
+  ]
+ },
+ "09565": {
+  "facts": [
+   "Schwabach è detta \"città dei battitori d'oro\": la lavorazione della foglia d'oro vi arrivò da Norimberga nel Cinquecento e ancora oggi vi si produce oro in foglia."
+  ],
+  "sources": [
+   "https://www.schwabach.de/images/referate/referat_3/downloads/Tourismus/Brosch%C3%BCren/Broschuere_Entdecken_erleben_2025.pdf",
+   "https://www.bergfex.com/sommer/schwabach/"
+  ]
+ },
+ "09575": {
+  "facts": [
+   "A Bad Windsheim si trova il Museo all'aperto della Franconia, il più grande della Germania meridionale: su 45 ettari raccoglie oltre cento edifici storici trasferiti da tutta la Franconia."
+  ],
+  "sources": [
+   "https://museen-in-bayern.de/en/museums/museum-details/fraenkisches-freilandmuseum-bad-windsheim",
+   "https://www.bayernportal.de/dokumente/behoerde/5238729323104"
+  ]
+ },
+ "09576": {
+  "facts": [
+   "Nel capoluogo Roth sorge lo Schloss Ratibor, castello rinascimentale fatto costruire dal margravio Giorgio di Brandeburgo-Ansbach tra il 1535 e il 1537.",
+   "Roth fu un centro della produzione di fili leonini, sottili fili dorati o argentati: da queste manifatture deriva l'attuale gruppo industriale Leoni."
+  ],
+  "sources": [
+   "https://www.stadt-roth.de/en/history",
+   "https://www.schloss-ratibor.de/index.php?id=930",
+   "https://www.vde.com/de/geschichte/karte/bayern/leonische-drahtwerke-ag"
+  ]
+ },
+ "09577": {
+  "facts": [
+   "A Weißenburg sorgeva il forte romano di Biriciana, lungo il Limes retico, oggi patrimonio UNESCO; restano anche le terme romane.",
+   "Nel 1979, vicino alle terme di Weißenburg, fu scoperto un tesoro romano di 114 oggetti in metallo, esposto nel locale RömerMuseum."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Biriciana",
+   "https://www.weissenburg.de/pdf/tourist-information/flyer-roemisches-weissenburg-4_aufl-2019.pdf"
+  ]
+ },
+ "09661": {
+  "facts": [
+   "Lo Schloss Johannisburg, palazzo rinascimentale, fu fino al 1803 la seconda residenza degli arcivescovi elettori di Magonza.",
+   "Il Pompejanum, ricostruzione ideale di una villa di Pompei sopra il Meno, fu voluto dal re Ludovico I di Baviera e costruito tra il 1840 e il 1848."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Pompejanum",
+   "https://www.schloss.bayern.de/englisch/palace/objects/as_pom.htm"
+  ]
+ },
+ "09662": {
+  "facts": [
+   "Il poeta e orientalista Friedrich Rückert nacque a Schweinfurt nel 1788, quando era ancora città libera imperiale; un suo grande monumento si trova nella piazza del municipio.",
+   "Schweinfurt è nota per l'industria dei cuscinetti a sfera: Friedrich Fischer vi introdusse la produzione in serie delle sfere d'acciaio per i cuscinetti delle biciclette."
+  ],
+  "sources": [
+   "https://www.deutsche-biographie.de/118603817.html",
+   "https://www.deutsche-biographie.de/sfz16218.html"
+  ]
+ },
+ "09663": {
+  "facts": [
+   "La Residenz di Würzburg, palazzo barocco dei principi vescovi, è patrimonio UNESCO dal 1981; Giambattista Tiepolo ne affrescò lo scalone e la Sala imperiale.",
+   "Nel 1895, nell'istituto di fisica dell'università di Würzburg, Wilhelm Conrad Röntgen scoprì i raggi X."
+  ],
+  "sources": [
+   "https://www.wikipedia.com/wiki/Wurzburg_Residenz",
+   "https://www.fmz.uni-wuerzburg.de/wuerzburg/"
+  ]
+ },
+ "09671": {
+  "facts": [
+   "Nel circondario, nel cuore dello Spessart, si trova lo Schloss Mespelbrunn, castello sull'acqua che non fu mai danneggiato dalle guerre grazie alla sua posizione isolata."
+  ],
+  "sources": [
+   "https://www.ich-geh-wandern.de/spessart"
+  ]
+ },
+ "09672": {
+  "facts": [
+   "Bad Kissingen fa parte dal 2021 del sito UNESCO delle Grandi città termali d'Europa.",
+   "Fra gli ospiti illustri delle terme di Bad Kissingen ci furono l'imperatrice Elisabetta d'Austria, lo zar Alessandro II e il re Ludovico II di Baviera."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bad_Kissingen"
+  ]
+ },
+ "09673": {
+  "facts": [
+   "Il Kreuzberg (928 m) è detto il monte sacro dei Franchi: secondo la tradizione san Chiliano vi eresse una croce nel 686. Il convento francescano ha un birrificio dal 1731."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Kreuzberg_(Rh%C3%B6n)",
+   "https://bischofsheim.info/fileadmin/user_upload/Tourismus_Bischofsheim/Pressemappe/Kurzbeschreibung.pdf"
+  ]
+ },
+ "09674": {
+  "facts": [
+   "A Königsberg in Bayern nacque nel 1436 Johannes Müller detto Regiomontano, celebre matematico e astronomo.",
+   "Il Roland di Königsberg in Bayern è considerato la statua di Rolando più meridionale della Germania."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/K%C3%B6nigsberg_in_Bayern",
+   "https://de.wikivoyage.org/wiki/K%C3%B6nigsberg_in_Bayern"
+  ]
+ },
+ "09675": {
+  "facts": [
+   "Simbolo di Kitzingen è il Falterturm, antica torre delle mura dalla caratteristica cima storta.",
+   "Kitzingen ospita il Deutsches Fastnachtmuseum, museo dedicato alla storia e alle tradizioni del carnevale."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Kitzingen",
+   "https://www.sonntagsblatt.de/artikel/kultur/fastnachtsmuseum-kitzingen-karneval-gehoert-zum-kirchenjahr"
+  ]
+ },
+ "09676": {
+  "facts": [
+   "A Miltenberg la locanda Zum Riesen, citata dal 1411 e ricostruita nel 1590, si presenta come la più antica locanda della Germania; vi alloggiarono principi e sovrani."
+  ],
+  "sources": [
+   "https://miltenberg.info/en/sehenswurdigkeiten/inn-zum-riesen-the-giant/"
+  ]
+ },
+ "09677": {
+  "facts": [
+   "Secondo una tesi locale Biancaneve sarebbe ispirata a una nobile nata nel 1725 nel castello di Lohr am Main, dove il museo dello Spessart espone uno specchio parlante."
+  ],
+  "sources": [
+   "https://www.lohr.de/en/tourism-and-culture/discovering-lohr/snow-white/lohrs-most-famous-daughter/",
+   "https://www.main-spessart.de/themen/tourismus-kultur/museen/spessartmuseum/schloss/schneewittchen/snow-white/"
+  ]
+ },
+ "09679": {
+  "facts": [
+   "A Veitshöchheim si trova il Hofgarten, giardino rococò dei principi vescovi di Würzburg considerato uno dei meglio conservati d'Europa."
+  ],
+  "sources": [
+   "https://www.travelworldonline.de/en/garden-splendor-veitshoechheim/",
+   "https://museen-in-bayern.de/en/museums/museum-details/schloss-und-hofgarten-veitshoechheim"
+  ]
+ },
+ "09761": {
+  "facts": [
+   "La Fuggerei, fondata da Jakob Fugger nel 1521, è il più antico complesso di case sociali del mondo ancora in uso; l'affitto annuo è rimasto simbolico, 88 centesimi."
+  ],
+  "sources": [
+   "https://www.planet-wissen.de/gesellschaft/wirtschaft/globaler_handel/globaler-handel-fugger-fuggerei-wohnen-100.html"
+  ]
+ },
+ "09762": {
+  "facts": [
+   "Dopo la seconda guerra mondiale i profughi tedeschi di Gablonz (oggi Jablonec nad Nisou) fondarono il quartiere di Neugablonz, dove ricostruirono la loro industria della bigiotteria."
+  ],
+  "sources": [
+   "https://www.deutsche-handwerks-zeitung.de/neugablonz-das-mekka-der-modeschmuckbranche-342745/"
+  ]
+ },
+ "09763": {
+  "facts": [
+   "Kempten, l'antica Cambodunum, si considera la più antica città della Germania citata per iscritto: il geografo Strabone la nomina come Kambodounon.",
+   "I resti della città romana di Cambodunum sono visibili nel parco archeologico di Kempten."
+  ],
+  "sources": [
+   "https://de.wikivoyage.org/wiki/Kempten",
+   "https://opus.bibliothek.uni-augsburg.de/opus4/frontdoor/index/index/year/2017/docId/22660"
+  ]
+ },
+ "09764": {
+  "facts": [
+   "Nel marzo 1525 i rappresentanti dei contadini in rivolta si riunirono a Memmingen nella casa della corporazione dei merciai e adottarono i Dodici articoli, considerati tra le prime carte dei diritti di libertà in Europa."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Twelve_Articles",
+   "https://stadtarchiv.memmingen.de/fileadmin/Allgemeine_Dateiverwaltung/Webseite_Stadtarchiv/Allgemeines/MMZwoelfArtikelStand2025.pdf"
+  ]
+ },
+ "09771": {
+  "facts": [
+   "Sulla collina di Oberwittelsbach sorgeva il castello da cui prese il nome la dinastia dei Wittelsbach; fu distrutto nel 1209 e oggi è un monumento nazionale."
+  ],
+  "sources": [
+   "https://www.augsburg-tourismus.de/files/augsburgtourismus/media/infomaterial/pdf/2021/regio_flyer_wittelsbacher_2021_web.pdf",
+   "https://Www.Wikipedia.org/wiki/Burg_Wittelsbach"
+  ]
+ },
+ "09773": {
+  "facts": [
+   "Dillingen an der Donau, residenza dei principi vescovi di Augusta, ebbe dal 1549 un'università retta dai gesuiti, soppressa nel periodo napoleonico."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Dillingen_an_der_Donau",
+   "https://en.wikipedia.org/wiki/University_of_Dillingen"
+  ]
+ },
+ "09776": {
+  "facts": [
+   "All'ingresso del porto di Lindau, sull'isola nel lago di Costanza, si fronteggiano il leone bavarese del 1856 e il Nuovo faro, l'unico faro della Baviera e il più meridionale della Germania."
+  ],
+  "sources": [
+   "https://wikiwand.com/de/Leuchtturm_Lindau",
+   "https://www.lindau.de/content/uploads/2023/03/LTK_Presseinfo_Lindau-Tourismus_Zahlen-Fakten-2024.pdf"
+  ]
+ },
+ "09777": {
+  "facts": [
+   "A Schwangau sorge il castello di Neuschwanstein, fatto costruire da Ludovico II di Baviera a partire dal 1869 e rimasto incompiuto alla sua morte nel 1886.",
+   "Sotto Neuschwanstein si trova Hohenschwangau, il castello dove Ludovico II trascorse l'infanzia."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Schwangau"
+  ]
+ },
+ "09779": {
+  "facts": [
+   "Il Ries di Nördlingen è un cratere da impatto di meteorite formatosi circa 15 milioni di anni fa; la sua origine cosmica fu dimostrata solo nel 1960.",
+   "La chiesa di San Giorgio a Nördlingen, con la torre detta Daniel di circa 90 metri, è costruita quasi interamente in suevite, roccia nata dall'impatto del meteorite."
+  ],
+  "sources": [
+   "https://www.psi.edu/epo/resources/impact-craters/virtual-tours/ries/nordlingen/",
+   "https://en.geopark-ries.de/aussichtspunkte/?addPage=2"
+  ]
+ },
+ "10041": {
+  "facts": [
+   "La Ludwigskirche di Saarbrücken, costruita tra il 1762 e il 1775, è considerata il capolavoro dell'architetto barocco Friedrich Joachim Stengel."
+  ],
+  "sources": [
+   "https://www.visitsaarland.co.uk/poi/detail/ludwigs-church-in-saarbruecken-6291b2f1f5",
+   "https://www.lonelyplanet.com/germany/saarland/attractions/ludwigskirche/a/poi-sig/1140195/1316456"
+  ]
+ },
+ "10042": {
+  "facts": [
+   "Presso Mettlach la Saar compie la Saarschleife, un'ansa quasi a forma di U che è uno dei simboli del Saarland; la vista migliore è dal belvedere della Cloef."
+  ],
+  "sources": [
+   "https://phototravellers.de/saarland-sehenswuerdigkeiten/",
+   "https://saartanisch.de/en/categories/landmarks/"
+  ]
+ },
+ "10044": {
+  "facts": [
+   "Saarlouis fu fondata nel 1680 da Luigi XIV come piazzaforte; le fortificazioni a stella furono progettate da Vauban."
+  ],
+  "sources": [
+   "https://saartanisch.de/en/places/",
+   "https://www.kuladig.de/Objektansicht/Drucken/KLD-258389"
+  ]
+ },
+ "10045": {
+  "facts": [
+   "Sotto le rovine della fortezza di Homburg si aprono le Schlossberghöhlen, grotte scavate dall'uomo nell'arenaria variegata, presentate come le più grandi del loro genere in Europa."
+  ],
+  "sources": [
+   "https://phototravellers.de/saarland-sehenswuerdigkeiten/"
+  ]
+ },
+ "10046": {
+  "facts": [
+   "La basilica di San Wendelino a St. Wendel, meta di pellegrinaggio, custodisce la tomba del santo da cui la città prende il nome, patrono delle genti di campagna."
+  ],
+  "sources": [
+   "https://structurae.net/de/bauwerke/wendalinusbasilika"
+  ]
+ },
+ "12051": {
+  "facts": [
+   "È la città di Brandeburgo sull'Havel ad aver dato il nome al Land, e non il contrario.",
+   "Il vescovado di Brandeburgo fu fondato da Ottone I, secondo il documento di fondazione nel 948; la costruzione del duomo attuale iniziò nel 1165."
+  ],
+  "sources": [
+   "https://www.stadt-brandenburg.de/fileadmin/pdf/60_Stadtentwicklung/Masterplan/Anlagen/Anlagenband_1_A1a_Geschichte_25-10-2006.pdf",
+   "https://en.Wikipedia.com/wiki/Bishop_of_Brandenburg"
+  ]
+ },
+ "12052": {
+  "facts": [
+   "Nel parco di Branitz a Cottbus, creato dal principe Hermann von Pückler-Muskau, si trovano due piramidi: in quella sul lago, alta circa 13 metri, il principe è sepolto dal 1871."
+  ],
+  "sources": [
+   "https://www.brandenburg-tourism.com/poi/spreewald/historic-monuments-and-sites/prince-puecklers-pyramid-grave-in-park-branitz",
+   "https://www.cottbus.de/en/guests/museums_and_galleries/pueckler_-_der_gruene_fuerst.html"
+  ]
+ },
+ "12054": {
+  "facts": [
+   "I castelli e i giardini di Potsdam, a cominciare da Sanssouci, sono patrimonio UNESCO dal 1990 come paesaggio culturale di Potsdam."
+  ],
+  "sources": [
+   "https://www.wikipedia.org/wiki/World_Heritage_Sites_in_Germany"
+  ]
+ },
+ "12060": {
+  "facts": [
+   "A Niederfinow, sul canale Oder-Havel, funziona il più antico elevatore per navi ancora in esercizio in Germania.",
+   "L'ex monastero cistercense di Chorin è uno dei principali monumenti del primo gotico in mattoni del Brandeburgo."
+  ],
+  "sources": [
+   "https://www.reiseland-brandenburg.de/poi/barnimer-land/reisebausteine-fuer-gruppen/meisterwerke-kloster-chorin-und-schiffshebewerk-niederfinow/",
+   "https://www.visitberlin.de/en/biosphere-reserve-schorfheide-chorin"
+  ]
+ },
+ "12061": {
+  "facts": [
+   "Lo Spreewald, paesaggio di canali e corsi d'acqua lungo la Sprea, è una riserva della biosfera riconosciuta dall'UNESCO."
+  ],
+  "sources": [
+   "https://maps.adac.de/region/brandenburg-deutschland"
+  ]
+ },
+ "12063": {
+  "facts": [
+   "Sul Gollenberg presso Stölln Otto Lilienthal compì tra il 1893 e il 1896 i suoi voli in aliante; il luogo è considerato il più antico aeroporto del mondo."
+  ],
+  "sources": [
+   "https://www.brandenburg-tourism.com/poi/havelland/bike-tours/historic-town-centres-cycle-routes-route-2"
+  ]
+ },
+ "12064": {
+  "facts": [
+   "Sulle alture di Seelow si combatté nell'aprile 1945 la più grande battaglia della seconda guerra mondiale su suolo tedesco; vi sorgono un memoriale e un museo."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Seelow",
+   "https://www.reiseland-brandenburg.de/poi/seenland-oder-spree/reisebausteine-fuer-gruppen/seelower-hoehen-gedenkort-gegen-krieg-und-gewalt/"
+  ]
+ },
+ "12067": {
+  "facts": [
+   "Eisenhüttenstadt fu fondata dalla Germania Est nel 1950 come città nuova attorno a un'acciaieria e si chiamò Stalinstadt fino al 1961."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Eisenh%C3%BCttenstadt"
+  ]
+ },
+ "12068": {
+  "facts": [
+   "A Neuruppin nacque nel 1819 lo scrittore Theodor Fontane, per cui la città è detta Fontanestadt.",
+   "Nel castello di Rheinsberg Federico il Grande visse da principe ereditario quelli che definì i giorni più felici della sua vita."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Neuruppin",
+   "https://wikiwand.com/de/Rheinsberg"
+  ]
+ },
+ "13003": {
+  "facts": [
+   "L'università di Rostock, fondata nel 1419, è la più antica dell'area del Baltico."
+  ],
+  "sources": [
+   "https://dyndays.uni-rostock.de/venue-accommodation/rostock-and-its-university/",
+   "https://www.goethe.de/resources/files/pdf354/universitaet-rostock-v1.pdf"
+  ]
+ },
+ "13004": {
+  "facts": [
+   "Il castello di Schwerin sorge su un'isola nel lago omonimo, dove una fortificazione è documentata già nel 942."
+  ],
+  "sources": [
+   "https://maps.adac.de/show/mecklenburg-schwerin"
+  ]
+ },
+ "13071": {
+  "facts": [
+   "Nel circondario si trova il Müritz, il più grande lago interamente compreso nel territorio tedesco."
+  ],
+  "sources": [
+   "https://cavac.at/cavacopedia/Mecklenburg-Vorpommern"
+  ]
+ },
+ "13072": {
+  "facts": [
+   "Heiligendamm, presso Bad Doberan, fu fondata nel 1793 dal duca Federico Francesco I di Meclemburgo ed è la più antica località balneare marina della Germania."
+  ],
+  "sources": [
+   "https://mv-baederverband.de/de/mvb/medical_search/4/33"
+  ]
+ },
+ "13074": {
+  "facts": [
+   "Il centro storico di Wismar, capoluogo del circondario, è patrimonio UNESCO dal 2002 insieme a quello di Stralsund per i suoi edifici in mattoni dell'epoca anseatica."
+  ],
+  "sources": [
+   "https://whc.unesco.org/document/217606",
+   "https://www.visit-mv.com/magazine/unesco-world-cultural-heritage-stralsund-wismar"
+  ]
+ },
+ "13075": {
+  "facts": [
+   "Il pittore romantico Caspar David Friedrich nacque a Greifswald il 5 settembre 1774, quando la città faceva parte della Pomerania svedese."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Caspar_David_Friedrich",
+   "https://uni-greifswald.de/en/university/history/caspar-david-friedrich-250"
+  ]
+ },
+ "13076": {
+  "facts": [
+   "Il castello barocco di Ludwigslust, residenza dei duchi di Meclemburgo-Schwerin tra Settecento e Ottocento, è spesso chiamato la \"Versailles del Meclemburgo\"."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Ludwigslust",
+   "https://de.wikivoyage.org/wiki/Ludwigslust"
+  ]
+ },
+ "14511": {
+  "facts": [
+   "Dal 1953 al 1990 Chemnitz si chiamò Karl-Marx-Stadt, benché Marx non vi avesse mai messo piede; nel 1990 i cittadini votarono per riprendere il nome storico.",
+   "Il monumento a Karl Marx, una testa di bronzo alta 7,10 metri inaugurata nel 1971, è chiamato dagli abitanti \"Nischel\", che in dialetto sassone significa testa."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Karl_Marx_Monument,_Chemnitz",
+   "https://www.chemnitz.de/en/our-city/history/discover-history/karl-marx-monument"
+  ]
+ },
+ "14521": {
+  "facts": [
+   "Seiffen, nei Monti Metalliferi, è noto come il \"villaggio dei giocattoli\" per la tradizionale produzione di giocattoli e oggetti natalizi in legno tornito.",
+   "Nel 2019 la regione mineraria dei Monti Metalliferi, condivisa con la Repubblica Ceca, è stata iscritta nel patrimonio mondiale dell'UNESCO."
+  ],
+  "sources": [
+   "https://wikiwand.com/en/Ore_Mountain_Mining_Region",
+   "https://wikipedia.com/wiki/Ore_Mountain_folk_art"
+  ]
+ },
+ "14522": {
+  "facts": [
+   "L'Accademia mineraria di Freiberg, fondata nel 1765, è considerata la più antica università di scienze minerarie del mondo.",
+   "Il duomo di Freiberg custodisce un grande organo di Gottfried Silbermann completato nel 1714."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Freiberg_Cathedral",
+   "https://www.wikiwand.com/en/Freiberg,_Saxony"
+  ]
+ },
+ "14523": {
+  "facts": [
+   "Il ponte ferroviario sulla valle della Göltzsch, costruito tra il 1846 e il 1851 con circa 26 milioni di mattoni, è considerato il più grande ponte in mattoni del mondo."
+  ],
+  "sources": [
+   "https://www.ingenieur.de/technik/fachbereiche/bau/goeltzschtalbruecke-erste-statisch-berechnete-ziegelbruecke-der-welt/",
+   "https://structurae.net/de/bauwerke/20000639"
+  ]
+ },
+ "14524": {
+  "facts": [
+   "Il compositore Robert Schumann nacque a Zwickau nel 1810; la sua casa natale è oggi un museo.",
+   "A Zwickau August Horch fondò la casa automobilistica Audi, il cui nome è la traduzione latina di \"horch\" (ascolta); in epoca DDR vi si produceva la Trabant."
+  ],
+  "sources": [
+   "https://www.sachsen-tourismus.de/en/regions/13-beautiful-cities/zwickau/",
+   "https://de.wikivoyage.org/wiki/Zwickau"
+  ]
+ },
+ "14612": {
+  "facts": [
+   "Nel 2009 la valle dell'Elba a Dresda è stata cancellata dalla lista del patrimonio UNESCO a causa della costruzione del ponte Waldschlösschen: era solo il secondo sito mai rimosso dalla lista."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Dresden_Elbe_Valley",
+   "https://whc.unesco.org/en/news/522"
+  ]
+ },
+ "14625": {
+  "facts": [
+   "Bautzen, in sorabo Budyšin, è considerata il centro culturale dei Sorbi, minoranza slava della Lusazia; in città si trovano cartelli bilingui tedesco-sorabi."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Bautzen",
+   "https://www.landkreis-bautzen.de/Sorbenbeauftragte/2Sprachigkeit.pdf"
+  ]
+ },
+ "14626": {
+  "facts": [
+   "Görlitz è la città più orientale della Germania; la parte oltre la Neisse divenne polacca nel 1945 e forma oggi la città di Zgorzelec.",
+   "Per le circa cento produzioni cinematografiche girate nel suo centro storico, Görlitz è soprannominata \"Görliwood\"; tra queste c'è Grand Budapest Hotel."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/G%C3%B6rlitz",
+   "https://www.travelsignposts.com/Germany/destinations/gorlitz-also-known-as-gorliwood"
+  ]
+ },
+ "14627": {
+  "facts": [
+   "A Meißen nacque nel 1710 la prima manifattura europea di porcellana dura, insediata nel castello di Albrechtsburg anche per proteggerne il segreto di fabbricazione."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Meissen",
+   "https://en.wikipedia.org/wiki/Albrechtsburg"
+  ]
+ },
+ "14628": {
+  "facts": [
+   "Il ponte della Bastei, in arenaria, fu costruito nel 1851 tra le rocce dell'Elbsandsteingebirge al posto di una passerella di legno del 1826.",
+   "La fortezza di Königstein, su un altopiano a circa 240 metri sopra l'Elba, è una delle più grandi fortezze d'altura d'Europa."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Bastei",
+   "https://saechsische-schweiz.de/en/explore/famous-bastei-bridge"
+  ]
+ },
+ "14713": {
+  "facts": [
+   "Johann Sebastian Bach fu cantore della Thomaskirche di Lipsia dal 1723 alla morte nel 1750 ed è sepolto davanti all'altare della chiesa."
+  ],
+  "sources": [
+   "https://www.bach-leipzig.de/en/node/29412",
+   "https://www.presseportal.de/en/pm/70361/5331348"
+  ]
+ },
+ "14729": {
+  "facts": [
+   "Durante la seconda guerra mondiale il castello di Colditz fu il campo per ufficiali alleati prigionieri Oflag IV-C, noto per i numerosi tentativi di evasione."
+  ],
+  "sources": [
+   "https://www.presseportal.de/en/pm/70361/5331348"
+  ]
+ },
+ "14730": {
+  "facts": [
+   "Il 25 aprile 1945 soldati americani e sovietici si incontrarono sull'Elba presso Torgau; l'episodio è ricordato come la \"stretta di mano di Torgau\"."
+  ],
+  "sources": [
+   "https://www.presseportal.de/en/pm/70361/5331348"
+  ]
+ },
+ "15001": {
+  "facts": [
+   "Il Bauhaus si trasferì da Weimar a Dessau nel 1925; l'edificio della scuola e le case dei maestri sono patrimonio UNESCO dal 1996."
+  ],
+  "sources": [
+   "https://www.anhalt-dessau-wittenberg.de/en/unesco-world-heritage",
+   "https://en.wikipedia-on-ipfs.org/wiki/List_of_World_Heritage_Sites_in_Germany"
+  ]
+ },
+ "15002": {
+  "facts": [
+   "Il compositore Georg Friedrich Händel nacque a Halle nel 1685; la sua casa natale ospita dal 1948 un museo della musica."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/George_Frideric_Handel",
+   "https://www.museum.de/en/museen/h%C3%A4ndel-haus"
+  ]
+ },
+ "15003": {
+  "facts": [
+   "Il duomo di Magdeburgo è considerato la più antica cattedrale gotica della Germania e custodisce la tomba dell'imperatore Ottone I il Grande, morto nel 973."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Magdeburg_Cathedral"
+  ]
+ },
+ "15081": {
+  "facts": [
+   "Il Baumkuchen di Salzwedel, dolce a strati cotto allo spiedo, è prodotto in città dall'inizio dell'Ottocento ed è tutelato dal 2010 come indicazione geografica protetta."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Spit_cake",
+   "https://de.wikivoyage.org/wiki/Salzwedel"
+  ]
+ },
+ "15084": {
+  "facts": [
+   "Il duomo di Naumburg, celebre per la statua gotica della marchesa Uta, è patrimonio UNESCO dal 2018.",
+   "Nel 1999 presso Nebra fu ritrovato il disco di Nebra, raffigurazione del cielo stellato dell'età del bronzo, iscritto nel 2013 nel registro Memoria del mondo UNESCO."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Naumburg_Cathedral_and_the_High_Medieval_Cultural_Landscape_of_the_Rivers_Saale_and_Unstrut",
+   "https://www.himmelswege.de/en/himmelswege-regionen/6-staunenswerte-unesco-welterbe-in-sachsen-anhalt"
+  ]
+ },
+ "15085": {
+  "facts": [
+   "Quedlinburg, nota per le sue case a graticcio, è patrimonio mondiale dell'UNESCO."
+  ],
+  "sources": [
+   "https://www.himmelswege.de/en/himmelswege-regionen/6-staunenswerte-unesco-welterbe-in-sachsen-anhalt",
+   "https://www.germany.travel/en/campaign/world-heritage/partnering-saxony-anhalt.html"
+  ]
+ },
+ "15087": {
+  "facts": [
+   "A Eisleben Martin Lutero nacque nel 1483 e morì nel 1546: la casa natale e la casa in cui morì sono patrimonio UNESCO dal 1996."
+  ],
+  "sources": [
+   "https://whc.unesco.org/en/list/783/documents/",
+   "https://entdecke-deutschland.de/en/bundeslaender/sachsen-anhalt/unesco-worldheritage-in-saxony-anhalt/"
+  ]
+ },
+ "15091": {
+  "facts": [
+   "Secondo la tradizione Lutero affisse le sue 95 tesi sulla porta della chiesa del castello di Wittenberg nel 1517; la chiesa è patrimonio UNESCO dal 1996."
+  ],
+  "sources": [
+   "https://entdecke-deutschland.de/en/bundeslaender/sachsen-anhalt/unesco-worldheritage-in-saxony-anhalt/",
+   "https://www.anhalt-dessau-wittenberg.de/en/unesco-world-heritage"
+  ]
+ },
+ "16051": {
+  "facts": [
+   "Il Krämerbrücke di Erfurt, ponte in pietra del 1325, porta la più lunga fila di case abitate su un ponte in Europa ed è abitato ininterrottamente da oltre 500 anni."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Kr%C3%A4merbr%C3%BCcke",
+   "https://www.erfurt-tourismus.de/en/all-about-erfurt/places-of-interest/merchants-bridge"
+  ]
+ },
+ "16053": {
+  "facts": [
+   "Nel 1846 Carl Zeiss aprì a Jena la sua officina ottica; con Ernst Abbe e il chimico Otto Schott la città divenne un centro mondiale dell'ottica di precisione."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Carl_Zeiss",
+   "https://www.carl-zeiss-stiftung.de/en/foundation/history"
+  ]
+ },
+ "16055": {
+  "facts": [
+   "Il Bauhaus, la scuola che ha segnato l'architettura e il design moderni, fu fondato a Weimar nel 1919; i suoi edifici in città sono patrimonio UNESCO dal 1996."
+  ],
+  "sources": [
+   "https://en.wikipedia-on-ipfs.org/wiki/List_of_World_Heritage_Sites_in_Germany"
+  ]
+ },
+ "16063": {
+  "facts": [
+   "Nel castello della Wartburg, patrimonio UNESCO dal 1999, Lutero visse nascosto nel 1521-1522 sotto il nome di Junker Jörg e tradusse il Nuovo Testamento in tedesco."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Wartburg",
+   "https://www.nationalpark-hainich.de/en/places-to-go/region/unesco-world-heritage-wartburg-castle.html"
+  ]
+ },
+ "16064": {
+  "facts": [
+   "Il parco nazionale dell'Hainich, unico parco nazionale della Turingia, fa parte dal 2011 del patrimonio UNESCO delle antiche faggete d'Europa."
+  ],
+  "sources": [
+   "https://www.thueringen-entdecken.de/w/unesco-weltnaturerbe-hainich"
+  ]
+ },
+ "16065": {
+  "facts": [
+   "Il monumento del Kyffhäuser, inaugurato nel 1896, unisce Guglielmo I a Federico Barbarossa, che secondo la leggenda dorme dentro la montagna."
+  ],
+  "sources": [
+   "https://en.wikipedia.org/wiki/Kyffh%C3%A4user_Monument",
+   "https://www.harzinfo.de/en/experiences/poi/kyffhaeuser-monument"
+  ]
+ },
+ "16073": {
+  "facts": [
+   "Le Feengrotten di Saalfeld, ricavate da un'antica miniera di scisto alluminoso, sono citate dal 1993 nel Guinness dei primati come le grotte turistiche più colorate del mondo."
+  ],
+  "sources": [
+   "https://en.wikipedia.com/wiki/Saalfeld_Fairy_Grottoes",
+   "https://www.travelbook.de/orte/skurrile-orte/100-jaehriges-jubilaeum-der-feengrotte-saalfeld-die-farbenreichste-schaugrotte-der-welt"
+  ]
+ },
+ "16077": {
+  "facts": [
+   "Il gioco di carte Skat nacque ad Altenburg intorno al 1810; in città si trova la fontana dello Skat, dove per tradizione si \"battezzano\" le carte."
+  ],
+  "sources": [
+   "https://www.thueringen-entdecken.de/en/w/kreuzbube-ist-trumpf-skatstadt-altenburg",
+   "https://parlettgames.uk/skat/skathist.html"
+  ]
+ }
+}

@@ -518,6 +518,41 @@ test('Mondo: il quotidiano non parte mai da un\'isola senza confini', async ({ p
   await expect(page.locator('#legend-none')).toBeVisible();
 });
 
+test('Mondo: il selettore passa dalle nazioni alle regioni', async ({ page }) => {
+  await open(page, '/?mappa=mondo');
+  await expect(page.locator('#levels .level')).toHaveText(['Nazioni', 'Regioni']);
+  await page.click('#levels [data-level="regioni"]');
+  await page.waitForFunction(() => mapKey === 'regioni' && game.mode === 'daily');
+  await expect(page).toHaveURL(/\?mappa=regioni$/);
+  await expect(page.locator('[data-map="mondo"]')).toHaveAttribute('aria-selected', 'true');
+  const s = await state(page);
+  const opt = await page.evaluate(() => game.opt);
+  expect(opt).toBeGreaterThanOrEqual(6);
+  expect(opt).toBeLessThanOrEqual(50);
+  expect(await page.evaluate(([a, b]) => [NB[a].length > 0, NB[b].length > 0], [s.start, s.end])).toEqual([true, true]);
+  await page.click('#btn-help');
+  await expect(page.locator('#legend-none')).toBeVisible();
+});
+
+test('Regioni: nomi locali, collegamenti fissi e isole senza confini', async ({ page }) => {
+  await open(page, '/?mappa=regioni&da=ITA-R09&a=DEU-1591');
+  await expect(page.locator('#start-name')).toHaveText('Lombardia');
+  await expect(page.locator('#end-name')).toHaveText('Baviera');
+  await expect(page.locator('#guess-input')).toHaveAttribute('placeholder', 'Scrivi una regione…');
+  expect(await page.evaluate(() => NB.SGP)).toEqual(['MYS-1143']);          // ponte di Johor
+  expect(await page.evaluate(() => NB['GBR-R06'])).toContain('FRA-R01');    // tunnel della Manica
+  expect(await page.evaluate(() => NB['ITA-R15'])).toEqual([]);             // Sicilia
+
+  await guess(page, 'Germania');
+  await expect(page.locator('#message')).toContainText('Qui si gioca con le regioni');
+  await guess(page, 'Sicilia');
+  await expect(page.locator('#p-ITA-R15')).toHaveClass(/g-none/);
+  await guess(page, 'Trentino-Alto Adige');
+  await guess(page, 'Tirol');                      // nome locale
+  await expect(page.locator('#result-title')).toHaveText(/Completato/);
+  expect((await state(page)).moves).toEqual(['guess:ITA-R15', 'guess:ITA-R17', 'guess:AUT-2329']);
+});
+
 test('quattro linguette leggibili anche su mobile', async ({ page }) => {
   await open(page, '/');
   await expect(page.locator('.map-tab')).toHaveCount(4);
@@ -566,7 +601,7 @@ test('senza vittoria le curiosità non compaiono', async ({ page }) => {
 test('i file delle curiosità sono validi', async ({}, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'basta una volta');
   const fs = require('fs');
-  for (const map of ['italia', 'milano', 'germania', 'distretti', 'mondo']) {
+  for (const map of ['italia', 'milano', 'germania', 'distretti', 'mondo', 'regioni']) {
     const areas = JSON.parse(fs.readFileSync(`data/${map}.json`, 'utf8')).areas;
     const facts = JSON.parse(fs.readFileSync(`data/facts/${map}.json`, 'utf8'));
     for (const [id, entry] of Object.entries(facts)) {
